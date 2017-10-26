@@ -2,76 +2,8 @@
 
 {block name="style"}
 <link rel="stylesheet" href="/static/swiper/swiper-3.3.1.min.css">
+<link rel="stylesheet" href="/home/css/profile/index.css">
 <style>
-    /*tab*/
-    .mui-slider-indicator.mui-segmented-control {
-        z-index: 999;
-        background: #e4e4e4;
-    }
-    .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
-        color: #fd6743;
-    }
-
-    #refreshContainer{
-        margin-top: 38px;
-    }
-
-    /*小镇概况*/
-    #item1mobile .banner,#item1mobile .banner img{
-        width:100%;
-        height:50vw;
-    }
-    #item1mobile .box{
-        width: 90vw;
-        margin: 4vw 5vw 0 5vw;
-        padding: 3vw;
-        box-shadow: 1px 3px 8px rgba(102, 102, 102, 0.2);
-        -webkit-border-radius: 8px;
-        border-radius: 8px;
-    }
-    #item1mobile .box p{
-        text-indent: 0.8rem;
-        line-height: 0.7rem;
-    }
-    #item1mobile .box .map{
-        width:60vw;
-        height:1rem;
-        font-size: 0.38rem;
-        background: #ff9800;
-        text-align: center;
-        line-height:1rem;
-        border-radius: 30px;
-        color: #fff;
-        margin-left: 15vw;
-        margin-top: 5vw;
-    }
-
-    /*第一聚焦*/
-    #item2mobile .banners{
-        z-index: 99;
-        height: 50vw;
-        position: relative;
-    }
-    #item2mobile .banners .banner{
-        width: 100%;
-        height: 50vw;
-    }
-    #item2mobile .banners .banner img{
-        width: 100%;
-        height: 50vw;
-    }
-    #item2mobile .banners .banner .title_{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 0.8rem;
-        padding-left: 0.24rem;
-        padding-right: 0.24rem;
-        background-color: rgba(0, 0, 0, 0.6);
-        line-height: 0.8rem;
-        font-size: 0.32rem;
-        color: #fff;
-    }
 
 
 </style>
@@ -96,7 +28,7 @@
         <div class="mui-slider-group">
             <div id="item1mobile" class="mui-slider-item mui-control-content">
                 <div class="banner">
-                    <img src="/home/images/banner/1.jpg">
+                    <img src="/home/images/common/1.jpg">
                 </div>
                 <div class="box">
                     <p>和孚镇位于湖州南郊，属湖州市南浔区管辖，面积95平方公里，截至2004年，人口5.7万人。和孚镇东邻龙头山，南濒和孚漾，西依龙溪港，湖山相映，具有江南水乡平原地区难得的自然环境优势，素有“丝绸之府、鱼米之乡”之美誉。</p>
@@ -106,20 +38,49 @@
 
             </div>
             <div id="item2mobile" class="mui-slider-item mui-control-content">
+                <!--第一聚焦-->
+
+                <!--轮播-->
                 <div class="banners">
                     <div class="swiper-container">
                         <div class="imgs swiper-wrapper">
                             <div class="banner swiper-slide">
                                 <a href="">
-                                    <img src="/home/images/banner/1.jpg" alt="">
-                                    <div class="title_ limit"></div>
+                                    <img src="/home/images/common/1.jpg" alt="">
+                                    <div class="title_ limit">的点点滴滴多多多多多多多多多多多多多多多多</div>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!--列表-->
+                <div class="list focus">
+                    <ul>
+                    <a href="">
+                        <img src="/home/images/common/1.jpg">
+                        <p>的点点滴滴多多多多多多多多多多多多多多多多多多多多多多多多多多</p>
+                        <span>威风</span>
+                        <span>2017-10-26</span>
+                    </a>
+                    </ul>
+                </div>
             </div>
+
+            <!--最多跑一次-->
             <div id="item3mobile" class="mui-slider-item mui-control-content">
+                <div class="banner">
+                    <img src="/home/images/common/1.jpg">
+                </div>
+                <div class="list onetime">
+                    <ul>
+                        <a href="">
+                            <p>的点点滴滴多多多多多多多多多多多多多多多多多多</p>
+                            <span>2017-10-26</span>
+                            <span></span>
+                        </a>
+                    </ul>
+                </div>
 
             </div>
         </div>
@@ -140,13 +101,15 @@
         $(".mui-slider-group>div").eq(c).addClass('mui-active');
     })
 
-    //轮播
     var mySwiper = new Swiper('.swiper-container', {
         autoplay: 3000,
         loop:true,
         autoplayDisableOnInteraction:false,
-        passiveListeners: true
+        observer:true,//修改swiper自己或子元素时，自动初始化swiper
+        observeParents:true,//修改swiper的父元素时，自动初始化swiper
     });
+
+
 
 
     window.onload = function() {
