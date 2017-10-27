@@ -1,9 +1,18 @@
 /* nav*/
+.mui-slider-indicator.mui-segmented-control {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: #fff;
+}
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
     color: #d43f3a;
     border-bottom: 0.8vw solid #d43f3a;
 }
 /* slider*/
+.main {
+    margin-top: 10.8vw;
+}
 .mui-slider .mui-slider-group .mui-slider-item {
     height: 50vw;
     width: 100vw;
@@ -46,4 +55,32 @@
     font-size: .38rem;
     margin-top: 3vw;
     padding-left: 2vw;
+}
+.movie_img {
+    width: 100%;
+    height: 36vw;
+    box-shadow: 2px 2px 2px #d9d9d9;
+}
+.movie_img img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.movie_title {
+    font-size: .42rem;
+    color: #333;
+    margin-top: 1.6vw;
+}
+.movie_content {
+    font-size: .32rem;
+    color: #666;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.mui-table-view-cell {
+    padding: 2.7vw 2.7vw;
+}
+.mui-table-view-cell a:hover .movie_title {
+    color: #d43f3a;
 }
