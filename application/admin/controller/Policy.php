@@ -84,6 +84,9 @@ class Policy extends Admin {
      */
     public function del() {
         $id = input('id');
+        if (empty($id)){
+            return $this->error('系统参数错误');
+        }
         $data['status'] = '-1';
         $info = PolicyModel::where('id',$id)->update($data);
         if($info) {
