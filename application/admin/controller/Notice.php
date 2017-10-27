@@ -21,11 +21,11 @@ class Notice extends Admin {
     public function index(){
         $map = array(
             'type' => 1,
-            'status' => array('egt',0),
+            'status' => array('egt',1),
         );
         $list = $this->lists('Notice',$map);
         int_to_string($list,array(
-            'status' => array(0=>"已发布"),
+            'status' => array(1=>"已发布"),
             'recommend' => [0 => "否" , 1=> "是"],
             'push' => [0 => "否" , 1=> "是"]
         ));
@@ -41,11 +41,11 @@ class Notice extends Admin {
     public function meet(){
         $map = array(
             'type' => 2,
-            'status' => array('egt',0),
+            'status' => array('egt',1),
         );
         $list = $this->lists('Notice',$map);
         int_to_string($list,array(
-            'status' => array(0=>"已发布"),
+            'status' => array(1=>"已发布"),
             'recommend' => [0 => "否" , 1=> "是"],
             'push' => [0 => "否" , 1=> "是"]
         ));
@@ -62,11 +62,11 @@ class Notice extends Admin {
     public function lecture(){
         $map = array(
             'type' => 3,
-            'status' => array('egt',0),
+            'status' => array('egt',1),
         );
         $list = $this->lists('Notice',$map);
         int_to_string($list,array(
-            'status' => array(0=>"已发布"),
+            'status' => array(1=>"已发布"),
             'recommend' => [0 => "否" , 1=> "是"],
             'push' => [0 => "否" , 1=> "是"]
         ));
@@ -83,11 +83,11 @@ class Notice extends Admin {
     public function recruit(){
         $map = array(
             'type' => 4,
-            'status' => array('egt',0),
+            'status' => array('egt',1),
         );
         $list = $this->lists('Notice',$map);
         int_to_string($list,array(
-            'status' => array(0=>"已发布"),
+            'status' => array(1=>"已发布"),
             'recommend' => [0 => "否" , 1=> "是"],
             'push' => [0 => "否" , 1=> "是"]
         ));
@@ -104,11 +104,11 @@ class Notice extends Admin {
     public function activity(){
         $map = array(
             'type' => 5,
-            'status' => array('egt',0),
+            'status' => array('egt',1),
         );
         $list = $this->lists('Notice',$map);
         int_to_string($list,array(
-            'status' => array(0=>"已发布"),
+            'status' => array(1=>"已发布"),
             'recommend' => [0 => "否" , 1=> "是"],
             'push' => [0 => "否" , 1=> "是"]
         ));

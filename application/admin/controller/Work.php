@@ -20,11 +20,11 @@ class Work extends Admin {
      */
     public function index() {
         $map = array(
-            'status' => array('eq',0),
+            'status' => array('egt',1),
         );
         $list = $this->lists('Work',$map);
         int_to_string($list,array(
-            'status' => array(0=>'已发布'),
+            'status' => array(1=>'已发布'),
             'type' => array(1=>"通知公告",2=>"小镇动态"),
             'recommend' => array(0=>"否",1=>"是")
         ));
