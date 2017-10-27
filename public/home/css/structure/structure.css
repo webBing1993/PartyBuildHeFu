@@ -109,8 +109,8 @@ body {
   height: 11.7vw;
   /*padding: 2.1vw 0;*/
   background: #ffffff;
-  border-bottom: 1.3vw solid #f1f1f1;
-  border-top: 1.3vw solid #f1f1f1;
+  border-bottom: .35vw solid #f1f1f1;
+  border-top: .35vw solid #f1f1f1;
   line-height: 11.7vw;
 }
 .tabs .tab {
@@ -118,7 +118,7 @@ body {
   width: 50vw;
   line-height: 9.1vw;
   color: #999999;
-  font-size: 1.5rem;
+  font-size: .4rem;
   line-height: 9.1vw;
   text-align: center;
   float: left;
@@ -157,14 +157,14 @@ body {
   content: '';
   position: absolute;
   top: 3vw;
-  left: -1.8vw;
+  left: -.48vw;
   width: 20.2vw;
   height: 8vw;
   background: url('/home/images/structure/tag.png') 0 0 no-repeat;
   background-size: 20.2vw 8vw;
   color: #ffffff;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: .32rem;
   line-height: 5.8vw;
 }
 .listbox .box.shouldKnow .box_:before {
@@ -188,9 +188,9 @@ body {
   width: 100%;
 }
   .listbox .box.summary .box_ p{
-    text-indent: 2rem;
-    font-size: 1.3rem;
-    line-height: 2rem;
+    text-indent: 2em;
+    font-size: .35rem;
+    line-height: 0.68rem;
     text-align:justify;
 
   }
@@ -206,13 +206,13 @@ body {
 .listbox .box .box_ .lists {
   padding: 13px;
   color: #333333;
-  font-size: 1.4rem;
+  font-size: .37rem;
 }
 .listbox .box .box_ .lists .name1 {
   display: inline-block;
   width: 100%;
   height: 12vw;
-  font-size: 1.4rem;
+  font-size: .37rem;
   line-height: 12vw;
   border-bottom: 1px solid #f1f1f1;
   padding-left: 1rem;
@@ -220,7 +220,7 @@ body {
 .listbox .box .box_ .lists .party1 {
   position: relative;
   top: 0;
-  font-size: 1.6rem;
+  font-size: .42rem;
   padding-left: 4vw;
   line-height: 8vw;
 }
@@ -237,7 +237,7 @@ body {
 .listbox .box .box_ .lists .party1 .tri-left{
   position: absolute;
   top: 4.7vw;
-  left: 1.6vw;
+  left: .42vw;
   content: '';
   height: 2.7vw;
   width: 2.7vw;
@@ -255,7 +255,7 @@ body {
   width: 90%;
   height: 12vw;
   margin-left: 10.7vw;
-  font-size: 1.4rem;
+  font-size: .37rem;
   color: #333333;
   line-height: 12vw;
   border-bottom: 1px solid #f1f1f1;
@@ -302,7 +302,7 @@ body {
 }
 .listbox .vr .title {
   width: 100vw;
-  font-size: 1.6rem;
+  font-size: .42rem;
   color: #333333;
   line-height: 60px;
   text-align: center;
@@ -323,7 +323,7 @@ body {
 .table .thead .th {
   display: inline-block;
   height: 46px;
-  font-size: 1.8rem;
+  font-size: .48rem;
   font-weight: 600;
   font-family: "Microsoft YaHei", sans-serif;
   line-height: 46px;
@@ -336,7 +336,7 @@ body {
 }
 .table .tbody .tb {
   padding: 50px 10px;
-  font-size: 1.3rem;
+  font-size: .35rem;
   border-right: 1px solid #f1f1f1;
   border-bottom: 1px solid #f1f1f1;
 }
@@ -349,7 +349,7 @@ body {
 }
 .table .tbody .phone {
   vertical-align: middle;
-  font-size: 1.3rem;
+  font-size: .35rem;
   font-weight: 500;
   text-align: center;
   overflow: hidden;
@@ -374,9 +374,9 @@ body {
   .d_list .d_img{
     width:13.33vw;
     height:13.33vw;
-    -webkit-border-radius:1.6vw;
-    -moz-border-radius:1.6vw;
-    border-radius:1.6vw;
+    -webkit-border-radius:.42vw;
+    -moz-border-radius:.42vw;
+    border-radius:.42vw;
     color: #ffffff;
     font-size: 9.33vw;
     text-align: center;
@@ -384,19 +384,19 @@ body {
     margin-right: 3.2vw;
   }
   .d_list>.d_name{
-    font-size: 1.4rem;
+    font-size: .37rem;
     font-weight: bold;
     color: #333;
     width:53.3vw;
   }
   .d_list>.d_tel{
     color: #29adf0;
-    font-size: 1.2rem;
+    font-size: .32rem;
   }
   .d_list>.d_tel>.d_tel_icon{
     width:26.67vw;
     padding:2.4vw 2.13vw;
-    margin-right: 1.33vw;
+    margin-right: .353vw;
     background: url("/home/images/structure/tel.png") 50% 50% no-repeat;
     -webkit-background-size:3.47vw 4.53vw;
     background-size:3.47vw 4.53vw;

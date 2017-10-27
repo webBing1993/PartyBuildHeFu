@@ -18,7 +18,7 @@
     padding-right: 3.5vw;
     background-color: rgba(0, 0, 0, 0.1);
     line-height: 10.7vw;
-    font-size: 1.6rem;
+    font-size: .38rem;
     color: #ffffff;
 }
 /*新闻列表*/
@@ -46,7 +46,7 @@
 }
 .list .lr .title{
     width: 100%;
-    font-size: 1.4rem;
+    font-size: .37rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -54,7 +54,7 @@
     color:#333333;
 }
 .list .lr .clear{
-    font-size: 1.2rem;
+    font-size: .32rem;
     color:#999999;
     position: absolute;
     bottom: 0;

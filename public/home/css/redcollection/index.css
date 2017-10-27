@@ -1,0 +1,49 @@
+/* nav*/
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+    color: #d43f3a;
+    border-bottom: 0.8vw solid #d43f3a;
+}
+/* slider*/
+.mui-slider .mui-slider-group .mui-slider-item {
+    height: 50vw;
+    width: 100vw;
+}
+.mui-slider .mui-slider-group .mui-slider-item a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.mui-slider .mui-slider-group .mui-slider-item img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.mui-slider-indicator {
+    text-align: right;
+}
+.mui-slider-item p {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 8vw;
+    line-height: 8vw;
+    background-color: rgba(0,0,0,.3);
+    color: #fff;
+    font-size: .38rem;
+    padding-left: 2vw;
+}
+/* newModel*/
+.newModel .title {
+    width: 100vw;
+    height: 10.8vw;
+}
+.newModel .title p {
+    width: 100%;
+    height: 4.8vw;
+    line-height: 4.8vw;
+    color: #333;
+    border-left: .8vw solid #d43f3a;
+    font-size: .38rem;
+    margin-top: 3vw;
+    padding-left: 2vw;
+}
