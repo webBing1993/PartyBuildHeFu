@@ -16,10 +16,10 @@ class Notice extends Validate {
         'front_cover' => 'require',
         'title' => 'require',
         'description' => 'require',
-        'content' => 'require',
         'telephone' => 'require',
         'address' => 'require',
         'publisher' => 'require',
+        'content' => 'require',
     ];
 
     protected $message = [
