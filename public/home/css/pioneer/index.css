@@ -1,0 +1,87 @@
+em{
+   font-style: inherit;
+}
+
+.lists>ul>li{
+    height:28vw;
+}
+.lists>ul>li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding:6vw 4vw;
+    border-bottom: 1px solid #f7f7f7;
+}
+.lists>ul>li img{
+    float: left;
+    width: 16vw;
+    height: 16vw;
+    border-radius: 50%;
+    margin-right: 1.2vw;
+}
+.lists>ul>li span{
+    display: block;
+    font-size: 1.2rem;
+    color: #999;
+
+}
+.position{
+    width: 78vw;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box!important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    position: absolute;
+    margin-top: 9vw;
+    left: 22vw;
+}
+.lists>ul>li span:nth-child(2){
+    display:block;
+    font-size: 1.4rem;
+    color: #333;
+    width: 78vw;
+    position: absolute;
+    margin-top: 2vw;
+    left: 22vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.lists>ul>li span:last-child.like i{
+    position: relative;
+    margin-right: 1.2vw;
+    top: 0.8vw;
+    display: inline-block;
+    background: url("/home/images/pioneer/vote.png");
+    background-size: 5.4vw 5.4vw;
+    width: 5.4vw;
+    height: 5.4vw;
+
+}
+.notice>.title{
+    width: 100vw;
+    font-size: 1.6rem;
+    color: #333333;
+    line-height: 16vw;
+    text-align: center;
+}
+#publish {
+    position: fixed;
+    right: 5.4vw;
+    bottom: 10.7vw;
+    width: 16vw;
+    height: 16vw;
+    background: url(/home/images/feedback/note.png) no-repeat;
+    background-size: 100% 100%;
+}
+.scrollDiy{
+    position: absolute;
+    top:0;
+    bottom:0;
+    overflow-y: scroll;
+    /* 增加该属性，可以增加弹性 */
+    -webkit-overflow-scrolling: touch;
+    width:100%;
+}

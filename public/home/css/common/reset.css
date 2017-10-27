@@ -33,3 +33,9 @@ input::-webkit-input-placeholder{
 input:-ms-input-placeholder{
     color: #000;
 }
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}

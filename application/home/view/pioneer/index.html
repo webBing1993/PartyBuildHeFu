@@ -1,0 +1,96 @@
+{extend name="public/common"}
+{block name="style"}
+<title>党员风采</title>
+<link rel="stylesheet" href="/home/css/common/rem.css">
+<link rel="stylesheet" href="/home/css/pioneer/index.css">
+<link rel="stylesheet" href="/home/css/common/tip.css">
+{/block}
+{block name="body"}
+<!--tab-->
+<div class="scrollDiy">
+    <!--切换列表-->
+    <div class="content">
+        <!--创业导师团-->
+        <div class="notices">
+            <div class="notice regularmore">
+                <div class="lists tutor">
+                    <ul>
+                        <li>
+                            <a href="/home/pioneer/detail.html">
+                                <img src="/home/images/pioneer/hexagon.png">
+                                <span>姓名</span>
+                                <span class="position">个人地位</span>
+                                <!--<span onclick="like()" class="like"><i></i><em>100</em></span>-->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/home/pioneer/detail.html">
+                                <img src="/home/images/pioneer/hexagon.png">
+                                <span>姓名</span>
+                                <span class="position">个人地位</span>
+                                <!--<span onclick="like()" class="like"><i></i><em>100</em></span>-->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/home/pioneer/detail.html">
+                                <img src="/home/images/pioneer/hexagon.png">
+                                <span>姓名</span>
+                                <span class="position">个人地位</span>
+                                <!--<span onclick="like()" class="like"><i></i><em>100</em></span>-->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/home/pioneer/detail.html">
+                                <img src="/home/images/pioneer/hexagon.png">
+                                <span>姓名</span>
+                                <span class="position">个人地位</span>
+                                <!--<span onclick="like()" class="like"><i></i><em>100</em></span>-->
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--加载更多-->
+        <div class="tip"></div>
+        <div class="loading hidden">
+            <div class="typing_loader"></div>
+        </div>
+        </div>
+    </div>
+
+
+{/block}
+{block name="script"}
+    <script src="/home/js/reset.js"></script>
+<script>
+    //点赞
+   var like = function(e,id,type){
+       var n = parseInt($(e).children("em").text());
+       if($(e).hasClass('liked')){
+           return false;
+       }
+       $.ajax({
+           type:"post",
+           url:"{:Url('Pioneer/like')}",
+           data:{
+               type:type,
+               aid:id,
+           },
+           success:function(data){
+               if(data.code == 1){
+                   $(e).children("em").text(n+1);
+                   $(e).removeClass("like").addClass("liked");
+               }else{
+                   swal({
+                       title: ' ',
+                       text: data.msg,
+                       type: 'error',
+                       confirmButtonText:'确定'
+                   });
+               }
+           }
+       })
+   }
+</script>
+{/block}

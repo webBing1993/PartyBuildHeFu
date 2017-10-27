@@ -1,0 +1,253 @@
+.scrollDiy{
+    position: absolute;
+    top:0;
+    bottom:0;
+    overflow-y: scroll;
+    /* 增加该属性，可以增加弹性 */
+    -webkit-overflow-scrolling: touch;
+    width:100%;
+}
+@charset "utf-8";
+/*public*/
+.t_b {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.banner{
+    width: 100vw;
+    height: 50vw;
+}
+.banner .banner-img{
+    height: 100%;
+    width: 100%;
+}
+.uecontent *{
+    width: 100%;
+}
+.title{
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+/*文章*/
+.article {
+    width: 100%;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    padding-top: 3.5vw;
+}
+.article .title {
+    color: #333333;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.article .title p {
+    width: auto;
+    display: inline-block;
+    text-align: left;
+    color: #333;
+}
+.article .note {
+    color: #999999;
+    font-size: 1.2rem;
+    line-height: 8vw;
+}
+.article .note span {
+    /*margin-right: 10px;*/
+}
+.article .note_ span {
+    margin-right: 0;
+}
+.article .content {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 4vw;
+}
+.article .content * {
+    max-width: 100%!important;
+}
+.article .content img {
+    display: block;
+    max-width: 100%!important;
+    margin-bottom: 3.5vw;
+}
+.article .content .video {
+    position: relative;
+    width: 100%;
+    height: 53.4vw;
+    margin-bottom: 2.7vw;
+    background: rgba(208, 208, 208, 0.5);
+}
+.article .content .video video {
+    width: 100%;
+    height: 53.4vw;
+}
+.article .content .video .play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -6.7vw;
+    margin-top: -6.7vw;
+    width: 13.4vw;
+    height: 13.4vw;
+    opacity: 0.5;
+    display: none;
+}
+.article .content .video iframe {
+    width: 100%;
+    height: 100%;
+}
+.article .content .note {
+    color: #999999;
+    font-size: 1.4rem;
+}
+.article .content .note span {
+    height: 10.7vw;
+    display: inline-block;
+    margin-right: 2.7vw;
+    line-height: 10.7vw;
+}
+.article .content .note_ span{
+    margin-right: 0;
+}
+/*评论*/
+.comment {
+    padding-bottom: 13.4vw;
+}
+.comment .sum {
+    height: 8vw;
+    padding-left: 2.7vw;
+    background: #fcfcfc;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 1.2rem;
+    line-height: 8vw;
+}
+.comment .lists .list {
+    width: 100%;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    min-height: 100px;
+    border-bottom: 1px solid #f1f1f1;
+}
+.comment .lists .list .fl img {
+    width: 8vw;
+    height: 8vw;
+    margin-top: 3.5vw;
+    margin-right: 2.7vw;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.comment .lists .list .mid {
+    width: 86%;
+}
+.comment .lists .list .mid .name {
+    width: 100%;
+    height: 15vw;
+    line-height: 15vw;
+    color: #999999;
+}
+.comment .lists .list .mid .content {
+    width: 100%;
+    word-break: break-all;
+}
+.comment .lists .list .mid .time {
+    font-size: 1.2rem;
+    line-height: 5.4vw;
+    color: #999999;
+}
+.comment .lists .list .fr {
+    margin-top: 4vw;
+    color: #999999;
+}
+.comment .lists .list .good {
+    background: url('/home/images/activity/agree.png') 0 .54vw no-repeat;
+}
+.comment .lists .list .good_ {
+    animation: shake 300ms ease;
+    -webkit-animation: shake 300ms ease;
+    background: url('/home/images/activity/agree_.png') 0 .54vw no-repeat;
+}
+.comment .lists .list .isgood {
+    background-size: 4vw 4vw;
+    padding-left: 4.8vw;
+    line-height: 5vw;
+}
+.comment .tip {
+    height: 10.7vw;
+    text-align: center;
+    line-height: 10.7vw;
+    color: #c1c1c1;
+}
+/*底部*/
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 12vw;
+    padding-left: 2.7vw;
+    border-top: 1px solid #f1f1f1;
+    background: #ffffff;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+.bottom .star {
+    background: url('/home/images/detail/star-border.png') 5.4vw 3.2vw no-repeat;
+}
+.bottom .star_ {
+    animation: shake 300ms ease;
+    -webkit-animation: shake 300ms ease;
+    background: url('/home/images/detail/star-yellow.png') 5.4vw 3.2vw no-repeat;
+}
+.bottom .collect {
+    width: 16vw;
+    height: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+    background-size: 5.4vw 5.4vw;
+    padding-top: 6.4vw;
+}
+.bottom .myword input {
+    vertical-align: middle;
+    height: 8vw;
+    width: 94vw;
+    margin: 1.9vw 0;
+    padding-left: 2.7vw;
+    background: #fafafa;
+    border: 1px solid #d8d8d8;
+    -webkit-border-radius: 1.6vw;
+    border-radius: 1.6vw;
+}
+.bottom .send {
+    width: 20.5vw;
+    line-height: 12vw;
+    text-align: center;
+}
+.bottom .send:active {
+    background: #fafafa;
+}
+@media (max-width: 320px) {
+    .myword input {
+        /*width: 76vw;*/
+    }
+}
+.not{
+    /*opacity: 0;*/
+}
+
+/*加载动画*/
+.loading {
+    width: 100%;
+    height: 10.7vw;
+}
+.typing_loader {
+    width: 1.6vw;
+    height: 1.6vw;
+    border-radius: 50%;
+    -webkit-animation: typing 1s linear infinite alternate;
+    -moz-animation: Typing 1s linear infinite alternate;
+    animation: typing 1s linear infinite alternate;
+    position: relative;
+    top: 4.6vw;
+    left: 44.6vw;
+}
