@@ -1,7 +1,6 @@
 {extend name="public/common"}
 
 {block name="style"}
-<title>小镇概况</title>
 <link rel="stylesheet" href="/static/swiper/swiper-3.3.1.min.css">
 <link rel="stylesheet" href="/home/css/profile/index.css">
 {/block}
@@ -34,62 +33,44 @@
             </div>
             <div id="item2mobile" class="mui-slider-item mui-control-content">
                 <!--第一聚焦-->
-
+                {empty name="list"}
+                <div class="default"><img src="/home/images/common/nomessage.png" alt="暂无消息"> </div>
+                {else/}
+                {notempty name="$top"}
                 <!--轮播-->
                 <div class="banners">
                     <div class="swiper-container">
                         <div class="imgs swiper-wrapper">
+                            {volist name="$top" id="tp"}
                             <div class="banner swiper-slide">
-                                <a href="">
-                                    <img src="/home/images/common/1.jpg" alt="">
-                                    <div class="title_ limit">的点点滴滴多多多多多多多多多多多多多多多多</div>
+                                <a href="{:Url('Profile/detail?id='.$tp['id'])}">
+                                    <img src="{$tp.front_cover}" alt="">
+                                    <div class="title_ limit"><span>{$tp.title}</span></div>
                                 </a>
                             </div>
-                            <div class="banner swiper-slide">
-                                <a href="">
-                                    <img src="/home/images/common/learn.png" alt="">
-                                    <div class="title_ limit">反反复复付付付付付付付付付分分分分分分分付付付鹅鹅鹅饿鹅鹅鹅饿鹅鹅鹅鹅鹅鹅饿鹅鹅鹅付付付付付付付付付付付付付多多</div>
-                                </a>
-                            </div>
+                            {/volist}
                         </div>
+                        {volist name="$top" id="tp"}
                         <div class="swiper-pagination"></div>
-                        <div class="swiper-pagination"></div>
+                        {/volist}
                     </div>
                 </div>
-
+                {/notempty}
                 <!--列表-->
                 <div class="list focus">
                     <ul>
-                    <a href="">
-                        <img src="/home/images/common/1.jpg">
-                        <p>的点点滴滴多多多多多多多多多</p>
-                        <span>2017-10-26</span>
-                        <span>详情</span>
-                        <span>通知公告</span>
-                    </a>
-                        <a href="">
-                            <img src="/home/images/common/1.jpg">
-                            <p>的点点滴滴多多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多多多多多多多多多多多多多多多多多</p>
-                            <span>2017-10-26</span>
-                            <span>详情</span>
-                            <span>小镇动态</span>
-                        </a>
-                        <a href="">
-                            <img src="/home/images/common/1.jpg">
-                            <p>的点点滴滴多多多多多多多额鹅鹅鹅鹅鹅鹅呃呃呃呃鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅多多多多多多多多多多多多多多多多多多多</p>
-                            <span>2017-10-26</span>
-                            <span>详情</span>
-                            <span>小镇动态</span>
-                        </a>
-                        <a href="">
-                            <img src="/home/images/common/1.jpg">
-                            <p>多多多多多多多多多多多多</p>
-                            <span>2017-10-26</span>
+                        {volist name="list" id="fno"}
+                        <a href="{:Url('Profile/detail?id='.$fno['id'])}">
+                            <img src="{$fno['front_cover']}">
+                            <p>{$fno['title']}</p>
+                            <span>{$fno['create_time']}</span>
                             <span>详情</span>
                             <span>通知公告</span>
                         </a>
+                        {/volist}
                     </ul>
                 </div>
+                {/empty}
             </div>
 
             <!--最多跑一次-->
@@ -98,30 +79,20 @@
                     <img src="/home/images/common/1.jpg">
                 </div>
                 <div class="list onetime">
+                    {empty name="lists"}
+                    <div class="default"><img src="/home/images/common/nomessage.png" alt="暂无消息"> </div>
+                    {else/}
                     <ul>
-                        <a href="">
-                            <p>多的点点滴滴</p>
-                            <span>2017-10-26</span>
-                            <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                        </a>
-                        <a href="">
-                            <p>东方闪电发过火跳跳鱼二锅头为公司豆腐干啥地方地方</p>
-                            <span>2017-10-26</span>
-                            <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                        </a>
-                        <a href="">
-                            <p>跟对方固定单价发顺丰hi文件附件党风建设多会计法时代峻峰时代峰峻时代峻峰啥地方啥地方</p>
-                            <span>2017-10-26</span>
-                            <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                        </a>
-                        <a href="">
-                            <p>二哥哥哥哥哥</p>
-                            <span>2017-10-26</span>
-                            <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                        </a>
+                        {volist name="lists" id="one"}
+                            <a href="">
+                                <p>{$one.title}</p>
+                                <span>{$one.create_time|time_format='Y-m-d'}</span>
+                                <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                            </a>
+                        {/volist}
                     </ul>
+                    {/empty}
                 </div>
-
             </div>
         </div>
     </div>
@@ -133,12 +104,14 @@
 <script src="/static/swiper/swiper-3.3.1.jquery.min.js"></script>
 <script src="/home/js/reset.js"></script>
 <script>
-    var c =0;
     $(function(){
+        $("title").text("小镇概况");
+        c = getCookie("c")?getCookie("c"):0;
         $("#tab a").eq(c).addClass('mui-active');
         $(".mui-slider-group>div").eq(c).addClass('mui-active');
     })
 
+    //轮播
     var mySwiper = new Swiper('.swiper-container', {
         autoplay: 3000,
         loop:true,
@@ -148,7 +121,7 @@
         observeParents:true
     });
 
-
+   //首页加载是否需要上拉加载
     window.onload = function() {
         if(c==0){
             mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
@@ -196,7 +169,7 @@
                 addCourse(data,c);
                 if(data.code == 1){
                     var dataLen =data.data.length;
-                    if(data.data.length == 10){
+                    if(data.data.length == 7){
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
                     }else{
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
@@ -213,36 +186,28 @@
         var len = lists.length;
         for (var i = 0; i < len; i++) {
             var list = lists[i];
-            if (type == 0 ){
+            if (type == 1) {
                 html +=
-                        '<a href="/home/Notice/detail/id/'+list.id+'" class="list">'
-            }else if(type==1){
+                        '<a href="/home/profile/detail/id/' + list.id + '">' +
+                        '<img src="' + list.front_cover + '">' +
+                        '<p>' + list.title + '</p>' +
+                        '<span>' + list.time + '</span>' +
+                        '<span>详情</span>' +
+                        '<span>小镇动态</span>' +
+                        '</a>'
+            } else if (type == 2) {
                 html +=
-                        '<a href="/home/Notice/dynamicdetail/id/'+list.id+'" class="list">'
+                        '<a href="/home/profile/detail/id/' + list.id + '">' +
+                        '<p>' + list.tile + '</p>' +
+                        '<span>' + list.time + '</span>' +
+                        '<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>' +
+                        '</a>'
             }
-            html+=
-                    '<img src="'+list.front_cover+'" alt="图片" class="img">'+
-                    '<div class="s_title">'+list.title+'</div>'+
-                    '<div class="sent_detail">'+
-                    '<span class="tissue">'+list.publisher+'</span>'+
-                    '<span class="time">'+list.create_time+'</span>'+
-                    '</div>'+
-                    '<div class="footer">'+
-                    '<div class="scan">'+
-                    '<img src="/home/images/notice/scan2.png">'+
-                    '<span>'+list.views+'</span>'+
-                    '</div>'+
-                    '<div class="talk">'+
-                    '<img src="/home/images/notice/talk2.png">'+
-                    '<span>'+list.comments+'</span>'+
-                    '</div>'+
-                    '</div>'+
-                    '</a>';
-        }
-        if (type == 0) {
-            $(".notice").append(html);
-        } else if (type == 1) {
-            $(".dynamic").append(html);
+            if (type == 1) {
+                $(".focus ul").append(html);
+            } else if (type == 2) {
+                $(".onetime ul").append(html);
+            }
         }
     }
 
@@ -256,18 +221,19 @@
         if(c==0){
             mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
         }else if(c==1){
-            if($(".focus a").length<10){
+            if($(".focus a").length<7){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
         }else if(c==2){
-            if($(".onetime a").length<10){
+            if($(".onetime a").length<7){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
         }
+        setCookie("c",c)
     })
 
 

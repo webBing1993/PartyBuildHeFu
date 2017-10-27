@@ -1,0 +1,48 @@
+{extend name="public/common"}
+
+{block name="style"}
+<style>
+    /*layout*/
+    body{
+        background: #f6eedc;
+    }
+    .logo{
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        z-index: -1;
+        top:calc(50% - 95px);
+        left:calc(50% - 50px);
+    }
+    .title{
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 0.56rem;
+        font-weight: 600;
+        word-break: break-all;
+
+    }
+    .tem{
+        width: 100%;
+        font-size: 0.48rem;
+        padding: 0 13px 200px 13px;
+        line-height: 0.8rem;
+        text-indent: 0.8rem;
+    }
+</style>
+{/block}
+
+{block name="body"}
+<img src="/home/images/learn/logo_consitution.png" alt="党徽" class="logo">
+<div class="title">{$msg.title}</div>
+<div class="tem">{$msg.content}</div>
+{/block}
+
+{block name="script"}
+<script>
+
+</script>
+
+{/block}

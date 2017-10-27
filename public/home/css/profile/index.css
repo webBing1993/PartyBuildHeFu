@@ -1,16 +1,16 @@
 /*tab*/
 #tab{
-    padding: 2px 0;
+    padding: 4px 0;
 }
 .mui-slider-indicator.mui-segmented-control {
     z-index: 999;
-    background: #fff;
+    background: #efefef;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
     color: #fd6743;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item{
-    border-right: 1px solid #fd6743;
+    border-right: 1px solid #e4e4e4;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item:last-child{
     border-right: none;
@@ -77,6 +77,21 @@
     color: #fff;
 }
 
+#item2mobile .banners .banner .title_ span {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 0.8rem;
+    padding-left: 0.24rem;
+    padding-right: 0.24rem;
+    line-height: 0.8rem;
+    font-size: 0.32rem;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .swiper-pagination-bullet{
     float: right;
 }
@@ -131,6 +146,14 @@
     text-align: center;
     color: #fff;
 }
+#item2mobile .default img{
+    width: 16vw;
+    position: absolute;
+    left: 50%;
+    margin-top: 50%;
+    margin-left: -8vw;
+}
+
 
 /*最多跑一次*/
 #item3mobile .banner,#item3mobile .banner img{
@@ -167,4 +190,12 @@
 }
 .onetime ul a span:nth-child(3) {
     float: right;
+}
+
+#item3mobile .default img{
+    width: 16vw;
+    position: absolute;
+    left: 50%;
+    margin-top: 30%;
+    margin-left: -8vw;
 }

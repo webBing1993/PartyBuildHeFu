@@ -23,7 +23,7 @@ class Learn extends Admin {
      */
     public function index(){
         $map = array(
-            'status' => array('egt',0),
+            'status' => array('egt',1),
             'type'=> array('in',[1,2])
         );
         $search = input('search');
@@ -32,7 +32,7 @@ class Learn extends Admin {
         }
         $list = $this->lists('Learn',$map);
         int_to_string($list,array(
-            'status' => array(0=>"已发布",1=>"已发布"),
+            'status' => array(1=>"已发布"),
             'recommend' => array(0=>"否",1=>"是"),
             'push' => array(0=>"否",1=>"是"),
             'type' => array(1=>"视频课程",2=>"文章课程")
@@ -107,6 +107,9 @@ class Learn extends Admin {
      */
     public function del(){
         $id = input('id');
+        if (empty($id)){
+            return $this->error('系统参数错误');
+        }
         $data['status'] = '-1';
         $info = LearnModel::where('id',$id)->update($data);
         if($info) {

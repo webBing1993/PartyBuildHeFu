@@ -20,11 +20,11 @@ class Policy extends Admin {
     */
     public function index() {
         $map = array(
-            'status' => array('eq',0),
+            'status' => array('egt',1),
         );
         $list = $this->lists('Policy',$map);
         int_to_string($list,array(
-            'status' => array(0=>'已发布'),
+            'status' => array(1=>'已发布'),
         ));
         $this->assign('list',$list);
 
@@ -84,6 +84,9 @@ class Policy extends Admin {
      */
     public function del() {
         $id = input('id');
+        if (empty($id)){
+            return $this->error('系统参数错误');
+        }
         $data['status'] = '-1';
         $info = PolicyModel::where('id',$id)->update($data);
         if($info) {
