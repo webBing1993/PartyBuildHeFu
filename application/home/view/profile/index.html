@@ -1,14 +1,9 @@
 {extend name="public/common"}
 
 {block name="style"}
+<title>小镇概况</title>
 <link rel="stylesheet" href="/static/swiper/swiper-3.3.1.min.css">
 <link rel="stylesheet" href="/home/css/profile/index.css">
-<style>
-
-
-</style>
-
-
 {/block}
 
 {block name="body"}
@@ -50,7 +45,15 @@
                                     <div class="title_ limit">的点点滴滴多多多多多多多多多多多多多多多多</div>
                                 </a>
                             </div>
+                            <div class="banner swiper-slide">
+                                <a href="">
+                                    <img src="/home/images/common/learn.png" alt="">
+                                    <div class="title_ limit">反反复复付付付付付付付付付分分分分分分分付付付鹅鹅鹅饿鹅鹅鹅饿鹅鹅鹅鹅鹅鹅饿鹅鹅鹅付付付付付付付付付付付付付多多</div>
+                                </a>
+                            </div>
                         </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
 
@@ -59,10 +62,32 @@
                     <ul>
                     <a href="">
                         <img src="/home/images/common/1.jpg">
-                        <p>的点点滴滴多多多多多多多多多多多多多多多多多多多多多多多多多多</p>
-                        <span>威风</span>
+                        <p>的点点滴滴多多多多多多多多多</p>
                         <span>2017-10-26</span>
+                        <span>详情</span>
+                        <span>通知公告</span>
                     </a>
+                        <a href="">
+                            <img src="/home/images/common/1.jpg">
+                            <p>的点点滴滴多多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多多多多多多多多多多多多多多多多多</p>
+                            <span>2017-10-26</span>
+                            <span>详情</span>
+                            <span>小镇动态</span>
+                        </a>
+                        <a href="">
+                            <img src="/home/images/common/1.jpg">
+                            <p>的点点滴滴多多多多多多多额鹅鹅鹅鹅鹅鹅呃呃呃呃鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅多多多多多多多多多多多多多多多多多多多</p>
+                            <span>2017-10-26</span>
+                            <span>详情</span>
+                            <span>小镇动态</span>
+                        </a>
+                        <a href="">
+                            <img src="/home/images/common/1.jpg">
+                            <p>多多多多多多多多多多多多</p>
+                            <span>2017-10-26</span>
+                            <span>详情</span>
+                            <span>通知公告</span>
+                        </a>
                     </ul>
                 </div>
             </div>
@@ -75,9 +100,24 @@
                 <div class="list onetime">
                     <ul>
                         <a href="">
-                            <p>的点点滴滴多多多多多多多多多多多多多多多多多多</p>
+                            <p>多的点点滴滴</p>
                             <span>2017-10-26</span>
-                            <span></span>
+                            <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        </a>
+                        <a href="">
+                            <p>东方闪电发过火跳跳鱼二锅头为公司豆腐干啥地方地方</p>
+                            <span>2017-10-26</span>
+                            <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        </a>
+                        <a href="">
+                            <p>跟对方固定单价发顺丰hi文件附件党风建设多会计法时代峻峰时代峰峻时代峻峰啥地方啥地方</p>
+                            <span>2017-10-26</span>
+                            <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        </a>
+                        <a href="">
+                            <p>二哥哥哥哥哥</p>
+                            <span>2017-10-26</span>
+                            <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                         </a>
                     </ul>
                 </div>
@@ -93,10 +133,8 @@
 <script src="/static/swiper/swiper-3.3.1.jquery.min.js"></script>
 <script src="/home/js/reset.js"></script>
 <script>
-    var win_w = $(window).width();
     var c =0;
     $(function(){
-        $("title").text("通知公告");
         $("#tab a").eq(c).addClass('mui-active');
         $(".mui-slider-group>div").eq(c).addClass('mui-active');
     })
@@ -105,22 +143,23 @@
         autoplay: 3000,
         loop:true,
         autoplayDisableOnInteraction:false,
-        observer:true,//修改swiper自己或子元素时，自动初始化swiper
-        observeParents:true,//修改swiper的父元素时，自动初始化swiper
+        pagination : '.swiper-pagination',
+        observer:true,
+        observeParents:true
     });
-
-
 
 
     window.onload = function() {
         if(c==0){
-            if ($(".notice a").length < 10) {
+            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+        }else if(c==1){
+            if ($(".focus a").length < 7) {
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             } else {
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
-        }else if(c==1){
-            if ($(".dynamic a").length < 10) {
+        }else if(c==2){
+            if ($(".onetime a").length < 7) {
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             } else {
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -139,14 +178,14 @@
     });
 
     function loadScroll(){
-        if(c==0){
-            var len = $(".notice a").length;
-        }else if(c==1){
-            var len = $(".dynamic a").length;
+        if(c==1){
+            var len = $(".focus a").length;
+        }else if(c==2){
+            var len = $(".onetime a").length;
         }
         $.ajax({
             type:"post",
-            url:"{:Url('Notice/more')}",
+            url:"{:Url('Profile/index')}",
             data:{
                 length:len,
                 type:c
@@ -215,13 +254,15 @@
         mui('#refreshContainer').pullRefresh().refresh(true);
         c = this.getAttribute("data-index");
         if(c==0){
-            if($(".notice a").length<10){
+            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+        }else if(c==1){
+            if($(".focus a").length<10){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
-        }else if(c==1){
-            if($(".dynamic a").length<10){
+        }else if(c==2){
+            if($(".onetime a").length<10){
                 mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
             }else{
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();

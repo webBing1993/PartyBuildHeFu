@@ -1,10 +1,19 @@
 /*tab*/
+#tab{
+    padding: 2px 0;
+}
 .mui-slider-indicator.mui-segmented-control {
     z-index: 999;
-    background: #e4e4e4;
+    background: #fff;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
     color: #fd6743;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item{
+    border-right: 1px solid #fd6743;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item:last-child{
+    border-right: none;
 }
 
 #refreshContainer{
@@ -29,12 +38,12 @@
     line-height: 0.7rem;
 }
 #item1mobile .box .map{
-    width:60vw;
-    height:1rem;
+    width: 60vw;
+    height: 0.8rem;
     font-size: 0.38rem;
     background: #ff9800;
     text-align: center;
-    line-height:1rem;
+    line-height: 0.8rem;
     border-radius: 30px;
     color: #fff;
     margin-left: 10vw;
@@ -62,10 +71,14 @@
     height: 0.8rem;
     padding-left: 0.24rem;
     padding-right: 0.24rem;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     line-height: 0.8rem;
     font-size: 0.32rem;
     color: #fff;
+}
+
+.swiper-pagination-bullet{
+    float: right;
 }
 
 .focus ul a {
@@ -80,6 +93,7 @@
     height: 16vw;
     float: left;
     margin-right: 2vw;
+    border-radius: 3px;
 }
 .focus ul a p{
     font-size: 0.38rem;
@@ -109,6 +123,14 @@
     right: 3vw;
     bottom: 2vw;
 }
+.focus ul a span:nth-child(5){
+    position: absolute;
+    left: 2vw;
+    top: 13vw;
+    width: 24vw;
+    text-align: center;
+    color: #fff;
+}
 
 /*最多跑一次*/
 #item3mobile .banner,#item3mobile .banner img{
@@ -118,7 +140,7 @@
 
 .onetime ul a {
     display: block;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #f1f1f1;
     padding: 2vw 3vw;
 }
 .onetime ul a p {
