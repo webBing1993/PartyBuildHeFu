@@ -20,7 +20,7 @@
             <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
                 <div class="mui-scroll">
             <div id="item1mobile" class="mui-slider-item mui-control-content">
-                {empty name="$list"}
+                {empty name="$info"}
                 <div class="default"><img src="/home/images/common/nomessage.png" alt="暂无消息"> </div>
                 {else/}
                 {notempty name="$top"}
@@ -34,11 +34,11 @@
                         {else/}
                             <a href="{:Url('Learn/video?id='.$re['id'])}" class="box_up">
                         {/eq}
-                                <img src="{$re.front_cover|get_cover='path'}" alt="图片">
+                                <img src="{$re.front_cover}" alt="图片">
                                 <div class="title">{$re.title}</div>
                                 <div class="note clear">
                                     <span class="fl">{$re.publisher}</span>
-                                    <span class="fr">{$re.create_time|time_format=""}</span>
+                                    <span class="fr">{$re.create_time}</span>
                                 </div>
                             </a>
                             <div class="box_down">
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <!--模糊层-->
-                            <img src="{$re.front_cover|get_cover='path'}" alt="背景" class="bg">
+                            <img src="{$re.front_cover}" alt="背景" class="bg">
                     </div>
                     {/volist}
                 </div>
@@ -57,7 +57,7 @@
                 <div class="lists">
                     <div class="tag"> —— 更多课程 —— </div>
                     <!--图文课程-->
-                    {volist name="list" id="vo"}
+                    {volist name="info" id="vo"}
                     {eq name="vo.type" value="2"}
                         <a href="{:Url('Learn/article?id='.$vo['id'])}" class="list lesson">
                             <div class="tab">图文</div>
@@ -65,7 +65,7 @@
                             <a href="{:Url('Learn/video?id='.$vo['id'])}" class="list lesson">
                                 <div class="tab">视频</div>
                     {/eq}
-                            <img src="{$vo.front_cover|get_cover='path'}" alt="图片" class="img">
+                            <img src="{$vo.front_cover}" alt="图片" class="img">
                             <div class="title limit">{$vo.title}</div>
                             <span class="study">{$vo.views}人阅读过</span>
                         </a>
@@ -78,22 +78,13 @@
             <div id="item2mobile" class="mui-slider-item mui-control-content">
                 <div class="bg_t"></div>
                 <div class="bg_b">
-                    <div class="times">
-                        您已阅读<span>2</span>%
-                    </div>
                 </div>
 
                 <!--党章学习-->
                 <div class="content">
                     <ul class="list">
                         {volist name="list" id="vo"}
-                        {if condition="$vo.id < $personal.chapter"}
                         <li class="over">
-                            {elseif condition="$vo.id > $personal.chapter" /}
-                        <li>
-                            {else/}
-                        <li class="active">
-                            {/if}
                         <a href="{:Url('Learn/chapter?id='.$vo['id'])}">
                             <span class="num">{$vo.id}</span>
                             <span class="title">{$vo.title}</span>
@@ -179,7 +170,7 @@
             var len = $(".lists .lesson").length;
         $.ajax({
             type:"post",
-            url:"{:Url('Learn/index')}",
+            url:"{:Url('Learn/more')}",
             data:{
                 length:len,
                 type:1
@@ -210,15 +201,15 @@
             var list = lists[i];
             if(list.type == 1){
                 html+=
-                        '<a href="/home/Pioneer/video/id/'+list.id+'.html" class="list">'+
+                        '<a href="/home/Learn/video/id/'+list.id+'.html" class="list">'+
                         '<div class="tab">视频</div>'
             }else{
                 html+=
-                        '<a href="/home/Pioneer/article/id/'+list.id+'.html" class="list">'+
+                        '<a href="/home/Learn/article/id/'+list.id+'.html" class="list">'+
                         '<div class="tab">图文</div>'
             }
             html +=
-                    '<img src="'+list.path+'" alt="图片" class="img">'+
+                    '<img src="'+list.front_cover+'" alt="图片" class="img">'+
                     '<div class="title limit">'+ list.title+'</div>'+
                     '<span class="study">'+ list.views+'人阅读过</span>'+
                     '</a>'
