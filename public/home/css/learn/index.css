@@ -194,6 +194,11 @@ body {
     color: #333333;
     font-size: 0.36rem;
     line-height: 0.58rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 #item1mobile .lists .list .study {
     display: inline-block;

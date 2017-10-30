@@ -84,7 +84,7 @@
                 <div class="content">
                     <ul class="list">
                         {volist name="list" id="vo"}
-                        <li class="over">
+                        <li>
                         <a href="{:Url('Learn/chapter?id='.$vo['id'])}">
                             <span class="num">{$vo.id}</span>
                             <span class="title">{$vo.title}</span>
@@ -250,6 +250,15 @@
         window.location.href = url;
     })
 
+    $(".party .start1").click(function(){
+        window.location.href = "{:Url('Learn/answer')}";
+    })
+    $(".party .goon").click(function(){
+        window.location.href = "{:Url('Learn/goon')}";
+    })
+    $(".party .continue").click(function(){
+        window.location.href = "{:Url('Learn/answer')}";
+    })
 
 </script>
 {/block}

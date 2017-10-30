@@ -123,7 +123,7 @@
     font-size: 0.36rem;
     float: right;
     margin-top: 0.2rem;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.5rem;
 }
 .article .content .like span {
     height: 0.45rem;
@@ -283,4 +283,8 @@
 }
 .bottom .send:active {
     background: #fafafa;
+}
+
+.article .content .video{
+    text-align: center!important;
 }

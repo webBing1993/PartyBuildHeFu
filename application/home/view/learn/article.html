@@ -2,22 +2,20 @@
 
 {block name="style"}
 <title>手机党校</title>
-<link rel="stylesheet" href="/home/css/common/detail.css">
+<link rel="stylesheet" href="/home/css/details-template/detail.css">
 {/block}
 
 {block name="body"}
 	<div class="article">
-		<div class="title limit_">{$detail.title}</div>
+		<div class="title"><p>{$detail.title}</p></div>
 		<div class="note clear">
-			<span class="fl">{$detail.publisher}</span>
-			<span class="fr">{$detail.create_time|time_format="Y-m-d"}</span>
+			<span class="publish">{$detail.publisher}</span>
+			<span class="time">{$detail.create_time|time_format="Y-m-d"}</span>
 		</div>
 		<div class="content">
-			<div class="uecontent">
-				<div class="article-content">{$detail.content}</div>
-			</div>
-			<div class="note">
-				<span class="read">{$detail.views + 1}</span>
+			<div class="article-content">{$detail.content}</div>
+			<div class="like">
+				<span class="read">{$detail.views +1}</span>
 			</div>
 		</div>
 	</div>
