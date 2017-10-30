@@ -65,7 +65,11 @@
                             <p>{$fno['title']}</p>
                             <span>{$fno['create_time']}</span>
                             <span>详情</span>
+                            {eq name="$fno.type" value="1"}
                             <span>通知公告</span>
+                            {else/}
+                            <span>小镇动态</span>
+                            {/eq}
                         </a>
                         {/volist}
                     </ul>
@@ -193,9 +197,14 @@
                         '<img src="' + list.front_cover + '">' +
                         '<p>' + list.title + '</p>' +
                         '<span>' + list.create_time + '</span>' +
-                        '<span>详情</span>' +
-                        '<span>小镇动态</span>' +
-                        '</a>'
+                        '<span>详情</span>'
+                if (list.type == 1){
+                    html+='<span>通知公告</span>' +
+                            '</a>'
+                }else{
+                    html+='<span>小镇动态</span>' +
+                            '</a>'
+                }
             } else if (type == 2) {
                 html +=
                         '<a href="/home/profile/detail/type/2/id/' + list.id + '">' +
