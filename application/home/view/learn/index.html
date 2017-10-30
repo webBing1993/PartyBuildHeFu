@@ -99,14 +99,7 @@
             <!--在线答题-->
             <div id="item3mobile" class="mui-slider-item mui-control-content">
                 <div class="notice party">
-                    {if condition='$info eq null'}
-                    <a class="start start1">开始答题</a>
-                    {elseif condition='$exist eq 0'/}
-                    <a class="start goon">继续答题</a>
-                    <a class="continue">重新开始</a>
-                    {else/}
-                    <a class="start start1">开始答题</a>
-                    {/if}
+                    <div class="start start1">开始答题</div>
                 </div>
             <div class="foot"></div>
             </div>
@@ -258,12 +251,6 @@
     })
 
     $(".party .start1").click(function(){
-        window.location.href = "{:Url('Learn/answer')}";
-    })
-    $(".party .goon").click(function(){
-        window.location.href = "{:Url('Learn/goon')}";
-    })
-    $(".party .continue").click(function(){
         window.location.href = "{:Url('Learn/answer')}";
     })
 
