@@ -117,13 +117,23 @@
 		setTimeout(function(){
 			window.addEventListener("popstate", function(e) {
 				if(objNow){
-					var r=confirm("您未提交，是否离开当前页面");
-					if (r==true){
-						window.history.go(-1);
-					}else{
-						pushHistory();
-						return;
-					}
+					swal({
+						title: "",
+						text: "您未提交，是否离开？",
+						type: "warning",
+						showCancelButton: true,
+						confirmButtonColor: "#DD6B55",
+						confirmButtonText: "确定",
+						cancelButtonText: "取消"
+					},
+					function(isConfirm){
+						if (isConfirm) {
+							window.history.go(-1);
+						}else {
+							pushHistory();
+							return;
+						}
+					});
 				}else{
 					window.history.go(-1);
 				}
@@ -172,7 +182,7 @@
 		}else{
 			swal({
 				title: "",
-				text: "您为全部完成，是否确定提交！",
+				text: "您未全部完成，是否确定提交？",
 				type: "warning",
 				showCancelButton: true,
 				confirmButtonColor: "#DD6B55",
