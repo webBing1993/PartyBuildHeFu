@@ -82,14 +82,6 @@
         }
         //上拉加载
         loadScroll();
-        //轮播
-        var mySwiper = new Swiper('.swiper-container', {
-            autoplay: 3000,
-            loop:true,
-            autoplayDisableOnInteraction:false,
-            pagination: '.swiper-pagination',
-            paginationClickable: true
-        })
     });
     function loadScroll(){
         $(window ).off("scroll" ).on("scroll",function(){
@@ -136,7 +128,7 @@
         for(var i = 0; i< len;i++){
             var list = lists[i];
             html +=
-                    '<a class="list clear" href="/home/news/detail/id/'+list.id+'.html">'+
+                    '<a class="list clear" href="/home/volunteer/detail/id/'+list.id+'.html">'+
                     '<div class="fl">'+
                     '<img src="'+ list.src+'" alt="图片">'+
                     '</div>'+
