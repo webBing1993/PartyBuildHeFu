@@ -24,6 +24,7 @@ class Pioneer extends Base {
 
     }
 
+
     /**
      * 党员风采首页
      * @return mixed
