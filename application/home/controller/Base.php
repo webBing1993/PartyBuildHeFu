@@ -46,6 +46,7 @@ class Base extends Controller {
      * type值：
      * 1 work 第一聚焦
      * 2 policy 最多跑一次
+     * 3 learn  两学一做
      */
     public function content($type,$id){
         switch ($type) {    //根据类别获取表明
@@ -54,6 +55,9 @@ class Base extends Controller {
                 break;
             case 2:
                 $table = "policy";
+                break;
+            case 3:
+                $table = "learn";
                 break;
             default:
                 return $this->error("无该数据表");
