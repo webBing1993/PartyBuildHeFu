@@ -8,6 +8,7 @@
 
 namespace app\home\controller;
 use app\home\model\Constitution;
+use app\admin\model\Question;
 use app\home\model\Learn as LearnModel;
 /*
  * 小镇概况
@@ -119,22 +120,13 @@ class Learn extends Base {
      * 答题页面
      */
     public function answer(){
-        $this->checkRole();
-        $this->anonymous();
         //取单选
         $arr=Question::all(['type'=>0]);
         foreach($arr as $value){
             $ids[]=$value->id;
         }
         //获取用户已经得到的题目
-        $users=$users=session('userId');
-        $List=Answer::get(['userid'=>$users]);
-        if($List !==null){
-            $list=$List->question_id;
-            $lists=json_decode($list);
-        }else{
-            $lists=array();
-        }
+        $lists=array();
         //随机获取单选的题目
         $num=20;//题目数目
         $data=array();
