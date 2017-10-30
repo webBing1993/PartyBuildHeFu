@@ -1,0 +1,34 @@
+body {
+  background: #eeeee3;
+}
+.title {
+  width: 86vw;
+  height: 50px;
+  margin: 0 auto;
+  border-bottom: 2px solid #556f7b;
+  line-height: 50px;
+  text-align: center;
+}
+.title p {
+  text-align: left;
+  width: auto;
+  display: inline-block;
+  font-size: .45rem;
+  color: #333;
+
+}
+.list {
+  width: 90vw;
+  margin: 15px auto;
+}
+.list .content {
+  text-indent: 2em;
+  font-size: .37rem;
+  line-height: 24px;
+}
+.list .author {
+  width: 100%;
+  color: #556f7b;
+  text-align: right;
+  line-height: 36px;
+}
