@@ -49,7 +49,6 @@
 </div>
 {eq name="visit" value="0"}
 <div class="foot clear">
-	<button class="save fl" onclick="saveAnswer()" >保存</button>
 	<button class="submit fl" onclick="submitAnswer()">提交</button>
 </div>
 {/eq}
@@ -120,7 +119,7 @@
 		setTimeout(function(){
 			window.addEventListener("popstate", function(e) {
 				if(objNow){
-					var r=confirm("您未保存，是否离开当前页面");
+					var r=confirm("您未提交，是否离开当前页面");
 					if (r==true){
 						window.history.go(-1);
 					}else{
@@ -143,29 +142,7 @@
 			window.history.pushState( sta, "title" );
 		}
 	}
-	//保存
-	function saveAnswer(){
-		var up = $('.up');
-		var suc = $('.suc');
-		var timer = $('.timer');
-		var answer =getAnswer();
-		$.ajax({
-			type:"post",
-			url:"{:Url('Constitution/save')}",
-			data:{arr:answer,arrId:getDataID()},
-			success:function(e){
-				suc.fadeIn();
-				setTimeout(function(){
-					timer.fadeOut();
-					up.text('保存成功');
-					setTimeout(function(){
-						objNow=null;
-						history.go(-1);
-					},1000)
-				},2000);
-			}
-		});
-	}
+
 	//提交
 	function submitAnswer(){
 		isAll = true;
