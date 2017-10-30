@@ -1,7 +1,7 @@
 {extend name="public/common"}
 
 {block name="style"}
-<title>党课在线</title>
+<title>两学一做</title>
 <link rel="stylesheet" href="/home/css/learn/answer.css">
 {/block}
 
@@ -59,6 +59,7 @@
 {block name="script"}
 <script>
 	$(function(){
+		$("title").text("两学一做");
 			$('.option' ).css({'top':'5px','line-height':'18px'});
 			$('.opt').css({'margin-left':'6px'});
 		//同级触发input点击的事件

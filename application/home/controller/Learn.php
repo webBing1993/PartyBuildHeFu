@@ -10,6 +10,7 @@ namespace app\home\controller;
 use app\home\model\Constitution;
 use app\admin\model\Question;
 use app\home\model\Learn as LearnModel;
+use app\home\model\Answer;
 /*
  * 小镇概况
  */
@@ -112,10 +113,6 @@ class Learn extends Base {
         $this->assign('detail',$this->content(3,$id));
         return $this->fetch();
     }
-
-
-
-
     /**
      * 答题页面
      */
@@ -170,82 +167,9 @@ class Learn extends Base {
         return $this->fetch();
     }
     /*
-     * 用户题目保存
-     */
-    public function save(){
-        $this->checkRole();
-        //获取用户提交信息
-        $data=input('post.');
-        //将题目ID数目json编码
-        $questions=json_encode($data['arrId']);
-        //将用户提交答案数组json编码
-        $rights=json_encode($data['arr']);
-        $users=session('userId');
-        //若该用户已经存在则更新
-        if(Answer::get(['userid'=>session('userId')])){
-            $answer=Answer::get(['userid'=>session('userId')]);
-            $answer->question_id=$questions;
-            $answer->value=$rights;
-            $answer->exist=0;
-            if($answer->save()){
-                return $this->success('保存成功');
-            }else{
-                return $this->error('保存失败');
-            };
-        }
-        //若该用户不存在则添加
-        $Answer=new Answer();
-        $Answer->userid=$users;
-        $Answer->question_id=$questions;
-        $Answer->value=$rights;
-        $Answer->exist=0;
-
-        if($Answer->save()){
-            return $this->success('保存成功');
-        }else{
-            return $this->error('保存失败');
-        }
-    }
-    /*
-     * 继续答题
-     */
-    public function goon(){
-        $this->checkRole();
-        $this->anonymous();
-        //获取该用户的已经保存的信息
-        $users=$users=session('userId');
-        $Info=Answer::get(['userid'=>$users]);
-        //获取的题目ID,将json格式转化为数组
-        $arr=json_decode($Info->question_id,true);
-        //获取单选和多选的题目
-        foreach($arr as $key=>$value){
-            if($key>19){
-                $arr2[]=Question::get($value);
-            }else{
-                $arr1[]=Question::get($value);
-            }
-        }
-        //获取的题目答案,将json格式转化为数组
-        $rights=json_decode($Info->value,true);
-        //获取单选和多选的答案
-        foreach($rights as $key=>$value){
-            if($key<20){
-                $right1[]=$value;
-            }else{
-                $right2[]=$value;
-            }
-        }
-        $this->assign('right1',$right1);
-        $this->assign('right2',$right2);
-        $this->assign('arr1',$arr1);
-        $this->assign('arr2',$arr2);
-        return $this->fetch();
-    }
-    /*
      * 用户题目提交
      */
     public function submits(){
-        $this->checkRole();
         //获取用户提交信息
         $data=input('post.');
         $score=0;
@@ -281,62 +205,30 @@ class Learn extends Base {
         $questions=json_encode($data['arrId']);
         $rights=json_encode($data['arr']);
         $status=json_encode($status);
-        $users=session('userId');
-        //将分数添加至用户积分排名
-        $wechatModel = new WechatUser();
-        $wechatModel->where('userid',session('userId'))->setInc('game_score',$score);
-        // 统计该成员  答题总数   答对 题数
-        Db::name('answer_data')->insert(['userid' => $users,'create_time' => time(),'num' => $num,'sum' => $sum]);
-        //若该用户存在则修改数据
-        if(Answer::get(['userid'=>session('userId')])){
-            $answer=Answer::get(['userid'=>session('userId')]);
-            $answer->question_id=$questions;
-            $answer->value=$rights;
-            $answer->status=$status;
-            $answer->score=$score;
-            $answer->exist=1;
-            if($answer->save()){
-                return $this->success('提交成功');
-            }else{
-                return $this->error('提交失败');
-            };
+        $users= md5(uniqid()); //不重复随机id
+        //若该用户不存在则添加数据
+        $Answer=new Answer();
+        $Answer->userid=$users;
+        $Answer->question_id=$questions;
+        $Answer->value=$rights;
+        $Answer->status=$status;
+        $Answer->score=$score;
+        $Answer->exist=1;
+        if($id = $Answer->save()){
+            return $this->success('提交成功','',['score' => $score ,'id' => $id]);
         }else{
-            //若该用户不存在则添加数据
-            $Answer=new Answer();
-            $Answer->userid=$users;
-            $Answer->question_id=$questions;
-            $Answer->value=$rights;
-            $Answer->status=$status;
-            $Answer->score=$score;
-            $Answer->exist=1;
-            if($Answer->save()){
-                return $this->success('提交成功');
-            }else{
-                return $this->error('提交失败');
-            }
+            return $this->error('提交失败');
         }
-    }
-    /*
-     * 查看分数
-     */
-    public function score(){
-        $this->checkRole();
-        $this->anonymous();
-        $Answer=Answer::get(['userid'=>session('userId')]);
-        $WechatUser=WechatUser::get(['userid'=>session('userId')]);
-        $num=$WechatUser->game_score;
-        $score=$Answer->score;
-        $this->assign('num',$num);
-        $this->assign('score',$score);
-        return $this->fetch();
     }
     /*
      * 查看错题
      */
     public function errors(){
-        $this->checkRole();
-        $this->anonymous();
-        $Answer=Answer::get(['userid'=>session('userId')]);
+        $id = input('id/d');
+        $Answer=Answer::get(['id'=>$id]);
+        if (empty($Answer)){
+            return $this->error('系统参数错误');
+        }
         $arr=json_decode($Answer->status,true);
         $lists=json_decode($Answer->question_id,true);
         $rights=json_decode($Answer->value,true);
