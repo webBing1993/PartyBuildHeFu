@@ -15,9 +15,19 @@ use app\home\model\WechatUser;
 class Volunteer extends Base{
 
     /*
-     *  团队介绍
+     *  志愿服务
      * */
     public function index(){
+
+        return $this->fetch();
+    }
+
+
+
+    /*
+     *  团队介绍
+     * */
+    public function team(){
 
         return $this->fetch();
     }
