@@ -5,6 +5,7 @@ html,body{
 #tab{
     position: fixed;
     top:0;
+    padding: 4px 0;
 }
 .mui-slider-indicator.mui-segmented-control {
     z-index: 999;
@@ -15,7 +16,7 @@ html,body{
 }
 
 #refreshContainer{
-    margin-top: 38px;
+    margin-top: 46px;
 }
 
 /*手机党校*/
@@ -228,7 +229,7 @@ body {
 }
 #item2mobile .bg_t{
     width: 100vw;
-    height: 74px;
+    height: 2rem;
     background: url(/home/images/learn/copy_t.png) no-repeat;
     background-size: 100% 100%;
     position: fixed;
@@ -254,7 +255,7 @@ body {
 
 #item2mobile .list{
     width: 85%;
-    margin: 125px auto;
+    margin: calc(46px + 2rem) auto;
     padding-bottom: 100px;
 }
 #item2mobile .list li{

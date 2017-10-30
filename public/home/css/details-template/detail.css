@@ -21,8 +21,8 @@
 }
 .article .title p{
     color: #333;
-    font-size: 0.42rem;
-    line-height: 0.52rem;
+    font-size: 0.48rem;
+    line-height: 0.56rem;
     font-weight: 600;
     display: inline-block;
     text-align: left;
@@ -31,8 +31,9 @@
 /*publish & time*/
 .article .note {
     color: #999;
-    font-size: 0.32rem;
-    line-height: 0.8rem;
+    font-size: 0.36rem;
+    height: 1rem;
+    line-height: 1rem;
 }
 
 .note .publish{
@@ -94,12 +95,12 @@
 
 /*article content */
 .article-content p,.article-content p span,.article-content{
-    font-size: 0.38rem!important;
+    font-size: 0.44rem!important;
     color: #333;
 }
 .article .content * {
     max-width: 100%!important;
-    line-height: 0.5rem!important;
+    line-height: 0.7rem!important;
 }
 .article .content {
     width: 100%;
@@ -126,7 +127,7 @@
     margin-bottom: 0.5rem;
 }
 .article .content .like span {
-    height: 0.45rem;
+    height: 0.7rem;
     display: inline-block;
     margin-right: 0.3rem;
     line-height:0.6rem;

@@ -152,7 +152,7 @@
 		if(isAll){
 			$.ajax({
 				type:"post",
-				url:"{:Url('Constitution/submits')}",
+				url:"{:Url('Learn/submits')}",
 				data:{arr:answer,arrId:getDataID()},
 				success:function(e){
 					suc.fadeIn();
@@ -161,33 +161,46 @@
 						timer.fadeOut();
 						up.text('提交成功');
 						setTimeout(function(){
-							window.location.replace("{:Url('Constitution/score')}");
+							window.location.replace("{:Url('Learn/score')}");
 						},1000)
 					},2000);
+				},
+				error:function(data){
+					console.log(data)
 				}
 			});
 		}else{
-			var msg = confirm('您未全部完成，是否确定提交');
-			if(msg){
-				$.ajax({
-					type:"post",
-					url:"{:Url('Constitution/submits')}",
-					data:{arr:answer,arrId:getDataID()},
-					success:function(e){
-						suc.fadeIn();
-						setTimeout(function(){
-							objNow=null;
-							timer.fadeOut();
-							up.text('提交成功');
-							setTimeout(function(){
-								window.location.replace("{:Url('Constitution/score')}");
-							},1000)
-						},2000);
+			swal({
+				title: "",
+				text: "您为全部完成，是否确定提交！",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#DD6B55",
+				confirmButtonText: "确定",
+				cancelButtonText: "取消"
+				},
+				function(isConfirm){
+					if (isConfirm) {
+						$.ajax({
+							type:"post",
+							url:"{:Url('Learn/submits')}",
+							data:{arr:answer,arrId:getDataID()},
+							success:function(e){
+								suc.fadeIn();
+								setTimeout(function(){
+									objNow=null;
+									timer.fadeOut();
+									up.text('提交成功');
+									setTimeout(function(){
+										window.location.replace("{:Url('Learn/score')}");
+									},1000)
+								},2000);
+							}
+						});
+					}else {
+						objNow = 1;
 					}
-				});
-			}else{
-				objNow=1;
-			}
+			});
 		}
 	}
 	function getDataID(){
