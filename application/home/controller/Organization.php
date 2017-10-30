@@ -13,10 +13,11 @@ namespace app\home\controller;
  * 组织建设
  */
 class Organization extends Base {
-    //组织建设首页
+    /**
+     * @return mixed  主页
+     */
     public function index(){
 
-        return $this->fetch();
-
+        return $this ->fetch();
     }
 }

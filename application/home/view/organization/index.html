@@ -56,7 +56,7 @@
     .default img{
         width: 18vw;
         position:absolute;
-        top:50%;
+        top:40%;
         left:50%;
         margin-top:-1.2rem;
         border-radius: 5px;
@@ -92,7 +92,7 @@
 
 {block name="body"}
 <div class="banner">
-    <img src="/home/images/feedback/feedback.jpg">
+    <img src="/home/images/common/1.jpg">
 </div>
 
 <div id="tab" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
@@ -111,23 +111,31 @@
 
         <div class="mui-slider-group">
             <div id="item1mobile" class="mui-slider-item mui-control-content">
+                {if condition="$notice eq null && $meet eq null && $party eq null"}
+                    <div class="default"><img src="/home/images/common/nomessage.png" alt="暂无消息"> </div>
+                {else/}
+                {notempty name="notice"}
                 <!--相关通知-->
                 <div class="notice">
-                    <a class="more" href="{:Url('Learn/noticemore')}">
+                    <a class="more" href="{:Url('Learn/noticemore?type=1')}">
                         <span>相关通知</span>
                         <span>更多</span>
                     </a>
                     <div class="list">
                         <ul>
-                            <a href="">
-                                <p style="font-size: 0.4rem;">的点点滴滴多多多多多多</p>
-                                <p style="font-size: 0.36rem;">额鹅鹅鹅呃呃呃呃鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅</p>
-                                <span style="color: red;">已结束</span>
-                                <span>2017-10-26</span>
-                            </a>
+                            {volist name="notice" id="no"}
+                                <a href="{:Url('Lesson/noticedetail?id='.$no['id'])}">
+                                    <p style="font-size: 0.4rem;">{$no.title}</p>
+                                    <p style="font-size: 0.36rem;">{$no.description}</p>
+                                    <span>{$no.create_time}</span>
+                                    <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </a>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
+                {/notempty}
+                {notempty name="meet"}
                 <!--会议情况-->
                 <div class="meeting">
                     <a class="more" href="{:Url('Learn/meetingmore?type=2')}">
@@ -136,72 +144,87 @@
                     </a>
                     <div class="list">
                         <ul>
-                            <a href="">
-                                <img src="">
-                                <p>大大大发啥的点点滴滴多多多多多多多多多多多多多多多多多多多多多多多多多多多</p>
-                                <span>二二二二二</span>
-                                <span>2017-10-27</span>
-                            </a>
+                            {volist name="meet" id="mee"}
+                                <a href="{:Url('Lesson/meetingdetail?type=2&id='.$mee['id'])}">
+                                    <img src="{$mee.front_cover}">
+                                    <p>{$mee.title}</p>
+                                    <span>{$mee.create_time}</span>
+                                    <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </a>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
+                {/notempty}
+                {notempty name="party"}
                 <!--党课情况-->
                 <div class="party">
-                    <a class="more" href="">
+                    <a class="more" href="{:Url('Learn/meetingmore?type=3')}">
                         <span>党课情况</span>
                         <span>更多</span>
                     </a>
                     <div class="list">
                         <ul>
-                            <a href="">
-                                <img src="/home/images/common/1.jpg">
-                                <p>四大啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
-                                <span>德尔</span>
-                                <span>2017-10-26</span>
-                            </a>
+                            {volist name="party" id="pa"}
+                                <a href="{:Url('Lesson/meetingdetail?type=3&id='.$pa['id'])}">
+                                    <img src="{$pa.front_cover}">
+                                    <p>{$pa.title}</p>
+                                    <span>{$mee.create_time}</span>
+                                    <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </a>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
-
+                {/notempty}
+                {/if}
             </div>
-
-
             <div id="item2mobile" class="mui-slider-item mui-control-content">
-
+                {if condition="$recruit eq null && $activity eq null"}
+                {else/}
+                {notempty name="recruit"}
                 <!--相关通知-->
                 <div class="notice">
-                    <a class="more" href="{:Url('Learn/noticemore')}">
+                    <a class="more" href="{:Url('Learn/noticemore?type=2')}">
                         <span>活动招募</span>
                         <span>更多</span>
                     </a>
                     <div class="list">
                         <ul>
-                            <a href="">
-                                <p style="font-size: 0.4rem;">的点点滴滴多多多多多多</p>
-                                <p style="font-size: 0.36rem;">额鹅鹅鹅呃呃呃呃鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅鹅</p>
-                                <span style="color: red;">2017-10-26</span>
-                                <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                            </a>
+                            {volist name="recruit" id="re"}
+                                <a href="">
+                                    <p style="font-size: 0.4rem;">{$re.title}</p>
+                                    <p style="font-size: 0.36rem;">{$re.description}</p>
+                                    <span>{$re.create_time}</span>
+                                    <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </a>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
+                {/notempty}
+                {notempty name="ativity"}
                 <!--会议情况-->
                 <div class="meeting">
-                    <a class="more" href="{:Url('Learn/meetingmore?type=2')}">
+                    <a class="more" href="{:Url('Learn/meetingmore?type=4')}">
                         <span>活动情况</span>
                         <span>更多</span>
                     </a>
                     <div class="list">
                         <ul>
-                            <a href="">
-                                <img src="">
-                                <p>大大大发啥的点点滴滴多多多多多多多多多多多多多多多多多多多多多多多多多多多</p>
-                                <span>2017-10-26</span>
-                                <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                            </a>
+                            {volist name="activity" id="ac"}
+                                <a href="">
+                                    <img src="{$ac.front_cover}">
+                                    <p>{$ac.title}</p>
+                                    <span>{$ac.create_time}</span>
+                                    <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </a>
+                            {/volist}
                         </ul>
                     </div>
                 </div>
+                {/notempty}
+                {/if}
             </div>
         </div>
     </div>

@@ -13,8 +13,6 @@
 </style>
 {/block}
 {block name="body"}
-<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
-    <div class="mui-scroll">
         <div class="article">
             <div class="title"><p>{$detail.title}</p></div>
             <div class="note clear">
@@ -28,18 +26,13 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
 {/block}
 
 {block name="script"}
-<script src="/home/js/reset.js"></script>
 <script>
     var c =  parseInt(window.location.href.split("?")[1]);
     $(function(){
         $("title").text("小镇概况");
-
     });
 </script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
