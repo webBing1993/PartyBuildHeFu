@@ -7,14 +7,10 @@
  */
 
 namespace app\home\controller;
-
-use app\home\model\Browse;
-use app\home\model\Comment;
-use app\home\model\Like;
-use app\user\model\WechatUser;
 use think\Config;
 use think\Controller;
-use com\wechat\TPQYWechat;
+use com\wechat\TPWechat;
+use app\home\model\Picture;
 use think\Db;
 
 class Base extends Controller {
@@ -35,5 +31,62 @@ class Base extends Controller {
         $carousel_pic3 = array_rand($c,1);
         $this->assign('p3',$carousel_pic3);
 
+    }
+    /**
+     * 获取公众号签名
+     */
+    public function jssdk(){
+        $Wechat = new TPWechat(Config::get('party'));
+        $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $jsSign = $Wechat->getJsSign($url);
+        $this->assign("jsSign", $jsSign);
+    }
+    /**
+     * 获取数据详情 ，$type,$id
+     * type值：
+     * 1 work 第一聚焦
+     * 2 policy 最多跑一次
+     */
+    public function content($type,$id){
+        switch ($type) {    //根据类别获取表明
+            case 1:
+                $table = "work";
+                break;
+            case 2:
+                $table = "policy";
+                break;
+            default:
+                return $this->error("无该数据表");
+                break;
+        }
+        //基本信息
+        $list = Db::name($table)->find(['id' => $id]);
+        if (empty($list)){
+            $this ->error('该内容不存在或已删除!');
+        }
+        //浏览加一
+        Db::name($table)->where('id',$id)->setInc('views');
+        //分享图片及链接及描述
+        if (isset($list['front_cover'])){ // 封面图
+            if (empty($list['front_cover'])){
+                $list['share_image'] = '/home/images/common/1.jpg';  // 默认
+            }else{
+                $image = Picture::where('id',$list['front_cover'])->find();
+                $list['share_image'] = "http://".$_SERVER['SERVER_NAME'].$image['path'];
+            }
+        }else{
+            $list['share_image'] = '/home/images/common/1.jpg';  // 默认
+        }
+        if (isset($list['description'])){
+            if (empty($list['description'])){
+                $list['desc'] = str_replace('&nbsp;','',strip_tags($list['content']));
+            }else{
+                $list['desc'] = $list['description'];
+            }
+        }else{
+            $list['desc'] = str_replace('&nbsp;','',strip_tags($list['content']));
+        }
+        $list['link'] = "http://".$_SERVER['SERVER_NAME'].$_SERVER['REDIRECT_URL'];
+        return $list;
     }
 }

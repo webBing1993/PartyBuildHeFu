@@ -37,5 +37,12 @@ return [
         'var_page' => 'page',
         'list_rows'=> 12
     ],
-
+    /* 公众号配置 */
+    'party' => array(
+        'login' =>'',
+        'token' =>'',
+        'encodingaeskey' =>'',
+        'appid' =>'',
+        'appsecret' =>'',
+    ),
 ];
