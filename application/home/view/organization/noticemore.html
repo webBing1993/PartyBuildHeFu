@@ -40,12 +40,8 @@
                     <a href="{:Url('Lesson/noticedetail?id='.$lo['id'])}">
                         <p style="font-size: 0.4rem;">{$lo.title}</p>
                         <p style="font-size: 0.36rem;">{$lo.description} </p>
-                        {eq name="$lo.is_over" value="1"}
-                        <span style="color:red">已结束</span>
-                        {else/}
-                        <span style="color: #090;">进行中</span>
-                        {/eq}
-                        <span>{$lo.create_time}</span>
+                        <span>{$re.create_time}</span>
+                        <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                     </a>
                     {/volist}
                 </ul>
@@ -113,15 +109,10 @@
                 html +=
                       '<a href="/home/Lesson/noticedetail/id/'+list.id+'.html">'+
                       '<p>'+list.title+'</p>'+
-                      '<p>'+list.description+'</p>'
-                   if(list.is_over==1){
-                       html +=  '<span style="color:red">已结束</span>'
-                   }else{
-                       html += '<span style="color: #090;">进行中</span>'
-                   }
-                html +=
-                    '<span>'+list.create_time+'</span>'+
-                    '</a>'
+                      '<p>'+list.description+'</p>'+
+                      '<span>'+list.time+'</span>'+
+                      '<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>'+
+                      '</a>'
         }
             $('.list ul').append(html);
     }
