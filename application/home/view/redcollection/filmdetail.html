@@ -1,0 +1,44 @@
+{extend name="public/common"}
+
+{block name="style"}
+<link rel="stylesheet" href="/home/css/redcollection/filmdetail.css">
+
+{/block}
+
+{block name="body"}
+<div class="scrollDiy">
+	<div class="film">
+		<div class="title limit_"><p>电影名</p></div>
+		<div class="note">
+			<span>2017-10-30</span>
+		</div>
+		<div class="content">
+			<iframe height=250 width=510 src='https://www.baidu.com' frameborder=0 allowfullscreen></iframe>
+			<div class="note">
+				<span class="read">20</span>
+			</div>
+		</div>
+	</div>
+</div>
+{/block}
+
+{block name="script"}
+<script>
+ if(navigator.userAgent.match(/android/i)){
+     $("input").focus(function(){
+         $(".bottom").css("position","absolute")
+         var inputTextBox = document.getElementById('message');
+         setInterval(function(){
+             inputTextBox.scrollIntoView(false);
+         },200)
+     });
+     $("input").blur(function(){
+         $(".bottom").css("position","fixed")
+     })
+ }
+
+
+$('title').text('红色电影');
+
+</script>
+{/block}

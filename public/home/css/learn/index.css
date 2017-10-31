@@ -2,20 +2,40 @@ html,body{
     height: 100%;
 }
 /*tab*/
+/*tab*/
 #tab{
+    padding: 4px 0;
     position: fixed;
     top:0;
 }
 .mui-slider-indicator.mui-segmented-control {
     z-index: 999;
-    background: #f00;
+    background: #BF0301;
+    color: #e8e8e8;
+    font-size: 0.4rem;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
-    color: #fff;
+    color: #e1a469;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item:last-child{
+    border-right: none;
 }
 
 #refreshContainer{
-    margin-top: 38px;
+    margin-top: 46px;
+}
+#tab a:after{
+    display: inline-block;
+    content: '';
+    width: 1px;
+    height: 18px;
+    background: #aaa;
+    position: relative;
+    top: 4px;
+    left: 8vw;
+}
+#tab a:last-child:after{
+    display: none;
 }
 
 /*手机党校*/
@@ -27,7 +47,7 @@ html,body{
     font-size: 0.32rem;
 }
 body {
-    background: #eeeeee;
+    background: #fde8d7!important;
 }
 #item1mobile .banner {
     width: 100%;
@@ -221,14 +241,14 @@ body {
 /*党章学习*/
 
 #item2mobile{
-    background: #fde8d7;
+    background: #fde8d7!important;
 }
 #item2mobile .bgbox{
     width: 100vw;
 }
 #item2mobile .bg_t{
     width: 100vw;
-    height: 74px;
+    height: 2rem;
     background: url(/home/images/learn/copy_t.png) no-repeat;
     background-size: 100% 100%;
     position: fixed;
@@ -237,9 +257,9 @@ body {
 }
 #item2mobile .bg_b{
     width: 100vw;
-    height: 157px;
+    height: 23vh;
     background: url("/home/images/learn/copy_b.png") no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     position: fixed;
     bottom:0;
     z-index: 5;
@@ -254,7 +274,7 @@ body {
 
 #item2mobile .list{
     width: 85%;
-    margin: 125px auto;
+    margin: calc(46px + 2rem) auto;
     padding-bottom: 100px;
 }
 #item2mobile .list li{

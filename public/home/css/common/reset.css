@@ -39,3 +39,6 @@ input:-ms-input-placeholder{
 .fr {
     float: right;
 }
+.clear {
+    zoom: 1;
+}

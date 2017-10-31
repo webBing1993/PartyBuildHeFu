@@ -1,0 +1,78 @@
+{extend name="public/common"}
+
+{block name="style"}
+<link rel="stylesheet" href="/home/css/redcollection/bookdetail.css">
+
+{/block}
+{block name="body"}
+<div class="scrollDiy">
+	<div class="book">
+		<div class="title limit_">书名</div>
+		<div class="note">
+			<span>2017-10-30</span>
+		</div>
+		<div class="content">
+			<img src="/home/images/common/1.jpg" alt="书籍封面" class="book-img">
+			<div class="detail">
+				人名&emsp;著<br>
+				出版社名<br>
+				出版时期出版
+			</div>
+			<div class="reads" onclick="isread()">读过此书</div>
+			<!--点击后-->
+
+			<div class="brief">【作品简介】</div>
+			<div class="bookdetail">
+				这里是这本书的简介区域
+			</div>
+			<div class="brief">【作者简介】</div>
+			<!--作者简介-->
+			<div class="authordetail clear">
+				<div class="msg fl" >
+					<img src="/home/images/common/1.jpg" alt="作者头像" class="authorimg">
+					<div class="name">作者名</div>
+					<div class="time">2017-10-30</div>
+				</div>
+				<div class="text fl">
+					作者的介绍
+				</div>
+			</div>
+			<div class="words">
+				寄语区域
+				<div class="author">——— 书名</div>
+			</div>
+			<!--/作者简介-->
+			<div class="note">
+				<span class="read">10</span>
+			</div>
+		</div>
+	</div>
+
+</div>
+{/block}
+
+{block name="script"}
+<script>
+	var scrollNow = true;//判断下拉请求是否执行中.false为正在请求
+//读过此书
+function isread(bookid){
+	var read = $('.reads');
+	if(!read.hasClass('isread')){
+		read.addClass('isread');
+			$.ajax({
+				type:"post",
+//				url:"{:Url('Redcollection/is_read')}",
+				data:{
+					id:bookid,
+				},
+				success:function(data){
+
+				}
+			})
+	}
+}
+
+$('title').text('经典书籍');
+
+</script>
+{/block}
