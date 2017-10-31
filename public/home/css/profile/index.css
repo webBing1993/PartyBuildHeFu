@@ -141,7 +141,7 @@
 .focus ul a span:nth-child(5){
     position: absolute;
     left: 3vw;
-    top: 13vw;
+    bottom:2vw;
     width: 24vw;
     text-align: center;
     color: #fff;

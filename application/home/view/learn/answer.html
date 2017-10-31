@@ -54,6 +54,22 @@
 	<div class="timer"></div>
 	<div class="up">上传中...</div>
 </div>
+
+
+<!--模态框-->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="text-center">本次得分：<span class="scores"></span> 分</div>
+			</div>
+			<div class="modal-footer">
+				<a href="" id="link">查看详情</a>
+			</div>
+		</div>
+	</div>
+</div>
+
 {/block}
 
 {block name="script"}
@@ -166,13 +182,18 @@
 				url:"{:Url('Learn/submits')}",
 				data:{arr:answer,arrId:getDataID()},
 				success:function(e){
+					console.log(e)
 					suc.fadeIn();
 					setTimeout(function(){
 						objNow=null;
 						timer.fadeOut();
 						up.text('提交成功');
 						setTimeout(function(){
-							window.location.replace("{:Url('Learn/score')}");
+							$(".suc").hide();
+							$(".scores").html(e.data.score);
+							$('#link').attr('href','/home/learn/errors/id/'+e.data.id);
+							$('#modal').modal('show');
+							$('.modal').unbind('click');
 						},1000)
 					},2000);
 				},
@@ -197,13 +218,18 @@
 							url:"{:Url('Learn/submits')}",
 							data:{arr:answer,arrId:getDataID()},
 							success:function(e){
+								console.log(e)
 								suc.fadeIn();
 								setTimeout(function(){
 									objNow=null;
 									timer.fadeOut();
 									up.text('提交成功');
 									setTimeout(function(){
-										window.location.replace("{:Url('Learn/score')}");
+										$(".suc").hide();
+										$(".scores").html(e.data.score);
+										$('#link').attr('href','/home/learn/errors/id/'+e.data.id);
+										$('#modal').modal('show');
+										$('.modal').unbind('click');
 									},1000)
 								},2000);
 							}

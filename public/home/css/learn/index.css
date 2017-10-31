@@ -28,7 +28,7 @@ html,body{
     font-size: 0.32rem;
 }
 body {
-    background: #eeeeee;
+    background: #fde8d7!important;
 }
 #item1mobile .banner {
     width: 100%;
@@ -222,7 +222,7 @@ body {
 /*党章学习*/
 
 #item2mobile{
-    background: #fde8d7;
+    background: #fde8d7!important;
 }
 #item2mobile .bgbox{
     width: 100vw;
@@ -238,9 +238,9 @@ body {
 }
 #item2mobile .bg_b{
     width: 100vw;
-    height: 157px;
+    height: 23vh;
     background: url("/home/images/learn/copy_b.png") no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     position: fixed;
     bottom:0;
     z-index: 5;

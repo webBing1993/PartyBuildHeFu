@@ -215,7 +215,7 @@ body{
 	position: fixed;
 	top:43%;
 	color:#ffffff;
-	font-size: 2.0rem;
+	font-size: 0.8rem;
 	text-align: center;
 	margin-top: 20px;
 }
@@ -226,4 +226,17 @@ body{
 }
 .answer span{
 	color:#d10000;
+}
+
+.modal-dialog {
+	position: relative;
+	width: auto;
+	margin: 10px;
+	top: 50%;
+	margin-top: -49px;
+	font-size: 0.46rem;
+}
+.modal-footer{
+	text-align: center;
+	font-size: 0.42rem;
 }
