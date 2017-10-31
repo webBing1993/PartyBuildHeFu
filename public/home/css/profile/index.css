@@ -1,6 +1,8 @@
 /*tab*/
 #tab{
     padding: 4px 0;
+    position: fixed;
+    top:0;
 }
 .mui-slider-indicator.mui-segmented-control {
     z-index: 999;
@@ -26,7 +28,7 @@
     background: #aaa;
     position: relative;
     top: 4px;
-    left: 25px;
+    left: 8vw;
 }
 #tab a:last-child:after{
     display: none;
