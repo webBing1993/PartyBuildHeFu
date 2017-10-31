@@ -10,6 +10,7 @@
         z-index: 99;
         width: 100%;
         height:50vw;
+        top:46px;
     }
     .notice a p:nth-child(1){
         overflow: hidden;
@@ -20,8 +21,11 @@
         color: #000;
         font-weight: bold;
     }
+    .notice a:active,.notice a:visited{
+        color: #f00;
+    }
     .notice a p:nth-child(2){
-        margin-bottom: 10vw;
+        margin-bottom: 8vw;
         color: #666;
     }
     .notice a span:nth-child(4){
@@ -66,34 +70,45 @@
     }
 
     #tab{
-        height:1.2rem;
-        position: absolute;
-        top:50vw;
-        z-index: 9;
-        background: #efefef;
+        padding: 4px 0;
+        position: fixed;
+        top:0;
     }
-    #tab a{
+    .mui-slider-indicator.mui-segmented-control {
+        z-index: 999;
+        background: #BF0301;
+        color: #e8e8e8;
         font-size: 0.4rem;
-        line-height: 1.2rem;
-    }
-    .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active span{
-        border-bottom: 0.08rem solid #e51c23;
-        display: inline-block;
     }
     .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
-        color: #e51c23;
+        color: #e1a469;
+    }
+    .mui-segmented-control.mui-segmented-control-inverted .mui-control-item:last-child{
+        border-right: none;
+    }
+
+    #tab a:after{
+        display: inline-block;
+        content: '';
+        width: 1px;
+        height: 18px;
+        background: #aaa;
+        position: relative;
+        top: 4px;
+        left: 16vw;
+    }
+    #tab a:last-child:after{
+        display: none;
     }
     #refreshContainer{
-        top:calc(50vw + 1.2rem);
+        top:calc(50vw + 46px);
     }
 </style>
 
 {/block}
 
 {block name="body"}
-<div class="banner">
-    <img src="/home/images/common/1.jpg">
-</div>
+
 
 <div id="tab" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
     <a class="mui-control-item" href="#item1mobile" data-index="0">
@@ -104,7 +119,9 @@
     </a>
 </div>
 
-
+<div class="banner">
+    <img src="/home/images/common/1.jpg">
+</div>
 
 <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
     <div class="mui-scroll">
@@ -192,7 +209,7 @@
                     <div class="list">
                         <ul>
                             {volist name="planing" id="re"}
-                                <a href="">
+                                <a href="{:Url('Organization/meetingdetail?type=4&id='.$re['id'])}">
                                     <p style="font-size: 0.4rem;">{$re.title}</p>
                                     <p style="font-size: 0.36rem;">{$re.description}</p>
                                     <span>{$re.create_time}</span>
@@ -213,7 +230,7 @@
                     <div class="list">
                         <ul>
                             {volist name="activity" id="ac"}
-                                <a href="">
+                                <a href="{:Url('Organization/meetingdetail?type=5&id='.$ac['id'])}">
                                     <img src="{$ac.front_cover}">
                                     <p>{$ac.title}</p>
                                     <span>{$ac.create_time}</span>

@@ -13,7 +13,7 @@
         font-weight: bold;
     }
     .list a p:nth-child(2){
-        margin-bottom: 10vw;
+        margin-bottom: 8vw;
         color: #666;
     }
     .list a span:nth-child(4){
@@ -37,7 +37,7 @@
             <div class="list">
                 <ul>
                     {volist name="list" id="lo"}
-                    <a href="{:Url('Lesson/noticedetail?id='.$lo['id'])}">
+                    <a href="{:Url('Organization/noticedetail?id='.$lo['id'])}">
                         <p style="font-size: 0.4rem;">{$lo.title}</p>
                         <p style="font-size: 0.36rem;">{$lo.description} </p>
                         <span>{$lo.create_time}</span>
