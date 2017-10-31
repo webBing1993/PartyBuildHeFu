@@ -2,21 +2,38 @@ html,body{
     height: 100%;
 }
 /*tab*/
+/*tab*/
 #tab{
-    position: fixed;
-    top:0;
     padding: 4px 0;
 }
 .mui-slider-indicator.mui-segmented-control {
     z-index: 999;
-    background: #f00;
+    background: #BF0301;
+    color: #e8e8e8;
+    font-size: 0.4rem;
 }
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
-    color: #fff;
+    color: #e1a469;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item:last-child{
+    border-right: none;
 }
 
 #refreshContainer{
     margin-top: 46px;
+}
+#tab a:after{
+    display: inline-block;
+    content: '';
+    width: 1px;
+    height: 18px;
+    background: #aaa;
+    position: relative;
+    top: 4px;
+    left: 25px;
+}
+#tab a:last-child:after{
+    display: none;
 }
 
 /*手机党校*/
