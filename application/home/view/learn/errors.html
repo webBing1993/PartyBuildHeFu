@@ -1,8 +1,8 @@
 {extend name="public/common"}
 
 {block name="style"}
-<link rel="stylesheet" href="/home/css/constitution/answer.css">
-<link rel="stylesheet" href="/home/css/constitution/game.css">
+<link rel="stylesheet" href="/home/css/learn/answer.css">
+<link rel="stylesheet" href="/home/css/learn/game.css">
 {/block}
 
 {block name="body"}
@@ -28,7 +28,7 @@
             <label class="opt">{$value|substr=###,'2'}</label>
         </label>
         {/volist}
-        <div class="answer">正确答案：<span>{$vo->Right|implode=###,"&nbsp;&nbsp;&nbsp;"}</span></div>
+        <div class="answer">正确答案：<span>{$vo->Right}</span></div>
         <div class="sum"><span class="num">{$y+1}</span>/30</div>
     </div>
     {/foreach}
@@ -49,7 +49,7 @@
             <label class="opt">{$value|substr=###,'2'}</label>
         </label>
         {/volist}
-        <div class="answer">正确答案：<span>{$vo->Right|implode=###,"&nbsp;&nbsp;&nbsp;"}</span></div>
+        <div class="answer">正确答案：<span>{$vo->Right}</span></div>
         <div class="sum"><span class="num">{$t+1}</span>/30</div>
     </div>
     {/foreach}

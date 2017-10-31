@@ -176,15 +176,15 @@ class Learn extends Base {
         //判断题目的对错,并改变分数
         foreach($data['arrId'] as $key=>$value){
             $question=Question::get($value);
-            if($key <20){
-                if($data['arr'][$key]==$question->value){
+            if($key <20){  // 前20单选
+                if($data['arr'][$key]==json_decode($question->value)){
                     $status[$key]=1;
                     $score++;
                 }else{
                     $status[$key]=0;
                 }
             }else{
-                if($data['arr'][$key]===explode(':',$question->value)){
+                if(json_encode($data['arr'][$key])==$question->value){
                     $status[$key]=1;
                     $score++;
                 }else{
@@ -218,11 +218,11 @@ class Learn extends Base {
         $id = input('id/d');
         $Answer=Answer::get(['id'=>$id]);
         if (empty($Answer)){
-            return $this->error('系统参数错误');
+            return $this->error('系统参数错误',Url('Learn/answer'));
         }
         $arr=json_decode($Answer->status,true);
         $lists=json_decode($Answer->question_id,true);
-        $rights=json_decode($Answer->value,true);
+        $rights=json_decode($Answer->value);
         foreach($arr as $key=>$value){
             if($value == 0){
                 $Question=Question::get($lists[$key]);
