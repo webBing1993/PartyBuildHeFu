@@ -15,5 +15,7 @@ use think\Model;
  */
 class Answer extends Model
 {
-
+    protected $insert = [
+        'create_time' => NOW_TIME
+    ];
 }
