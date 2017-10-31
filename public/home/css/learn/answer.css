@@ -232,8 +232,7 @@ body{
 	position: relative;
 	width: auto;
 	margin: 10px;
-	top: 50%;
-	margin-top: -49px;
+	margin-top:calc(50vh - 49px);
 	font-size: 0.46rem;
 }
 .modal-footer{

@@ -172,14 +172,7 @@ class Learn extends Base {
     public function submits(){
         //获取用户提交信息
         $data=input('post.');
-        $score=0;
-        $num = 0;
-        $sum = 0;
-        foreach($data['arr'] as $value){
-            if ($value != 0){
-                $sum ++;
-            }
-        }
+        $score=0;;
         //判断题目的对错,并改变分数
         foreach($data['arrId'] as $key=>$value){
             $question=Question::get($value);
@@ -187,7 +180,6 @@ class Learn extends Base {
                 if($data['arr'][$key]==$question->value){
                     $status[$key]=1;
                     $score++;
-                    $num ++;
                 }else{
                     $status[$key]=0;
                 }
@@ -195,7 +187,6 @@ class Learn extends Base {
                 if($data['arr'][$key]===explode(':',$question->value)){
                     $status[$key]=1;
                     $score++;
-                    $num ++;
                 }else{
                     $status[$key]=0;
                 }
@@ -250,15 +241,6 @@ class Learn extends Base {
         $this->assign('right2',$right2);
         return $this->fetch();
     }
-
-
-
-
-
-
-
-
-
 }
 
 
