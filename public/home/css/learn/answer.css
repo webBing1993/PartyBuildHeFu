@@ -245,3 +245,7 @@ a{
 .scores{
 	color: #f00;
 }
+input[type='radio'],input[type='checkbox']{
+	width: 20px;
+	height: 20px;
+}

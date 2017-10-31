@@ -18,11 +18,11 @@
 		</div>
 
 		{volist name="vo->Option" id="value" key="k"}
-		<label class="option_">
+		<span class="option_">
 			<input type="radio" name="s{$y}" value="{$k}">
-			<label class="option">{if condition="($k eq 1) AND ($value neq ' ')"}A{elseif condition="($k eq 2) AND ($value neq ' ')"}B{elseif condition="($k eq 3 )AND ($value neq ' ')"}C{elseif condition="($k eq 4 )AND ($value neq ' ')"/}D{/if}</label>
-			<label class="opt">{$value|substr=###,'2'}</label>
-		</label>
+			<span class="option">{if condition="($k eq 1) AND ($value neq ' ')"}A{elseif condition="($k eq 2) AND ($value neq ' ')"}B{elseif condition="($k eq 3 )AND ($value neq ' ')"}C{elseif condition="($k eq 4 )AND ($value neq ' ')"/}D{/if}</span>
+			<span class="opt">{$value|substr=###,'2'}</span>
+		</span>
 		{/volist}
 		<div class="sum"><span class="num">{$y}</span>/30</div>
 	</div>
@@ -37,11 +37,11 @@
 			{$vo->title}
 		</div>
 		{volist name="vo->Option" id="value" key="k"}
-		<label class="option_">
+		<span class="option_">
 			<input type="checkbox" name="m{$t}" value="{$k}">
-			<label class="option">{if condition="($k eq 1) AND ($value neq ' ')"}A{elseif condition="($k eq 2) AND ($value neq ' ')"}B{elseif condition="($k eq 3 )AND ($value neq ' ')"}C{elseif condition="($k eq 4 )AND ($value neq ' ')"/}D{/if}</label>
-			<label class="opt">{$value|substr=###,'2'}</label>
-		</label>
+			<span class="option">{if condition="($k eq 1) AND ($value neq ' ')"}A{elseif condition="($k eq 2) AND ($value neq ' ')"}B{elseif condition="($k eq 3 )AND ($value neq ' ')"}C{elseif condition="($k eq 4 )AND ($value neq ' ')"/}D{/if}</span>
+			<span class="opt">{$value|substr=###,'2'}</span>
+		</span>
 		{/volist}
 		<div class="sum"><span class="num">{$y+$t}</span>/30</div>
 	</div>
@@ -64,7 +64,7 @@
 				<div class="text-center">本次得分：<span class="scores"></span> 分</div>
 			</div>
 			<div class="modal-footer">
-				<a href="" id="link">查看详情</a>
+				<a href="" id="link">查看错题</a>
 			</div>
 		</div>
 	</div>
@@ -78,7 +78,7 @@
 		$("title").text("在线答题");
 			$('.option' ).css({'top':'5px','line-height':'18px'});
 			$('.opt').css({'margin-left':'6px'});
-		//同级触发input点击的事件
+//		同级触发input点击的事件
 		$('.option,.opt' ).on('click',function(){
 			var it = $(this).siblings('input');
 //			var it = $(this).parent('.option_');
@@ -89,7 +89,7 @@
 					it.next('.option').addClass('active' );
 					it.parent('.option_' ).siblings('.option_' ).find('.option' ).removeClass('active');
 				}
-			}else if(isiOS && it.attr('type')== 'checkbox'){
+			}else if(it.attr('type')== 'checkbox'){
 				//ios多选二次触发
 				if(it.prop('checked')){
 					it.removeAttr('checked')
@@ -101,17 +101,18 @@
 				}
 			}
 		});
-		//选中样式变化
-		$('input[type=radio]' ).on('click',function(e){
+//		选中样式变化
+		$("input[type=radio]").next('.option').on('click',function(e){
 			var it = $(this);
 			if(it.prop('checked')){
 				it.next('.option').addClass('active' );
 				it.parent('.option_' ).siblings('.option_' ).find('.option' ).removeClass('active');
 			}
 		});
-		$('input[type=checkbox]' ).on('click',function(e){
+
+		$('input[type=checkbox]').next('.option').on('click',function(e){
 			var it = $(this);
-			it.next('.option' ).toggleClass('active');
+			it.next('.option').toggleClass('active');
 		});
 		//退出提示
 		isOut();
