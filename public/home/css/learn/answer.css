@@ -215,7 +215,7 @@ body{
 	position: fixed;
 	top:43%;
 	color:#ffffff;
-	font-size: 0.8rem;
+	font-size: 0.6rem;
 	text-align: center;
 	margin-top: 20px;
 }
@@ -239,4 +239,7 @@ body{
 .modal-footer{
 	text-align: center;
 	font-size: 0.42rem;
+}
+a{
+	color: #333;
 }

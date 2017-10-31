@@ -1,7 +1,6 @@
 {extend name="public/common"}
 
 {block name="style"}
-<title>党课在线</title>
 <link rel="stylesheet" href="/home/css/constitution/answer.css">
 <link rel="stylesheet" href="/home/css/constitution/game.css">
 {/block}
@@ -63,6 +62,7 @@
 <script src="/home/js/reset.js"></script>
 <script>
     $(function() {
+        $("title").text("在线答题");
         $('.option').css({'top': '5px', 'line-height': '18px'});
         $('.opt').css({'margin-left': '6px'});
     });
