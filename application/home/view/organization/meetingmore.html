@@ -19,7 +19,7 @@
         <div class="list">
             <ul>
                 {volist name="list" id="lo"}
-                <a href="{:Url('Lesson/meetingdetail?id='.$lo['id'])}">
+                <a href="{:Url('Organization/meetingdetail?id='.$lo['id'])}">
                     <img src="{$lo.front_cover}">
                     <p>{$lo.title}</p>
                     <span>{$lo.publisher}</span>
@@ -41,6 +41,8 @@
         $("title").text("会议情况");
     }else if(c==3){
         $("title").text("党课情况");
+    }else if(c==5){
+        $("title").text("活动情况");
     }
     window.onload = function() {
         if ($(".list ul a").length < 10) {
@@ -66,7 +68,7 @@
         var type = "{$type}";
         $.ajax({
             type:"post",
-            url: "{:Url('Lesson/more')}",
+            url: "{:Url('Organization/more')}",
             data:{
                 type:type,
                 length:len

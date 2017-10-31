@@ -111,20 +111,20 @@
 
         <div class="mui-slider-group">
             <div id="item1mobile" class="mui-slider-item mui-control-content">
-                {if condition="$notice eq null && $meet eq null && $party eq null"}
+                {if condition="$notice eq null && $meeting eq null && $party eq null"}
                     <div class="default"><img src="/home/images/common/nomessage.png" alt="暂无消息"> </div>
                 {else/}
                 {notempty name="notice"}
                 <!--相关通知-->
                 <div class="notice">
-                    <a class="more" href="{:Url('Learn/noticemore?type=1')}">
+                    <a class="more" href="{:Url('Organization/noticemore?type=1')}">
                         <span>相关通知</span>
                         <span>更多</span>
                     </a>
                     <div class="list">
                         <ul>
                             {volist name="notice" id="no"}
-                                <a href="{:Url('Lesson/noticedetail?id='.$no['id'])}">
+                                <a href="{:Url('Organization/noticedetail?id='.$no['id'])}">
                                     <p style="font-size: 0.4rem;">{$no.title}</p>
                                     <p style="font-size: 0.36rem;">{$no.description}</p>
                                     <span>{$no.create_time}</span>
@@ -135,17 +135,17 @@
                     </div>
                 </div>
                 {/notempty}
-                {notempty name="meet"}
+                {notempty name="meeting"}
                 <!--会议情况-->
                 <div class="meeting">
-                    <a class="more" href="{:Url('Learn/meetingmore?type=2')}">
+                    <a class="more" href="{:Url('Organization/meetingmore?type=2')}">
                         <span>会议情况</span>
                         <span>更多</span>
                     </a>
                     <div class="list">
                         <ul>
-                            {volist name="meet" id="mee"}
-                                <a href="{:Url('Lesson/meetingdetail?type=2&id='.$mee['id'])}">
+                            {volist name="meeting" id="mee"}
+                                <a href="{:Url('Organization/meetingdetail?type=2&id='.$mee['id'])}">
                                     <img src="{$mee.front_cover}">
                                     <p>{$mee.title}</p>
                                     <span>{$mee.create_time}</span>
@@ -159,17 +159,17 @@
                 {notempty name="party"}
                 <!--党课情况-->
                 <div class="party">
-                    <a class="more" href="{:Url('Learn/meetingmore?type=3')}">
+                    <a class="more" href="{:Url('Organization/meetingmore?type=3')}">
                         <span>党课情况</span>
                         <span>更多</span>
                     </a>
                     <div class="list">
                         <ul>
                             {volist name="party" id="pa"}
-                                <a href="{:Url('Lesson/meetingdetail?type=3&id='.$pa['id'])}">
+                                <a href="{:Url('Organization/meetingdetail?type=3&id='.$pa['id'])}">
                                     <img src="{$pa.front_cover}">
                                     <p>{$pa.title}</p>
-                                    <span>{$mee.create_time}</span>
+                                    <span>{$pa.create_time}</span>
                                     <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
                                 </a>
                             {/volist}
@@ -180,18 +180,18 @@
                 {/if}
             </div>
             <div id="item2mobile" class="mui-slider-item mui-control-content">
-                {if condition="$recruit eq null && $activity eq null"}
+                {if condition="$planing eq null && $activity eq null"}
                 {else/}
-                {notempty name="recruit"}
+                {notempty name="planing"}
                 <!--相关通知-->
                 <div class="notice">
-                    <a class="more" href="{:Url('Learn/noticemore?type=2')}">
+                    <a class="more" href="{:Url('Organization/noticemore?type=4')}">
                         <span>活动招募</span>
                         <span>更多</span>
                     </a>
                     <div class="list">
                         <ul>
-                            {volist name="recruit" id="re"}
+                            {volist name="planing" id="re"}
                                 <a href="">
                                     <p style="font-size: 0.4rem;">{$re.title}</p>
                                     <p style="font-size: 0.36rem;">{$re.description}</p>
@@ -203,10 +203,10 @@
                     </div>
                 </div>
                 {/notempty}
-                {notempty name="ativity"}
+                {notempty name="activity"}
                 <!--会议情况-->
                 <div class="meeting">
-                    <a class="more" href="{:Url('Learn/meetingmore?type=4')}">
+                    <a class="more" href="{:Url('Organization/meetingmore?type=5')}">
                         <span>活动情况</span>
                         <span>更多</span>
                     </a>
