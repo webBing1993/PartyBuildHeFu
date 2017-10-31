@@ -77,7 +77,7 @@
   width: 100%;
   padding-left: 4vw;
   padding-right: 4vw;
-  padding-top: 13px;
+  padding-top: 3.2vw;
 }
 .music .title {
   text-align: center;
@@ -94,20 +94,20 @@
   width: 100%;
   color: #999999;
   font-size: .32rem;
-  line-height: 26px;
+  line-height:6.5vw;
   border-bottom: 1px solid #f1f1f1;
-  margin-top: 10px;
+  margin-top: 2.5vw;
 }
 .music .time span {
-  margin-right: 10px;
+  margin-right: 12.5vw;
 }
 .music .content {
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   color: #666666;
 }
 .music .content * {
-  max-width: 100%!important;
+  max-width: 100vw!important;
 }
 .music .content p span {
   background: transparent!important;
@@ -115,7 +115,7 @@
 .music .content img {
   display: block;
   max-width: 100%!important;
-  margin-bottom: 13px;
+  margin-bottom: 3.2vw;
 }
 .music .content iframe {
   width: 100vw!important;
@@ -123,42 +123,42 @@
 }
 .music .content .note {
   color: #666666;
-  font-size: 14px;
+  font-size: 3.5vw;
   float: right;
 }
 .music .content .note span {
-  height: 40px;
+  height: 10vw;
   display: inline-block;
-  margin-right: 10px;
-  line-height: 40px;
+  margin-right:2.5vw;
+  line-height: 10vw;
 }
 .music .content .note span:last-child{
   margin-right: 0;
 }
 .music .content .note .read {
   background: url('/home/images/common/scan_.png') 0 12px no-repeat;
-  background-size: 15px 15px;
-  padding-left: 18px;
+  background-size: 3.6vw 3.6vw;
+  padding-left: 4.5vw;
 }
 .music .content .note .isgood {
-  background-size: 15px 15px;
-  padding-left: 18px;
+  background-size: 3.6vw 3.6vw;
+  padding-left: 4.5vw;
 }
 /*加载动画*/
 .loading {
   width: 100%;
-  height: 40px;
+  height: 10vw;
 }
 .typing_loader {
-  width: 6px;
-  height: 6px;
+  width:1.5vw;
+  height: 1.5vw;
   border-radius: 50%;
   -webkit-animation: typing 1s linear infinite alternate;
   -moz-animation: Typing 1s linear infinite alternate;
   animation: typing 1s linear infinite alternate;
   position: relative;
   top: 17px;
-  left: calc( 50vw - 15px );
+  left: calc( 50vw - 3.6vw );
 }
 .scrollDiy{
   position: absolute;
@@ -167,5 +167,5 @@
   overflow-y: scroll;
   /* 增加该属性，可以增加弹性 */
   -webkit-overflow-scrolling: touch;
-  width:100%;
+  width:100vw;
 }

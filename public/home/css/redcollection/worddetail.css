@@ -3,10 +3,10 @@ body {
 }
 .title {
   width: 86vw;
-  height: 50px;
+  height: 12.5vw;
   margin: 0 auto;
   border-bottom: 2px solid #556f7b;
-  line-height: 50px;
+  line-height: 12.5vw;
   text-align: center;
 }
 .title p {
@@ -19,16 +19,16 @@ body {
 }
 .list {
   width: 90vw;
-  margin: 15px auto;
+  margin: 3.6vw auto;
 }
 .list .content {
   text-indent: 2em;
   font-size: .37rem;
-  line-height: 24px;
+  line-height: 6vw;
 }
 .list .author {
   width: 100%;
   color: #556f7b;
   text-align: right;
-  line-height: 36px;
+  line-height:9vw;
 }

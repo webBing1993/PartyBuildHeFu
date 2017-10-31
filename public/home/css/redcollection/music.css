@@ -24,7 +24,7 @@
   height: 12vw;
   color: #333333;
   font-size: .37rem;
-  line-height: 5.8vw;
+  line-height: 7.8vw;
   overflow: hidden;
 }
 .lists .list .content .note {
@@ -34,13 +34,13 @@
 }
 .lists .list .content .note .scan {
   background: url('/home/images/common/scan_.png') 0 1px no-repeat;
-  background-size: 14px 14px;
-  padding-left: 20px;
+  background-size:3.5vw 3.5vw;
+  padding-left: 5vw;
 }
 .tip {
-  height: 40px;
+  height: 10vw;
   text-align: center;
-  line-height: 40px;
+  line-height: 10vw;
   color: #c1c1c1;
 }
 /*加载动画*/
@@ -49,13 +49,13 @@
   height: 40px;
 }
 .typing_loader {
-  width: 6px;
-  height: 6px;
+  width: 1.5vw;
+  height: 1.5vw;
   border-radius: 50%;
   -webkit-animation: typing 1s linear infinite alternate;
   -moz-animation: Typing 1s linear infinite alternate;
   animation: typing 1s linear infinite alternate;
   position: relative;
-  top: 17px;
-  left: calc( 50vw - 15px );
+  top: 4.7vw;
+  left: calc( 50vw - 4vw);
 }

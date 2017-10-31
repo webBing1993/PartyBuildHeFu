@@ -17,13 +17,13 @@ body {
   bottom: 5vw;
   left: 0;
   width: 100%;
-  height: 30px;
+  height: 7.5vw;
   text-align: center;
 }
 .banner .search .fa {
   position: absolute;
-  top: 8px;
-  left: 17vw;
+  top: 2.5vw;
+  left: 18vw;
   color: #9a9a9a;
 }
 .banner .search input {
@@ -31,24 +31,24 @@ body {
   height: 100%;
   padding-left: 8vw;
   -webkit-border-radius: 6px;
-  border-radius: 6px;
+  border-radius: 1.4vw;
 }
 .banner .search .results .result {
   display: inline-block;
   width: 70vw;
-  height: 40px;
+  height: 10vw;
   margin: 0 auto;
-  padding-left: 15px;
+  padding-left:3.6vw;
   background: rgba(255, 255, 255, 0.6);
   border-bottom: 1px solid #ffffff;
   color: #666666;
-  line-height: 40px;
+  line-height: 10vw;
   text-align: left;
 }
 .tabs {
   width: 100vw;
-  height: 44px;
-  padding: 8px 0;
+  height: 11vw;
+  padding: 2vw 0;
   background: #f4f4f4;
 }
 .tabs .tab {
@@ -56,8 +56,8 @@ body {
   width: 49vw;
   height: 100%;
   color: #666666;
-  font-size: .4.32rem;
-  line-height: 28px;
+  font-size: .32rem;
+  line-height: 7vw;
   text-align: center;
 }
 .tabs .tab:first-child {
