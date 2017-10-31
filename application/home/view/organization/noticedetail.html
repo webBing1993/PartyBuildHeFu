@@ -35,17 +35,6 @@
     </div>
     <div class="content">
         <div class="article-content">{$detail.content}</div>
-        <div class="like">
-            {eq name="visit" value="0"}
-            {eq name="detail.is_like" value="1"}
-            <span class="isgood good_ notvisitor"  data-type="5" data-id="{$detail.id}" onclick="isGood(this,5,{$detail.id})">{$detail.likes}</span>
-            {else/}
-            <span class="isgood good notvisitor"  data-type="5" data-id="{$detail.id}" onclick="isGood(this,5,{$detail.id})">{$detail.likes}</span>
-            {/eq}
-            {else/}
-            <span class="isgood good">{$detail.likes}</span>
-            {/eq}
-        </div>
     </div>
 </div>
 {/block}
@@ -62,27 +51,6 @@
         loop:true,
         autoplayDisableOnInteraction : false
     });
-
-    //点赞
-    var isGood = function(e,type,id){
-        //样式变化，移到suc
-        var n = $(e ).text();
-        $(e).toggleClass('good' ).toggleClass('good_');
-        $(e ).hasClass('good')?n--:n++;
-        $(e ).text(n);
-        //type：1文章，2评论
-//	var type = $(e ).hasClass('fr')?2:1;
-        $.ajax({
-            type:"post",
-            url:"{:Url('Base/like')}",
-            data:{
-                type:type,
-                aid:id,
-            },
-            success:function(data){
-            }
-        })
-    };
 </script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
