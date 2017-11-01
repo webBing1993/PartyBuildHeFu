@@ -13,7 +13,7 @@ use app\home\model\Like;
 use app\home\model\Picture;
 use app\home\model\WechatUser;
 // 党员风采
-class Pioneer extends Base {
+class Style extends Base {
     /**
      * 党员风采详情页
      */
