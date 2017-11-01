@@ -87,7 +87,7 @@
     height: 0.8rem;
     padding-left: 1rem;
     line-height: 0.8rem;
-    font-size: 0.32rem;
+    font-size: 0.36rem;
 }
 .article .message div span {
     display: inline-block;
@@ -103,28 +103,28 @@
 }
 .article .message div:nth-child(3) {
     background: url(/home/images/detail/phone.png) 0.3rem 0.2rem no-repeat;
-    background-size: 0.4rem 0.4rem;
+    background-size: 0.5rem 0.5rem;
 }
 .article .message div:nth-child(3)>a{
     color: #333;
 }
 .article .message div:nth-child(1) {
-    background: url("/home/images/detail/time.png") 0.3rem 0.2rem no-repeat;
-    background-size: 0.4rem 0.4rem;
+    background: url(/home/images/detail/time.png) 0.3rem 0.2rem no-repeat;
+    background-size: 0.5rem 0.5rem;
 }
 .article .message div:nth-child(2) {
     background: url(/home/images/detail/address.png) 0.3rem 0.2rem no-repeat;
-    background-size: 0.4rem 0.4rem;
+    background-size: 0.5rem 0.5rem;
 }
 
 /*article content */
 .article-content p,.article-content p span,.article-content{
-    font-size: 0.38rem!important;
+    font-size: 0.44rem!important;
     color: #333;
 }
 .article .content * {
     max-width: 100%!important;
-    line-height: 0.5rem!important;
+    line-height: 0.7rem!important;
 }
 .article .content {
     width: 100%;
