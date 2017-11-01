@@ -128,6 +128,7 @@ class Volunteer extends Admin {
             $Model = new VolunteerDetail();
             $info = $Model->validate('Volunteer.detail')->save($data);
             if($info) {
+                VolunteerModel::where('id',$data['pid'])->setInc('times');
                 return $this->success("新增成功",Url('Volunteer/index2'));
             }else{
                 return $this->get_update_error_msg($Model->getError());
@@ -170,9 +171,11 @@ class Volunteer extends Admin {
      */
     public function d_del() {
         $id = input('id');
+        $pid = input('pid');
         $data['status'] = '-1';
         $info = VolunteerDetail::where('id',$id)->update($data);
         if($info) {
+            VolunteerModel::where('id',$pid)->setDec('times');
             return $this->success("删除成功");
         }else{
             return $this->error("删除失败");

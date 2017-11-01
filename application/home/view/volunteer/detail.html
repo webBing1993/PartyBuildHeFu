@@ -8,13 +8,13 @@
 {block name="body"}
 <div class="scrollDiy">
     <div class="article">
-        <div class="title limit_"><p>党员风采标题</p></div>
+        <div class="title limit_"><p>{$detail.title}</p></div>
         <div class="note clear">
-            <span class="fl">地理位置</span>
-            <span class="fr">2017-10-27</span>
+            <span class="fl">{$detail.publisher}</span>
+            <span class="fr">{$detail.create_time|time_format='Y-m-d'}</span>
         </div>
         <div class="content">
-            这是详情页的内容区域
+            {$detail.content}
         </div>
     </div>
 </div>

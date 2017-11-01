@@ -9,27 +9,16 @@
     <div class="banner"><img src="/home/images/banner/1.jpg" alt=""></div>
     <div class="main">
         <div class="lists">
+            {volist name="list" id="vo"}
             <div class="list color1">
-                <a href="/home/volunteer/team.html">
-                    <div class="img"><img src="/home/images/common/1.jpg" alt=""></div>
-                    <div class="name">平安巡查队</div>
-                    <div class="notes">活动：<span>265</span>次</div>
+                <a href="{:Url('Volunteer/team?id='.$vo['id'])}">
+                    <div class="img"><img src="{$vo.front_cover|get_cover='path'}" alt=""></div>
+                    <div class="name">{$vo.name}</div>
+                    <div class="notes">活动：<span>{$vo.times}</span>次</div>
                 </a>
             </div>
-            <div class="list color2">
-                <a href="/home/volunteer/team.html">
-                    <div class="img"><img src="/home/images/common/1.jpg" alt=""></div>
-                    <div class="name">平安巡查队</div>
-                    <div class="notes">活动：<span>265</span>次</div>
-                </a>
-            </div>
-            <div class="list color3">
-                <a href="/home/volunteer/team.html">
-                    <div class="img"><img src="/home/images/common/1.jpg" alt=""></div>
-                    <div class="name">平安巡查队</div>
-                    <div class="notes">活动：<span>265</span>次</div>
-                </a>
-            </div>
+            {/volist}
+
         </div>
     </div>
 {/block}

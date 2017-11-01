@@ -10,54 +10,34 @@
 <div class="banners">
     <div class="swiper-container">
         <div class="imgs swiper-wrapper">
+            {volist name="list.top" id="vo1"}
             <div class="banner swiper-slide">
-                <a href="/home/volunteer/detail.html">
-                    <img src="/home/images/banner/1.jpg" alt="">
-                    <div class="title_ limit">和浮镇最新新闻消息</div>
+                <a href="{:Url('Volunteer/detail?id='.$vo1['id'])}">
+                    <img src="{$vo1.front_cover|get_cover='path'}" alt="">
+                    <div class="title_ limit">{$vo1.title}</div>
                 </a>
             </div>
-            <div class="banner swiper-slide">
-                <a href="/home/volunteer/detail.html">
-                    <img src="/home/images/banner/2.jpg" alt="">
-                    <div class="title_ limit">和浮镇最新新闻消息</div>
-                </a>
-            </div>
-            <div class="banner swiper-slide">
-                <a href="/home/volunteer/detail.html">
-                    <img src="/home/images/banner/1.jpg" alt="">
-                    <div class="title_ limit">和浮镇最新新闻消息</div>
-                </a>
-            </div>
+            {/volist}
         </div>
         <div class="swiper-pagination"></div>
     </div>
 </div>
 <!--新闻列表-->
 <div class="lists">
-    <a class="list clear" href="/home/volunteer/detail.html">
+    {volist name="list.list" id="vo2"}
+    <a class="list clear" href="{:Url('Volunteer/detail?id='.$vo2['id'])}">
         <div class="fl">
-            <img src="/home/images/banner/1.jpg" alt="" style="width: 28.2vw;height: 18.8vw">
+            <img src="{$vo2.front_cover|get_cover='path'}" alt="" style="width: 28.2vw;height: 18.8vw">
         </div>
         <div class="fr lr">
-            <div class="title limit_">新闻标题</div>
+            <div class="title limit_">{$vo2.title}</div>
             <div class="clear">
-                <span class="fl">2017-10-27</span>
+                <span class="fl">{$vo2.create_time|time_format='Y-m-d'}</span>
                 <span class="fr">详情</span>
             </div>
         </div>
     </a>
-    <a class="list clear" href="/home/volunteer/detail.html">
-        <div class="fl">
-            <img src="/home/images/banner/1.jpg" alt="" style="width: 28.2vw;height: 18.8vw">
-        </div>
-        <div class="fr lr">
-            <div class="title limit_">新闻标题</div>
-            <div class="clear">
-                <span class="fl">2017-10-27</span>
-                <span class="fr">详情</span>
-            </div>
-        </div>
-    </a>
+    {/volist}
 </div>
 <div class="tip"></div>
 <div class="loading hidden">
