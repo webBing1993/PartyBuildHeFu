@@ -1,8 +1,9 @@
 /*tab*/
 #tab{
-    padding: 4px 0;
+    padding: 1px 0;
     position: fixed;
     top:0;
+    height:10vw;
 }
 .mui-slider-indicator.mui-segmented-control {
     z-index: 999;
@@ -16,19 +17,24 @@
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item:last-child{
     border-right: none;
 }
-
+.mui-segmented-control .mui-control-item{
+    line-height: 10vw;
+}
 #refreshContainer{
-    margin-top: 38px;
+    margin-top: 10vw;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item{
+    position: relative;
 }
 #tab a:after{
     display: inline-block;
     content: '';
     width: 1px;
-    height: 18px;
+    height: 4vw;
     background: #aaa;
-    position: relative;
-    top: 4px;
-    left: 8vw;
+    position: absolute;
+    top: 3vw;
+    left:33vw;
 }
 #tab a:last-child:after{
     display: none;
