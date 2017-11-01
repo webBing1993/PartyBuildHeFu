@@ -12,6 +12,9 @@
     .comment{
         padding-bottom: 1rem;
     }
+    .article .message {
+        margin-top: 0 ;
+    }
 </style>
 {/block}
 {block name="body"}
@@ -45,9 +48,9 @@
 <script>
     var c =  parseInt(window.location.href.split("type/")[1]);
     if(c==1){
-        $("title").text("会议情况");
+        $("title").text("相关通知");
     }else if(c==4){
-        $("title").text("党课情况");
+        $("title").text("活动招募");
     }
     if($(".message div").length==0){
         $(".article .message").css("border","none");
