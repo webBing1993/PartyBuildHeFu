@@ -2,7 +2,8 @@
 .banner {
     width: 100vw;
     height: 50vw;
-    background-color: orangered;
+    background: url("/home/images/banner/05.png") no-repeat;
+    background-size: 100vw 50vw;
 }
 .banner>div {
     width: 50vw;
@@ -76,7 +77,7 @@
     color: #333;
     border: 1px solid orange;
     border-radius: 2.7vw;
-    box-shadow: 1px 1px 1px orange;
+    box-shadow: 0 0 0 orange;
     line-height: 6vw;
 }
 .list:last-of-type .cont {

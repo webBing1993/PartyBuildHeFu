@@ -53,6 +53,8 @@
 }
 .color1 {
     border-color: red;
+}
+.color1:hover {
     box-shadow: 0 0 1.6vw red;
 }
 .color2 {
