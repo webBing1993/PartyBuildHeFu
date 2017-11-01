@@ -23,7 +23,7 @@
             <div class="content">
                 <div class="article-content">{$detail.content}</div>
                 <div class="like">
-                    <span class="read">{$detail.views}</span>
+                    <span class="read">{$detail.views + 1}</span>
                 </div>
             </div>
         </div>
@@ -37,6 +37,8 @@
         $("title").text("会议情况");
     }else if(c==3){
         $("title").text("党课情况");
+    }else if(c==3){
+        $("title").text("活动情况");
     }
 </script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>

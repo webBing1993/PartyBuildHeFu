@@ -1,7 +1,7 @@
 {extend name="public/common"}
 
 {block name="style"}
-<title>相关通知</title>
+<title></title>
 <link rel="stylesheet" href="/static/swiper/swiper-3.3.1.min.css">
 <link rel="stylesheet" href="/home/css/details-template/banner-detail.css">
 <style>
@@ -29,9 +29,9 @@
         <span class="time">{$detail.create_time|time_format="Y-m-d"}</span>
     </div>
     <div class="message">
-        <div class="name limit">{$detail.create_time|time_format='Y/m/d H:i'}--{$detail.end_time|time_format='Y/m/d H:i'}</div>
+        <div class="name limit">{$detail.time|time_format='Y-m-d H:i'}</div>
         <div class="address" >{$detail.address}</div>
-        <div class="people" >{$detail.people}</div>
+        <div class="people" >{$detail.telephone}</div>
     </div>
     <div class="content">
         <div class="article-content">{$detail.content}</div>
@@ -43,6 +43,12 @@
 <script src="/static/swiper/swiper-3.3.1.jquery.min.js"></script>
 <script src="/home/js/reset.js"></script>
 <script>
+    var c =  parseInt(window.location.href.split("type/")[1]);
+    if(c==1){
+        $("title").text("会议情况");
+    }else if(c==4){
+        $("title").text("党课情况");
+    }
     if($(".message div").length==0){
         $(".article .message").css("border","none");
     }

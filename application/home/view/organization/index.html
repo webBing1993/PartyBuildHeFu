@@ -141,7 +141,7 @@
                     <div class="list">
                         <ul>
                             {volist name="notice" id="no"}
-                                <a href="{:Url('Organization/noticedetail?id='.$no['id'])}">
+                                <a href="{:Url('Organization/noticedetail?type=1&id='.$no['id'])}">
                                     <p style="font-size: 0.4rem;">{$no.title}</p>
                                     <p style="font-size: 0.36rem;">{$no.description}</p>
                                     <span>{$no.create_time}</span>
