@@ -67,6 +67,7 @@
     height: 100%;
     display: inline-block;
     border-right: 1px solid #d9d9d9;
+    position: relative;
 }
 .list2 li:nth-of-type(2n) a {
     border-right: 0;
@@ -85,8 +86,11 @@
 }
 .list2 li .notes {
     width: 54%;
-    margin-top: 2vw;
-    margin-left: -1.6vw;
+    /*margin-top: 1.6vw;*/
+    /*margin-left: -1.6vw;*/
+    position: absolute;
+    top: 1.6vw;
+    left: 41%;
 }
 .list2 li .notes .content {
     /*margin-top: 1.6vw;*/
@@ -144,7 +148,7 @@
 }
 .newsLists .list .fl .type{
     position: absolute;
-    bottom: 15px;
+    bottom: 4vw;
     left: 3.2vw;
     width: 25vw;
     text-align: center;

@@ -1,74 +1,110 @@
 {extend name="public/common"}
 {block name="style"}
 <title>党员风采</title>
-<link rel="stylesheet" href="/home/css/common/rem.css">
 <link rel="stylesheet" href="/home/css/pioneer/index.css">
-<link rel="stylesheet" href="/home/css/common/tip.css">
 {/block}
 {block name="body"}
-<!--tab-->
-<div class="scrollDiy">
-    <!--切换列表-->
-    <div class="content">
-        <!--创业导师团-->
-        <div class="notices">
-            <div class="notice regularmore">
-                <div class="lists tutor">
-                    <ul>
-                        {volist name="list" id="vo"}
-                        <li>
-                            <a href="{:Url('Style/detail?id='.$vo['id'])}">
-                                <img src="{$vo.front_cover|get_cover='path'}">
-                                <span>{$vo.name}</span>
-                                <span class="position">{$vo.position}</span>
-                                <!--<span onclick="like()" class="like"><i></i><em>100</em></span>-->
-                            </a>
-                        </li>
-                        {/volist}
-                    </ul>
+<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+    <div class="mui-scroll">
+        <div class="mui-slider-group">
+            <div class="content">
+                <!--创业导师团-->
+                <div class="notices">
+                    <div class="notice regularmore">
+                        <div class="lists tutor">
+                            <ul>
+                                {volist name="list" id="vo"}
+                                <li>
+                                    <a href="{:Url('Style/detail?id='.$vo['id'])}">
+                                        <img src="{$vo.front_cover|get_cover='path'}">
+                                        <span>{$vo.name}</span>
+                                        <span class="position">{$vo.position}</span>
+                                    </a>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--加载更多-->
-        <div class="tip"></div>
-        <div class="loading hidden">
-            <div class="typing_loader"></div>
-        </div>
-        </div>
     </div>
+</div>
 
 
 {/block}
 {block name="script"}
     <script src="/home/js/reset.js"></script>
 <script>
-    //点赞
-   var like = function(e,id,type){
-       var n = parseInt($(e).children("em").text());
-       if($(e).hasClass('liked')){
-           return false;
-       }
-       $.ajax({
-           type:"post",
-           url:"{:Url('Pioneer/like')}",
-           data:{
-               type:type,
-               aid:id,
-           },
-           success:function(data){
-               if(data.code == 1){
-                   $(e).children("em").text(n+1);
-                   $(e).removeClass("like").addClass("liked");
-               }else{
-                   swal({
-                       title: ' ',
-                       text: data.msg,
-                       type: 'error',
-                       confirmButtonText:'确定'
-                   });
-               }
-           }
-       })
-   }
+    window.onload = function () {
+        if ($(".newsLists a").length < 10) {
+            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+        } else {
+            mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+        }
+    };
+    mui.init({
+        pullRefresh : {
+            container: "#refreshContainer",
+            up : {
+                contentrefresh: '正在加载...',
+                callback : loadScroll
+            }
+        }
+    });
+    function loadScroll() {
+        var len = $(".lists li").length;
+        $.ajax({
+            type: "post",
+//            url: ,
+            data: {
+                length: len
+            },
+            beforeSend: function(XMLHttpRequest){
+            },
+            success:function(data){
+                addCourse(data);
+                if(data.code == 1){
+                    var dataLen =data.data.length;
+                    if(data.data.length == 10){
+                        mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
+                    }else{
+                        mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+                    }
+                }else{
+                    mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+                }
+            }
+        })
+    }
+    function addCourse(data) {
+        for(var key in data){
+            var html = '';
+            var lists = data[key];
+            var len = lists.length;
+            for(var i = 0; i< len;i++){
+                var list = lists[i];
+                html +=
+                        '<li>'
+                        +'<a href="/home/style/detail/id/'
+                        +list.id
+                        +'.html">'
+                        +'<img src="'
+                        +list.src
+                        +'">'
+                        +'<span>{$vo.name}</span>'
+                        +'<span class="position">'
+                        +list.position
+                        +'</span>'
+                        +'</a>'
+                        +'</li>'
+            }
+            $(".lists ul" ).append(html);
+        }
+    }
+    mui("#refreshContainer").on("tap","a",function(){
+        var url = this.getAttribute("href");
+        window.location.href = url;
+    })
 </script>
 {/block}
