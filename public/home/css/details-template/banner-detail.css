@@ -101,18 +101,18 @@
     padding-right: 0!important;
 }
 .article .message div.people {
-    background: url(/home/images/detail/phone.png) 0.3rem 0.2rem no-repeat;
+    background: url(/home/images/detail/phone.png) 0.3rem 0.15rem no-repeat;
     background-size: 0.5rem 0.5rem;
 }
 .article .message div:nth-child(3)>a{
     color: #333;
 }
 .article .message div.name {
-    background: url(/home/images/detail/time.png) 0.3rem 0.2rem no-repeat;
+    background: url(/home/images/detail/time.png) 0.3rem 0.15rem no-repeat;
     background-size: 0.5rem 0.5rem;
 }
 .article .message div.address {
-    background: url(/home/images/detail/address.png) 0.3rem 0.2rem no-repeat;
+    background: url(/home/images/detail/address.png) 0.3rem 0.15rem no-repeat;
     background-size: 0.5rem 0.5rem;
 }
 

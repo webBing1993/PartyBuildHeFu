@@ -312,6 +312,11 @@
         }
     }
 
+    mui("#refreshContainer").on("tap","a",function(){
+        var url = this.getAttribute("href");
+        window.location.href = url;
+    })
+
 </script>
 
 {/block}
