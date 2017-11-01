@@ -15,38 +15,16 @@
             <div class="notice regularmore">
                 <div class="lists tutor">
                     <ul>
+                        {volist name="list" id="vo"}
                         <li>
-                            <a href="/home/pioneer/detail.html">
-                                <img src="/home/images/pioneer/hexagon.png">
-                                <span>姓名</span>
-                                <span class="position">个人地位</span>
+                            <a href="{:Url('Style/detail?id='.$vo['id'])}">
+                                <img src="{$vo.front_cover|get_cover='path'}">
+                                <span>{$vo.name}</span>
+                                <span class="position">{$vo.position}</span>
                                 <!--<span onclick="like()" class="like"><i></i><em>100</em></span>-->
                             </a>
                         </li>
-                        <li>
-                            <a href="/home/pioneer/detail.html">
-                                <img src="/home/images/pioneer/hexagon.png">
-                                <span>姓名</span>
-                                <span class="position">个人地位</span>
-                                <!--<span onclick="like()" class="like"><i></i><em>100</em></span>-->
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/home/pioneer/detail.html">
-                                <img src="/home/images/pioneer/hexagon.png">
-                                <span>姓名</span>
-                                <span class="position">个人地位</span>
-                                <!--<span onclick="like()" class="like"><i></i><em>100</em></span>-->
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/home/pioneer/detail.html">
-                                <img src="/home/images/pioneer/hexagon.png">
-                                <span>姓名</span>
-                                <span class="position">个人地位</span>
-                                <!--<span onclick="like()" class="like"><i></i><em>100</em></span>-->
-                            </a>
-                        </li>
+                        {/volist}
                     </ul>
                 </div>
             </div>
