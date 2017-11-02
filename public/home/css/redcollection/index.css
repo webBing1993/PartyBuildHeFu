@@ -150,24 +150,24 @@ body {
     width: 100vw;
     height: 11vw;
     padding: 2vw 0;
-    background: #f1f1f1;
+    background: #BF0301;
     margin-bottom: 1px;
 }
 .tabs .tab {
     display: inline-block;
     width: 32vw;
     height: 100%;
-    color: #333333;
     font-size: .4rem;
     line-height: 7vw;
     text-align: center;
-}
-.tabs .tab:first-child {
+    color: #f1f1f1;
     border-right: 1px solid #e5e5e5;
 }
+.tabs .tab:last-of-type {
+    border-right: 0;
+}
 .tabs .active {
-    color: #fd6743;
-    border-bottom: .8vw solid #fd6743;
+    color: #e1a469;
 }
 body{
     height:100%;

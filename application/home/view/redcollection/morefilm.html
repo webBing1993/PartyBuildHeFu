@@ -5,22 +5,33 @@
 {/block}
 
 {block name="body"}
-<div class="search">
-	<span class="fa fa-search"></span>
-	<input type="text" placeholder="输入电影名称">
-</div>
-<div class="results"></div>
-<div class="lists-title clear">
-	经典热播
-</div>
-<div class="lists">
-	{volist name="list" id="vo"}
-	<a href="{:Url('Redcollection/filmdetail?id='.$vo['id'])}" class="list">
-		<img src="{$vo.front_cover|get_cover='path'}" alt="红色电影" class="list-img">
-		<div class="list-title limit">{$vo.title}</div>
-		<div class="list-summary limit">{$vo.introduction}</div>
-	</a>
-	{/volist}
+<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+	<div class="mui-scroll">
+		<div class="mui-slider-group">
+			<div class="tabs clear">
+				<div class="tab active"><span>红色电影</span></div>
+				<div class="tab"><span>红色文学</span></div>
+				<div class="tab"><span>红色歌曲</span></div>
+			</div>
+			<div class="search">
+				<span class="fa fa-search"></span>
+				<input type="text" placeholder="输入电影名称">
+			</div>
+			<div class="results"></div>
+			<div class="lists-title clear">
+				经典热播
+			</div>
+			<div class="lists">
+				{volist name="list" id="vo"}
+				<a href="{:Url('Redcollection/filmdetail?id='.$vo['id'])}" class="list">
+					<img src="{$vo.front_cover|get_cover='path'}" alt="红色电影" class="list-img">
+					<div class="list-title limit">{$vo.title}</div>
+					<div class="list-summary limit">{$vo.introduction}</div>
+				</a>
+				{/volist}
+			</div>
+		</div>
+	</div>
 </div>
 {/block}
 
@@ -65,6 +76,83 @@ $(function(){
 			});
 		}
 	});
+});
+
+
+window.onload = function () {
+	if ($(".lists a").length < 9) {
+		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+	} else {
+		mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+	}
+};
+mui.init({
+	pullRefresh : {
+		container: "#refreshContainer",
+		up : {
+			callback : loadScroll
+		}
+	}
+});
+function loadScroll() {
+	console.log(123);
+	var len = $(".lists a").length;
+	$.ajax({
+		type: "post",
+		url: "{:Url('Style/more')}",
+		data: {
+			length: len
+		},
+		beforeSend: function(XMLHttpRequest){
+		},
+		success:function(data){
+			addCourse(data);
+			if(data.code == 1){
+				var dataLen =data.data.length;
+				if(data.data.length == 9){
+					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
+				}else{
+					mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+				}
+			}else{
+				mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+			}
+		}
+	})
+}
+function addCourse(data) {
+	console.log(data);
+	var html = '';
+	var lists = data.data;
+	var len = lists.length;
+	console.log(len);
+	for(var i = 0; i< len;i++){
+		var list = lists[i];
+		html +=
+				'<a href="/home/Redcollection/filmdetail/id/'
+				+list.id
+				+'.html" class="list">'
+				+'<img src="'
+				+list.path
+				+'" alt="红色电影" class="list-img">'
+				+'<div class="list-title limit">'
+				+list.title
+				+'</div>'
+				+'<div class="list-summary limit">'
+				+list.publisher
+				+'</div>'
+				+'</a>';
+	}
+	$(".lists" ).append(html);
+}
+mui("#refreshContainer").on("touchstart","a",function(){
+	$(this).css("backgroundColor","rgba(0,0,0,.1)");
+}).on("touchend","a", function () {
+	$(this).css("backgroundColor","#fff");
+});
+mui("#refreshContainer").on("tap","a",function(){
+	var url = this.getAttribute("href");
+	window.location.href = url;
 })
 </script>
 {/block}

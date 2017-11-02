@@ -1,6 +1,30 @@
 body {
   background: #f1f1f1;
 }
+/*tab*/
+.tabs {
+  width: 100vw;
+  height: 11vw;
+  padding: 2vw 0;
+  background: #BF0301;
+  margin-bottom: 1px;
+}
+.tabs .tab {
+  display: inline-block;
+  width: 32vw;
+  height: 100%;
+  font-size: .4rem;
+  line-height: 7vw;
+  text-align: center;
+  color: #f1f1f1;
+  border-right: 1px solid #e5e5e5;
+}
+.tabs .tab:last-of-type {
+  border-right: 0;
+}
+.tabs .active {
+  color: #e1a469;
+}
 .search {
   position: relative;
   top: 0;
@@ -42,6 +66,11 @@ body {
   line-height: 9.1vw;
   color: #666666;
   border-bottom: 1px solid #f1f1f1;
+}
+.swiper-slide a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 .banner {
   position: relative;
@@ -110,16 +139,25 @@ body {
 .lists .list .list-img {
   width: 100%;
   height: 40vw;
+  display: inline-block;
 }
 .lists .list .list-title {
   color: #333333;
   font-size: .42rem;
   line-height: 6.5vw;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .lists .list .list-summary {
   color: #999999;
   font-size: .32rem;
   line-height:4vw;
+  height: 8vw;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .listsline {
   margin-top: 10px;
