@@ -263,13 +263,13 @@
         c  = getCookie("c")?getCookie("c"):0;
         $("#tab a").eq(c).addClass('mui-active');
         $(".mui-slider-group>div").eq(c).addClass('mui-active');
-    })
+    });
 
     //tab点击事件
     mui('#tab').on('tap', 'a', function(e) {
         c = this.getAttribute("data-index");
         setCookie("c",c)
-    })
+    });
 
     //初始化下拉加载
     mui.init({
@@ -284,6 +284,12 @@
     function loadScroll(){
         mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
     }
+
+    mui("#refreshContainer").on("touchstart","a",function(){
+        $(this).css("backgroundColor","rgba(0,0,0,.1)");
+    }).on("touchend","a", function () {
+        $(this).css("backgroundColor","#fff");
+    });
 
     mui("#refreshContainer").on("tap","a",function(){
         var url = this.getAttribute("href");
