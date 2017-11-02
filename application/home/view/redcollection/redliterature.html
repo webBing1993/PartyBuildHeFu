@@ -17,15 +17,17 @@
 <div class="listbox">
 	<div class="books active">
 		<!--经典书籍列表-->
-		<a href="javascript:;" class="list">
-			<img src="/home/images/banner/2.jpg" alt="书籍封面">
+		{volist name="list" id="vo"}
+		<a href="{:Url('Redcollection/bookdetail?id='.$vo['id'])}" class="list">
+			<img src="{$vo.front_cover|get_cover='path'}" alt="书籍封面">
 			<div class="content">
-				<span class="title limit">书名</span>
-				<span class="author limit">作者：作者名</span>
-				<span class="read">读过：500</span>
+				<span class="title limit">{$vo.title}</span>
+				<span class="author limit">作者：{$vo.name}</span>
+				<span class="read">读过：{$vo.have_read}</span>
 			</div>
 			<span class="fa fa-angle-right"></span>
 		</a>
+		{/volist}
 		<!--经典书籍列表-->
 	</div>
 </div>
@@ -52,7 +54,7 @@ $(function(){
 			var html = '';
 			$.ajax({
 				type:"post",
-//				url: "{:Url('Redcollection/booksearch')}",
+				url: "{:Url('Redcollection/booksearch')}",
 				data:{
 					val:val
 				},

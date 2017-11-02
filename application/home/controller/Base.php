@@ -69,6 +69,12 @@ class Base extends Controller {
             case 6:
                 $table = "volunteer_detail";
                 break;
+            case 7:
+                $table = "redfilm";
+                break;
+            case 8:
+                $table = "redmusic";
+                break;
             default:
                 return $this->error("无该数据表");
                 break;

@@ -7,16 +7,11 @@
  */
 
 namespace app\home\controller;
-use app\home\model\Comment;
-use app\home\model\Like;
+
 use app\home\model\Picture;
 use app\home\model\Redbook;
-use app\home\model\RedbookRead;
 use app\home\model\Redfilm;
 use app\home\model\Redmusic;
-use app\home\model\Redremark;
-use app\home\model\WechatUser;
-use app\home\model\Browse;
 use think\Db;
 /**
  * Class Redcollection
@@ -35,7 +30,9 @@ class Redcollection extends Base {
      * 红色电影
      */
     public function redfilm() {
-
+        $Model = new Redfilm();
+        $list = $Model->getIndexList();
+        $this->assign('list',$list);
         return $this->fetch();
     }
 
@@ -43,15 +40,34 @@ class Redcollection extends Base {
      * 经典电影更多
      */
     public function morefilm() {
-
-        return $this->fetch();
+        $Model = new Redfilm();
+        if(IS_POST) {
+            //加载更多
+            $len = input('length');
+            $res = $Model->getMoreList($len);
+            if($res) {
+                return $this->success("加载成功","",$res);
+            }else {
+                return $this->error("加载失败");
+            }
+        }else {
+            $list = $Model->getMoreList();
+            $this->assign('list',$list);
+            return $this->fetch();
+        }
     }
 
     /**
      * 电影详情
      */
     public function filmdetail() {
-
+        $this->jssdk();
+        $id = input('id');
+        if (empty($id)){
+            $this ->error('参数错误!');
+        }
+        $detail = $this->content(7,$id);
+        $this->assign('detail',$detail);
         return $this->fetch();
     }
 
@@ -81,15 +97,24 @@ class Redcollection extends Base {
      * 红色音乐
      */
     public function redmusic() {
-
+        $Model = new Redmusic();
+        $list = $Model->getIndexList();
+        $this->assign('list',$list);
         return $this->fetch();
+
     }
 
     /**
      * 音乐详情
      */
     public function musicdetail() {
-
+        $this->jssdk();
+        $id = input('id');
+        if (empty($id)){
+            $this ->error('参数错误!');
+        }
+        $detail = $this->content(8,$id);
+        $this->assign('detail',$detail);
         return $this->fetch();
     }
 
@@ -102,7 +127,7 @@ class Redcollection extends Base {
         $map = array(
             'status' => 1,
         );
-        $list = $musicModel->where($map)->order('create_time desc')->limit($len,5)->select();
+        $list = $musicModel->where($map)->order('create_time desc')->limit($len,8)->select();
         if($list) {
             foreach ($list as $value) {
                 $img = Picture::get($value['front_cover']);
@@ -119,15 +144,34 @@ class Redcollection extends Base {
      * 红色文学
      */
     public function redliterature() {
-
-        return $this->fetch();
+        $Model = new Redbook();
+        if(IS_POST) {
+            $len = input('length');
+            $res = $Model->getIndexList($len);
+            if($res) {
+                return $this->success("加载成功","",$res);
+            }else {
+                return $this->error("加载失败");
+            }
+        }else {
+            $list = $Model->getIndexList();
+            $this->assign('list',$list);
+            return $this->fetch(); 
+        }
     }
 
     /**
      * 书籍详情
      */
     public function bookdetail() {
-
+        $Model = new Redbook();
+        $id = input('id');
+        if (empty($id)){
+            $this ->error('参数错误!');
+        }
+        $Model->where('id',$id)->setInc('views');
+        $detail = $Model->get($id);
+        $this->assign('detail',$detail);
         return $this->fetch();
     }
 
@@ -160,34 +204,13 @@ class Redcollection extends Base {
      * 是否读过
      */
     public function is_read() {
-        $userId = session('userId');
         $id = input('id');
-        $readModel = new RedbookRead();
-        $data = array(
-            'create_user' => $userId,
-            'book_id' => $id,
-        );
-        $info = $readModel->where($data)->find();
-        if(empty($info)) {
-            $model = $readModel->create($data);
-            if($model) {
-                $map['have_read'] = array('exp','`have_read`+1');
-                Redbook::where('id',$id)->update($map);
-                return $this->success("成功读过此书");
-            }else{
-                return $this->error("新增失败");
-            }
+        $res = Redbook::where('id',$id)->setInc('have_read');
+        if($res){
+            return $this->success("成功读过此书");
         }else{
-            return $this->error("该数据已存在");
+            return $this->error("新增失败");
         }
-    }
-
-    /**
-     * 语录详情
-     */
-    public function quotationdetail() {
-
-        return $this->fetch();
     }
 
 }

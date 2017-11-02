@@ -8,14 +8,14 @@
 {block name="body"}
 <div class="scrollDiy">
 	<div class="film">
-		<div class="title limit_"><p>电影名</p></div>
+		<div class="title limit_"><p>{$detail.title}</p></div>
 		<div class="note">
-			<span>2017-10-30</span>
+			<span>{$detail.content}</span>
 		</div>
 		<div class="content">
-			<iframe height=250 width=510 src='https://www.baidu.com' frameborder=0 allowfullscreen></iframe>
+			<iframe height=250 width=510 src='{$detail.net_path}' frameborder=0 allowfullscreen></iframe>
 			<div class="note">
-				<span class="read">20</span>
+				<span class="read">{$detail.views}</span>
 			</div>
 		</div>
 	</div>

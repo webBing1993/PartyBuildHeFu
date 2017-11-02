@@ -14,58 +14,40 @@
 </div>
 <div class="banner swiper-container">
 	<div class="swiper-wrapper">
+		{volist name="list.top" id="top"}
 		<div class="swiper-slide">
-			<a href="javascript:;" class="list">
-				<img src="/home/images/banner/1.jpg" alt="红色电影推荐" class="banner-img">
+			<a href="{:Url('Redcollection/filmdetail?id='.$top['id'])}" class="list">
+				<img src="{$top.front_cover|get_cover='path'}" alt="{$top.title}" class="banner-img">
 				<div class="banner-bg"></div>
-				<div class="banner-info limit">电影名</div>
+				<div class="banner-info limit">{$top.title}</div>
 			</a>
 		</div>
-		<div class="swiper-slide">
-			<a href="javascript:;" class="list">
-				<img src="/home/images/banner/1.jpg" alt="红色电影推荐" class="banner-img">
-				<div class="banner-bg"></div>
-				<div class="banner-info limit">电影名</div>
-			</a>
-		</div>
-		<div class="swiper-slide">
-			<a href="javascript:;" class="list">
-				<img src="/home/images/banner/1.jpg" alt="红色电影推荐" class="banner-img">
-				<div class="banner-bg"></div>
-				<div class="banner-info limit">电影名</div>
-			</a>
-		</div>
+		{/volist}
 	</div>
 	<div class="swiper-pagination"></div>
 </div>
 <div class="lists-title">最新上映</div>
 <div class="lists">
-	<a href="javascript:;" class="list">
-		<img src="/home/images/banner/1.jpg" alt="红色电影" class="list-img">
-		<div class="list-title limit">电影名</div>
-		<div class="list-summary limit">电影介绍</div>
+	{volist name="list.new" id="new"}
+	<a href="{:Url('Redcollection/filmdetail?id='.$new['id'])}" class="list">
+		<img src="{$new.front_cover|get_cover='path'}" alt="红色电影" class="list-img">
+		<div class="list-title limit">{$new.title}</div>
+		<div class="list-summary limit">{$new.introduction}</div>
 	</a>
-	<a href="javascript:;" class="list">
-		<img src="/home/images/banner/1.jpg" alt="红色电影" class="list-img">
-		<div class="list-title limit">电影名</div>
-		<div class="list-summary limit">电影介绍</div>
-	</a>
-	<a href="javascript:;" class="list">
-		<img src="/home/images/banner/1.jpg" alt="红色电影" class="list-img">
-		<div class="list-title limit">电影名</div>
-		<div class="list-summary limit">电影介绍</div>
-	</a>
+	{/volist}
 </div>
 <div class="lists-title clear listsline">
 	经典热播
-	<a href="javascript:;" class="fr">更多>></a>
+	<a href="{:Url('Redcollection/morefilm')}" class="fr">更多>></a>
 </div>
 <div class="lists">
-	<a href="javascript:;" class="list">
-		<img src="/home/images/banner/2.jpg" alt="红色电影" class="list-img">
-		<div class="list-title limit">电影名</div>
-		<div class="list-summary limit">电影介绍</div>
+	{volist name="list.hot" id="hot"}
+	<a href="{:Url('Redcollection/filmdetail?id='.$hot['id'])}" class="list">
+		<img src="{$hot.front_cover|get_cover='path'}" alt="红色电影" class="list-img">
+		<div class="list-title limit">{$hot.title}</div>
+		<div class="list-summary limit">{$hot.introduction}</div>
 	</a>
+	{/volist}
 </div>
 {/block}
 
@@ -91,7 +73,7 @@ $(function(){
 			var html = '';
 			$.ajax({
 				type:"post",
-//				url: "{:Url('Redcollection/filmserch')}",
+				url: "{:Url('Redcollection/filmserch')}",
 				data:{
 					val:val
 				},

@@ -7,43 +7,42 @@
 {block name="body"}
 <div class="scrollDiy">
 	<div class="book">
-		<div class="title limit_">书名</div>
+		<div class="title limit_">{$detail.title}</div>
 		<div class="note">
-			<span>2017-10-30</span>
+			<span>{$detail.create_time|time_format='Y-m-d'}</span>
 		</div>
 		<div class="content">
-			<img src="/home/images/common/1.jpg" alt="书籍封面" class="book-img">
+			<img src="{$detail.front_cover|get_cover='Y-m-d'}" alt="书籍封面" class="book-img">
 			<div class="detail">
-				人名&emsp;著<br>
-				出版社名<br>
-				出版时期出版
+				{$detail.name}&emsp;著<br>
+				{$detail.press}<br>
+				{$detail.publication_date} 出版
 			</div>
-			<div class="reads" onclick="isread()">读过此书</div>
+			<div class="reads" onclick="isread({$detail.id})">读过此书</div>
 			<!--点击后-->
 
 			<div class="brief">【作品简介】</div>
 			<div class="bookdetail">
-				这里是这本书的简介区域
+				{$detail.works_introduction}
 			</div>
 			<div class="brief">【作者简介】</div>
 			<!--作者简介-->
 			<div class="authordetail clear">
 				<div class="msg fl" >
-					<img src="/home/images/common/1.jpg" alt="作者头像" class="authorimg">
-					<div class="name">作者名</div>
-					<div class="time">2017-10-30</div>
+					<img src="{$detail.header|get_cover='path'}" alt="作者头像" class="authorimg">
+					<div class="name">{$detail.name}</div>
+					<div class="time">{$detail.birth_and_death}</div>
 				</div>
 				<div class="text fl">
-					作者的介绍
+					{$detail.author_introduction}
 				</div>
 			</div>
 			<div class="words">
-				寄语区域
-				<div class="author">——— 书名</div>
+				{$detail.famous_remark}
 			</div>
 			<!--/作者简介-->
 			<div class="note">
-				<span class="read">10</span>
+				<span class="read">{$detail.views}</span>
 			</div>
 		</div>
 	</div>
@@ -61,7 +60,7 @@ function isread(bookid){
 		read.addClass('isread');
 			$.ajax({
 				type:"post",
-//				url:"{:Url('Redcollection/is_read')}",
+				url:"{:Url('Redcollection/is_read')}",
 				data:{
 					id:bookid,
 				},

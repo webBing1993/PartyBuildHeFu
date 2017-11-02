@@ -6,36 +6,18 @@
 
 {block name="body"}
 <div class="lists">
-	<a href="javascript:;" class="list">
-		<img src="/home/images/banner/2.jpg" alt="红色歌曲" class="music-img">
+	{volist name="list" id="vo"}
+	<a href="{:Url('Redcollection/musicdetail?id='.$vo['id'])}" class="list">
+		<img src="{$vo.front_cover|get_cover='path'}" alt="红色歌曲" class="music-img">
 		<div class="content">
-			<div class="title limit_">歌曲名 </div>
+			<div class="title limit_">{$vo.title}</div>
 			<div class="note clear">
-				<span class="scan fl">4</span>
-				<span class="fr">2017-10-30</span>
+				<span class="scan fl">{$vo.views}</span>
+				<span class="fr">{$vo.create_time|time_format='Y-m-d'}</span>
 			</div>
 		</div>
 	</a>
-	<a href="javascript:;" class="list">
-		<img src="/home/images/banner/2.jpg" alt="红色歌曲" class="music-img">
-		<div class="content">
-			<div class="title limit_">歌曲名 </div>
-			<div class="note clear">
-				<span class="scan fl">4</span>
-				<span class="fr">2017-10-30</span>
-			</div>
-		</div>
-	</a>
-	<a href="javascript:;" class="list">
-		<img src="/home/images/banner/2.jpg" alt="红色歌曲" class="music-img">
-		<div class="content">
-			<div class="title limit_">歌曲名 </div>
-			<div class="note clear">
-				<span class="scan fl">4</span>
-				<span class="fr">2017-10-30</span>
-			</div>
-		</div>
-	</a>
+	{/volist}
 </div>
 <div class="tip"></div>
 <div class="loading hide">

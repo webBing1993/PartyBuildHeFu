@@ -8,16 +8,16 @@
 {block name="body"}
 <div class="scrollDiy">
 	<div class="music">
-		<div class="title limit_"><p>歌曲名</p></div>
+		<div class="title limit_"><p>{$detail.title}</p></div>
 		<div class="time">
-			<span>2017-10-30</span>
+			<span>{$detail.create_time|time_format='Y-m-d'}</span>
 		</div>
 		<div class="content">
 			<div id="content">
-				歌曲的内容区域
+				{$detail.content}
 			</div>
 			<div class="note">
-				<span class="read">10</span>
+				<span class="read">{$detail.views}</span>
 			</div>
 		</div>
 	</div>
