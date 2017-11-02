@@ -77,18 +77,22 @@
             }
         }
     });
+
     function loadScroll() {
         var len = $('.lists a').length;
+        var id = window.location.href.split("pid/")[1].split(".html")[0];
         $.ajax({
             type: "post",
-//            url: ,
+            url: "{:Url('Volunteer/more')}",
             data: {
-                length: len
+                lenth: len,
+                pid: id
             },
             beforeSend: function(XMLHttpRequest){
             },
             success:function(data){
                 addCourse(data);
+                console.log(data);
                 if(data.code == 1){
                     var dataLen =data.data.length;
                     if(data.data.length == 7){
@@ -103,30 +107,28 @@
         })
     }
     function addCourse(data) {
-        for(var key in data){
-            var html = '';
-            var lists = data[key];
-            var len = lists.length;
-            for(var i = 0; i< len;i++){
-                var list = lists[i];
-                html +=
-                        '<a href="/home/volunteer/'
-                        +list.id
-                        +'" class="list clear">'+
-                        '<div class="fl">'+
-                        '<img src="'+list.src+'" alt="图片">'+
-                        '</div>'+
-                        '<div class="fr lr">'+
-                        '<div class="title limit_">'+list.title+'</div>'+
-                        '<div class="clear">'+
-                        '<span class="fl">'+list.time+'</span>'+
-                        '<span class="fr">'+list.publisher+'</span>'+
-                        '</div>'+
-                        '</div>'+
-                        '</a>'
-            }
-            $(".lists" ).append(html);
+        var html = '';
+        var lists = data.data.list;
+        var len = lists.length;
+        for(var i = 0; i< len;i++){
+            var list = lists[i];
+            html +=
+                    '<a href="/home/volunteer/'
+                    +list.id
+                    +'" class="list clear">'+
+                    '<div class="fl">'+
+                    '<img src="'+list.front_cover+'" alt="图片">'+
+                    '</div>'+
+                    '<div class="fr lr">'+
+                    '<div class="title limit_">'+list.title+'</div>'+
+                    '<div class="clear">'+
+                    '<span class="fl">'+list.time+'</span>'+
+                    '<span class="fr">'+list.publisher+'</span>'+
+                    '</div>'+
+                    '</div>'+
+                    '</a>'
         }
+        $(".lists" ).append(html);
     }
 
 </script>
