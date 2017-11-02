@@ -108,14 +108,14 @@
     }
     function addCourse(data) {
         var html = '';
-        var lists = data.data.list;
+        var lists = data.data;
         var len = lists.length;
         for(var i = 0; i< len;i++){
             var list = lists[i];
             html +=
-                    '<a href="/home/volunteer/'
+                    '<a href="/home/volunteer/detail/id/'
                     +list.id
-                    +'" class="list clear">'+
+                    +'.html" class="list clear">'+
                     '<div class="fl">'+
                     '<img src="'+list.path+'" alt="图片">'+
                     '</div>'+
@@ -130,6 +130,18 @@
         }
         $(".lists" ).append(html);
     }
+
+    mui("#refreshContainer").on("touchstart","a",function(){
+        $(this).css("backgroundColor","rgba(0,0,0,.1)");
+    }).on("touchend","a", function () {
+        $(this).css("backgroundColor","#fff");
+    });
+
+    mui("#refreshContainer").on("tap","a",function(){
+        var url = this.getAttribute("href");
+//        window.location.href = url;
+    });
+
 
 </script>
 {/block}

@@ -104,6 +104,11 @@
         }
         $(".lists ul" ).append(html);
     }
+    mui("#refreshContainer").on("touchstart","a",function(){
+        $(this).css("backgroundColor","rgba(0,0,0,.1)");
+    }).on("touchend","a", function () {
+        $(this).css("backgroundColor","#fff");
+    });
     mui("#refreshContainer").on("tap","a",function(){
         var url = this.getAttribute("href");
         window.location.href = url;
