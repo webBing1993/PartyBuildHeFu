@@ -22,6 +22,10 @@ class Style extends Model {
         $order = array("create_time desc");
         $field = array("id,front_cover,name,position");
         $res = $this->where($map)->order($order)->field($field)->limit($len,8)->select();
+        foreach ($res as $value) {
+            $path = Picture::get($value['front_cover']);
+            $value['path'] = $path['path'];
+        }
         return $res;
     }
     

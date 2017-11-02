@@ -65,7 +65,7 @@ class Volunteer extends Base{
     public function more() {
         $Model = new VolunteerDetail();
         $data = input('post.');
-        $res = $Model->getRecruitList($data['pid'],$data['lenth']);
+        $res = $Model->getMoreList($data['pid'],$data['length']);
         if($res) {
             return $this->success("加载成功","",$res);
         }else {

@@ -22,7 +22,7 @@ class VolunteerDetail extends Model {
         );
         $order = array("create_time desc");
         $top = $this->where($map)->order($order)->limit(3)->select();
-        $list = $this->where($map)->order($order)->limit(3,8)->select();
+        $list = $this->where($map)->order($order)->limit(3,7)->select();
         $data = array(
             'top' => $top,
             'list' => $list
@@ -40,7 +40,12 @@ class VolunteerDetail extends Model {
         );
         $order = array("create_time desc");
         $length = $len + 3;
-        $res = $this->where($map)->order($order)->limit($length,8)->select();
+        $res = $this->where($map)->order($order)->limit($length,7)->select();
+        foreach ($res as $value) {
+            $path = Picture::get($value['front_cover']);
+            $value['path'] = $path['path'];
+            $value['time'] = date("Y-m-d",$value['create_time']);
+        }
         return $res;
     }
 }

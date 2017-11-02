@@ -85,7 +85,7 @@
             type: "post",
             url: "{:Url('Volunteer/more')}",
             data: {
-                lenth: len,
+                length: len,
                 pid: id
             },
             beforeSend: function(XMLHttpRequest){
@@ -117,7 +117,7 @@
                     +list.id
                     +'" class="list clear">'+
                     '<div class="fl">'+
-                    '<img src="'+list.front_cover+'" alt="图片">'+
+                    '<img src="'+list.path+'" alt="图片">'+
                     '</div>'+
                     '<div class="fr lr">'+
                     '<div class="title limit_">'+list.title+'</div>'+
