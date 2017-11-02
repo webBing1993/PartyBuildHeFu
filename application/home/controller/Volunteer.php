@@ -58,6 +58,20 @@ class Volunteer extends Base{
 
         return $this ->fetch();
     }
+    
+    /**
+     * 加载更多
+     */
+    public function more() {
+        $Model = new VolunteerDetail();
+        $data = input('post.');
+        $res = $Model->getRecruitList($data['pid'],$data['lenth']);
+        if($res) {
+            return $this->success("加载成功","",$res);
+        }else {
+            return $this->error("加载失败");
+        }
+    }
 
 
 }

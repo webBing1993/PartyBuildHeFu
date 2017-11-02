@@ -29,4 +29,18 @@ class VolunteerDetail extends Model {
         );
         return $data;
     }
+
+    /**
+     * 加载更多
+     */
+    public function getMoreList($pid,$len=0) {
+        $map = array(
+            'status' => 1,
+            'pid' => $pid,
+        );
+        $order = array("create_time desc");
+        $length = $len + 3;
+        $res = $this->where($map)->order($order)->limit($length,8)->select();
+        return $res;
+    }
 }
