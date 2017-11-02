@@ -113,7 +113,7 @@
         c = getCookie("c")?getCookie("c"):0;
         $("#tab a").eq(c).addClass('mui-active');
         $(".mui-slider-group>div").eq(c).addClass('mui-active');
-    })
+    });
 
     //轮播
     var mySwiper = new Swiper('.swiper-container', {
@@ -142,7 +142,7 @@
                 mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
             }
         }
-    }
+    };
 
     //初始化下拉加载
     mui.init({
@@ -186,7 +186,6 @@
         })
     }
     function addCourse(data,type) {
-        console.log(data)
         var html = '';
         var lists = data.data;
         var len = lists.length;
@@ -198,7 +197,7 @@
                         '<img src="' + list.front_cover + '">' +
                         '<p>' + list.title + '</p>' +
                         '<span>' + list.create_time + '</span>' +
-                        '<span>详情</span>'
+                        '<span>详情</span>';
                 if (list.type == 1){
                     html+='<span>通知公告</span>' +
                             '</a>'
@@ -245,9 +244,13 @@
             }
         }
         setCookie("c",c)
-    })
+    });
 
-
+    mui("#refreshContainer").on("touchstart","a",function(){
+        $(this).css("backgroundColor","rgba(0,0,0,.1)");
+    }).on("touchend","a", function () {
+        $(this).css("backgroundColor","#fff");
+    });
 
     mui("#refreshContainer").on("tap","a",function(){
         var url = this.getAttribute("href");
