@@ -36,5 +36,19 @@ class Style extends Base {
         return $this ->fetch();
     }
 
+    /**
+     * 加载更多
+     */
+    public function more() {
+        $len = input('length');
+        $Model = new StyleModel;
+        $res = $Model->getIndexList($len);
+        if($res) {
+            return $this->success("加载成功","",$res);
+        }else {
+            return $this->error("加载失败");
+        }
+    }
+
 
 }
