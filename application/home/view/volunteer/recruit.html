@@ -60,5 +60,74 @@
         autoplay: 1500
 
     });
+
+    window.onload = function () {
+        if ($(".lists a").length < 7) {
+            mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+        } else {
+            mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+        }
+    };
+    mui.init({
+        pullRefresh : {
+            container: "#refreshContainer",
+            up : {
+                contentrefresh: '正在加载...',
+                callback : loadScroll
+            }
+        }
+    });
+    function loadScroll() {
+        var len = $('.lists a').length;
+        $.ajax({
+            type: "post",
+//            url: ,
+            data: {
+                length: len
+            },
+            beforeSend: function(XMLHttpRequest){
+            },
+            success:function(data){
+                addCourse(data);
+                if(data.code == 1){
+                    var dataLen =data.data.length;
+                    if(data.data.length == 7){
+                        mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
+                    }else{
+                        mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+                    }
+                }else{
+                    mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+                }
+            }
+        })
+    }
+    function addCourse(data) {
+        for(var key in data){
+            var html = '';
+            var lists = data[key];
+            var len = lists.length;
+            for(var i = 0; i< len;i++){
+                var list = lists[i];
+                html +=
+                        '<a href="/home/volunteer/'
+                        +list.id
+                        +'" class="list clear">'+
+                        '<div class="fl">'+
+                        '<img src="'+list.src+'" alt="图片">'+
+                        '</div>'+
+                        '<div class="fr lr">'+
+                        '<div class="title limit_">'+list.title+'</div>'+
+                        '<div class="clear">'+
+                        '<span class="fl">'+list.time+'</span>'+
+                        '<span class="fr">'+list.publisher+'</span>'+
+                        '</div>'+
+                        '</div>'+
+                        '</a>'
+            }
+            $(".lists" ).append(html);
+        }
+    }
+
 </script>
 {/block}
