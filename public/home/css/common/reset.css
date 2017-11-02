@@ -42,3 +42,8 @@ input:-ms-input-placeholder{
 .clear {
     zoom: 1;
 }
+.default img {
+    width: 50vw;
+    margin: 50vw auto;
+    display: inherit;
+}

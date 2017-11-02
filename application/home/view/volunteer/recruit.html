@@ -7,121 +7,58 @@
 {/block}
 
 {block name="body"}
-<div class="banners">
-    <div class="swiper-container">
-        <div class="imgs swiper-wrapper">
-            {volist name="list.top" id="vo1"}
-            <div class="banner swiper-slide">
-                <a href="{:Url('Volunteer/detail?id='.$vo1['id'])}">
-                    <img src="{$vo1.front_cover|get_cover='path'}" alt="">
-                    <div class="title_ limit">{$vo1.title}</div>
-                </a>
+<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+    <div class="mui-scroll">
+        <div class="mui-slider-group">
+            <div class="banners">
+                <div class="swiper-container">
+                    <div class="imgs swiper-wrapper">
+                        {volist name="list.top" id="vo1"}
+                        <div class="banner swiper-slide">
+                            <a href="{:Url('Volunteer/detail?id='.$vo1['id'])}">
+                                <img src="{$vo1.front_cover|get_cover='path'}" alt="">
+                                <div class="title_ limit">{$vo1.title}</div>
+                            </a>
+                        </div>
+                        {/volist}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
-            {/volist}
+            <!--新闻列表-->
+            <div class="lists">
+                {volist name="list.list" id="vo2"}
+                <a class="list clear" href="{:Url('Volunteer/detail?id='.$vo2['id'])}">
+                    <div class="fl">
+                        <img src="{$vo2.front_cover|get_cover='path'}" alt="" style="width: 28.2vw;height: 18.8vw">
+                    </div>
+                    <div class="fr lr">
+                        <div class="title limit_">{$vo2.title}</div>
+                        <div class="clear">
+                            <span class="fl">{$vo2.create_time|time_format='Y-m-d'}</span>
+                            <span class="fr">详情</span>
+                        </div>
+                    </div>
+                </a>
+                {/volist}
+            </div>
         </div>
-        <div class="swiper-pagination"></div>
     </div>
 </div>
-<!--新闻列表-->
-<div class="lists">
-    {volist name="list.list" id="vo2"}
-    <a class="list clear" href="{:Url('Volunteer/detail?id='.$vo2['id'])}">
-        <div class="fl">
-            <img src="{$vo2.front_cover|get_cover='path'}" alt="" style="width: 28.2vw;height: 18.8vw">
-        </div>
-        <div class="fr lr">
-            <div class="title limit_">{$vo2.title}</div>
-            <div class="clear">
-                <span class="fl">{$vo2.create_time|time_format='Y-m-d'}</span>
-                <span class="fr">详情</span>
-            </div>
-        </div>
-    </a>
-    {/volist}
-</div>
-<div class="tip"></div>
-<div class="loading hidden">
-    <div class="typing_loader"></div>
-</div>
+
 {/block}
 
 {block name="script"}
 <script src="/static/swiper/swiper-3.3.1.jquery.min.js"></script>
 <script>
-    var scrollNow = true;
-    $(function(){
-        //模块标题
-        $('title').text('最新动态');
-        //reset
-        var txt;
-        var len = $(".list" ).length;
-        if(len == 0){
-            $('body' ).html('<div class="default"><img src="/home/images/activity/nomessage.png" alt="暂无消息"> </div>');
-        }else if(len >= 6){
-            $('.tip' ).text('上拉加载更多');
-        }
-        //上拉加载
-        loadScroll();
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: 1500
+
     });
-    function loadScroll(){
-        $(window ).off("scroll" ).on("scroll",function(){
-            var dh = $(document).height();
-            var end = $(window).height() + $(window ).scrollTop();
-            var len = $(".list" ).length;
-            var tip = $(".tip");
-            var loading = $('.loading');
-            if(dh == end && scrollNow){
-                scrollNow = false;
-                $.ajax({
-                    type:"post",
-//                    url:"{:Url('News/listmore')}",
-                    data:{
-                        length:len
-                    },
-                    beforeSend: function(XMLHttpRequest){
-                        tip.hide();
-                        loading.toggleClass('hidden');
-                    },
-                    success:function(data){
-                        loading.toggleClass('hidden');
-                        tip.show();
-                        if(data.code == 1){
-                            addNews(data);
-                            var dataLen =data.data.length;
-                            if(data.data.length == 5){
-                                tip.text('上拉加载更多');
-                            }
-                        }else{
-                            tip.text('没有更多了');
-                            $(window ).off("scroll");
-                        }
-                        scrollNow = true;
-                    }
-                })
-            }
-        })
-    }
-    function addNews(data){
-        var html = '';
-        var lists = data.data;
-        var len = lists.length;
-        for(var i = 0; i< len;i++){
-            var list = lists[i];
-            html +=
-                    '<a class="list clear" href="/home/volunteer/detail/id/'+list.id+'.html">'+
-                    '<div class="fl">'+
-                    '<img src="'+ list.src+'" alt="图片">'+
-                    '</div>'+
-                    '<div class="fr lr">'+
-                    '<div class="title limit_">'+list.title+'</div>'+
-                    '<div class="clear">'+
-                    '<span class="fl">'+ list.time+'</span>'+
-                    '<span class="fr">详情</span>'+
-                    '</div>'+
-                    '</div>'+
-                    '</a>'
-        }
-        $(".lists" ).append(html);
-    }
 </script>
 {/block}
