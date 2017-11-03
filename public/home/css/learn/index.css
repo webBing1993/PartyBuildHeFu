@@ -142,11 +142,6 @@ body {
     display: inline-block;
 }
 
-@media screen and (device-width:320px) {
-    #item1mobile .banner .box .box_up .note .fl {
-        margin-top: 0.1rem;
-    }
-}
 #item1mobile .banner .box .box_down .clear .fr {
     height: 0.6rem;
     width: 1.2rem;
