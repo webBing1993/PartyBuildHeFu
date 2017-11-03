@@ -17,9 +17,19 @@ class Volunteer extends Base{
      * */
     public function index(){
         $Model = new VolunteerModel();
-        $list = $Model->getIndexList();
-        $this->assign('list',$list);
-        return $this->fetch();
+        if(IS_POST) {
+            $len = input('length');
+            $res = $Model->getIndexList($len);
+            if($res) {
+                return $this->success("加载成功","",$res);
+            }else {
+                return $this->error("加载失败");
+            }
+        }else {
+            $list = $Model->getIndexList();
+            $this->assign('list',$list);
+            return $this->fetch();
+        }
     }
     
     /*

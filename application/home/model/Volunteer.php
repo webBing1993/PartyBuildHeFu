@@ -15,12 +15,16 @@ class Volunteer extends Model {
     /**
      * 获取主页列表
      */
-    public function getIndexList() {
+    public function getIndexList($len = 0) {
         $map = array(
             'status' => 1
         );
         $order = array("create_time desc");
-        $res = $this->where($map)->order($order)->limit(6)->select();
+        $res = $this->where($map)->order($order)->limit($len,6)->select();
+        foreach ($res as $value) {
+            $path = Picture::get($value['front_cover']);
+            $value['path'] = $path['path'];
+        }
         return $res;
     }
 
