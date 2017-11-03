@@ -2,33 +2,46 @@
 
 {block name="style"}
 <link rel="stylesheet" href="/home/css/redcollection/book.css">
-
+<style>
+	.results {
+		position: absolute;
+		top: 7.8vw;
+		left: 50%;
+		margin-left: -35vw;
+	}
+</style>
 {/block}
 
 {block name="body"}
-<div class="banner">
-	<img src="/home/images/redcollection/bookbg.jpg" alt="红色书籍banner" class="banner-img">
-	<div class="search">
-		<span class="fa fa-search"></span>
-		<input type="text" placeholder="搜索书籍名字、作者名字">
-		<div class="results"></div>
-	</div>
-</div>
-<div class="listbox">
-	<div class="books active">
-		<!--经典书籍列表-->
-		{volist name="list" id="vo"}
-		<a href="{:Url('Redcollection/bookdetail?id='.$vo['id'])}" class="list">
-			<img src="{$vo.front_cover|get_cover='path'}" alt="书籍封面">
-			<div class="content">
-				<span class="title limit">{$vo.title}</span>
-				<span class="author limit">作者：{$vo.name}</span>
-				<span class="read">读过：{$vo.have_read}</span>
+<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+	<div class="mui-scroll">
+		<div class="mui-slider-group">
+			<div class="banner">
+				<img src="/home/images/redcollection/bookbg.jpg" alt="红色书籍banner" class="banner-img">
+				<div class="search">
+					<span class="fa fa-search"></span>
+					<input type="text" placeholder="搜索书籍名字、作者名字">
+					<div class="results"></div>
+				</div>
 			</div>
-			<span class="fa fa-angle-right"></span>
-		</a>
-		{/volist}
-		<!--经典书籍列表-->
+			<div class="listbox">
+				<div class="books active">
+					<!--经典书籍列表-->
+					{volist name="list" id="vo"}
+					<a href="{:Url('Redcollection/bookdetail?id='.$vo['id'])}" class="list clearfix">
+						<img src="{$vo.front_cover|get_cover='path'}" alt="书籍封面">
+						<div class="content">
+							<span class="title limit">{$vo.title}</span>
+							<span class="author limit">作者：{$vo.name}</span>
+							<span class="read">读过：{$vo.have_read}</span>
+						</div>
+						<span class="fa fa-angle-right"></span>
+					</a>
+					{/volist}
+					<!--经典书籍列表-->
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 {/block}
@@ -51,6 +64,11 @@ $(function(){
 		var this_ = this;
 		if(!lock){
 			var val = $(this_ ).val();
+			if (val == "") {
+				$('.results').hide();
+			}else {
+				$('.results').show();
+			}
 			var html = '';
 			$.ajax({
 				type:"post",
@@ -80,7 +98,90 @@ $(function(){
 		$('.tabs>span:last').click();
 		sessionStorage.removeItem("redliterature");
 	}
+});
+
+window.onload = function () {
+	if ($(".books a").length < 8) {
+		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
+	} else {
+		mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
+	}
+};
+mui.init({
+	pullRefresh : {
+		container: "#refreshContainer",
+		up : {
+			callback : loadScroll
+		}
+	}
+});
+function loadScroll() {
+	var len = $(".books a").length;
+	$.ajax({
+		type: "post",
+		url: "{:Url('Redcollection/redliterature')}",
+		data: {
+			length: len
+		},
+		beforeSend: function(XMLHttpRequest){
+		},
+		success:function(data){
+			addCourse(data);
+			if(data.code == 1){
+				var dataLen =data.data.length;
+				if(data.data.length == 8){
+					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
+				}else{
+					mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+				}
+			}else{
+				mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+			}
+		}
+	})
+}
+function addCourse(data) {
+	console.log(data);
+	var html = '';
+	var lists = data.data;
+	var len = lists.length;
+	console.log(len);
+	for(var i = 0; i< len;i++){
+		var list = lists[i];
+		html +=
+				'<a href="/home/Redcollection/bookdetail/id/'
+				+list.id
+				+'.html" class="list clearfix">'
+				+'<img src="'
+				+list.path
+				+'" alt="书籍封面">'
+				+'<div class="content">'
+				+'<span class="title limit">'
+				+list.title
+				+'</span>'
+				+'<span class="author limit">作者：'
+				+list.name
+				+'</span>'
+				+'<span class="read">读过：'
+				+list.likes
+				+'</span>'
+				+'</div>'
+				+'<span class="fa fa-angle-right"></span>'
+				+'</a>';
+	}
+	$(".books" ).append(html);
+}
+mui("#refreshContainer").on("touchstart","a",function(){
+	$(this).css("backgroundColor","rgba(0,0,0,.1)");
+}).on("touchend","a", function () {
+	$(this).css("backgroundColor","#fff");
+});
+mui("#refreshContainer").on("tap","a",function(){
+	var url = this.getAttribute("href");
+	window.location.href = url;
 })
+
+
 </script>
 
 {/block}

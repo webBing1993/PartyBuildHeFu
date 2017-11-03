@@ -17,11 +17,13 @@
 .lists .list .content {
   display: inline-block;
   width: 72vw;
-  margin-top: 2vw;
+  padding-top: 2vw;
+  position: relative;
+  height: 100%;
 }
 .lists .list .content .title {
   width: 100%;
-  height: 12vw;
+  /*height: 12vw;*/
   color: #333333;
   font-size: .37rem;
   line-height: 7.8vw;
@@ -31,6 +33,9 @@
   margin-top: 1vw;
   color: #999999;
   font-size: .32rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .lists .list .content .note .scan {
   background: url('/home/images/common/scan_.png') 0 1px no-repeat;

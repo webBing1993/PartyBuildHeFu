@@ -3,6 +3,11 @@
 {block name="style"}
 <link rel="stylesheet" href="/static/swiper/swiper-3.3.1.min.css">
 <link rel="stylesheet" href="/home/css/redcollection/film.css">
+<style>
+	.results {
+		top: 9.7vw;
+	}
+</style>
 {/block}
 
 {block name="body"}
@@ -70,6 +75,11 @@ $(function(){
 		var this_ = this;
 		if(!lock){
 			var val = $(this_ ).val();
+			if (val == "") {
+				$('.results').hide();
+			}else {
+				$('.results').show();
+			}
 			var html = '';
 			$.ajax({
 				type:"post",
