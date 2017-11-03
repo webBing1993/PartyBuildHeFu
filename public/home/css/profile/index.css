@@ -98,7 +98,8 @@
     width: 100%;
     height: 50vw;
 }
-#item2mobile .banners .banner img{
+#item2mobile .banners .banner img,#item2mobile .banners .banner a{
+    display: inline-block;
     width: 100%;
     height: 50vw;
 }

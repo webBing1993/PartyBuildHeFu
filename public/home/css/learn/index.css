@@ -259,7 +259,7 @@ body {
     background: url(/home/images/learn/copy_t.png) no-repeat;
     background-size: 100% 100%;
     position: fixed;
-    top: 38px;
+    top:10vw;
     z-index: 5;
 }
 #item2mobile .bg_b{
@@ -281,7 +281,7 @@ body {
 
 #item2mobile .list{
     width: 85%;
-    margin: calc(46px + 2rem) auto;
+    margin: calc(10vw + 2rem) auto;
     padding-bottom: 100px;
 }
 #item2mobile .list li{
