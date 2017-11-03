@@ -80,6 +80,9 @@
     box-shadow: 0 0 0 orange;
     line-height: 6vw;
 }
+.list .cont p {
+    color: #666;
+}
 .list:last-of-type .cont {
     padding-bottom: 5.4vw;
 }

@@ -19,14 +19,27 @@
     position: relative;
 }
 .title {
-    font-size: .42rem;
-    width: 40vw;
-    margin: 0 auto;
-    border-bottom: 1px solid #d43f3a;
-    color: #d43f3a;
+
+    /*width: 40vw;*/
+    /*margin: 0 auto;*/
+    /*border-bottom: 1px solid #d43f3a;*/
     text-align: center;
-    height: 8vw;
+}
+.title p {
+    font-size: .42rem;
     font-weight: 600;
+    text-align: left;
+    width: auto;
+    display: inline-block;
+    color: #d43f3a;
+}
+.title:after {
+    content: "";
+    width: 40vw;
+    height: 1px;
+    background-color: #d43f3a;
+    margin: 1.6vw auto;
+    display: inherit;
 }
 .content {
     padding-top: 2.7vw;
@@ -36,6 +49,7 @@
     text-indent: 2em;
     font-size: .37rem;
     line-height: 6.8vw;
+    color: #666;
 }
 .btn {
     position: absolute;
