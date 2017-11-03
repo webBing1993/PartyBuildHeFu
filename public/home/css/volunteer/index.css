@@ -47,6 +47,9 @@
     font-size: .4rem;
     color: #333;
     padding-top: 1.2vw;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .lists .list .notes {
     color: #666;

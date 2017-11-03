@@ -123,7 +123,7 @@
                     '<div class="title limit_">'+list.title+'</div>'+
                     '<div class="clear">'+
                     '<span class="fl">'+list.time+'</span>'+
-                    '<span class="fr">'+list.publisher+'</span>'+
+                    '<span class="fr">详情</span>'+
                     '</div>'+
                     '</div>'+
                     '</a>'
@@ -139,7 +139,7 @@
 
     mui("#refreshContainer").on("tap","a",function(){
         var url = this.getAttribute("href");
-//        window.location.href = url;
+        window.location.href = url;
     });
 
 

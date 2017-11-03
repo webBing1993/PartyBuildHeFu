@@ -254,17 +254,17 @@
 		var list = $('.list' );
 		var len = list.length;
 		for(var i = 0;i < len ;i++){
-			var checked = list.eq(i).find('input:checked');
+			var checked = list.eq(i).find('.option.active');
 			var len_a = checked.length;
 			if(len_a === 0){
 				isAll = false;
 				answer.push(0);
 			}else if(len_a === 1){
-				answer.push(checked.val())
+				answer.push(checked.prev("input").val())
 			}else{
 				var it = [];
 				checked.each(function(){
-					it.push($(this).val());
+					it.push($(this).prev("input").val());
 				});
 				answer.push(it)
 			}
