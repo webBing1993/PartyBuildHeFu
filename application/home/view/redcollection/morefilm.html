@@ -8,11 +8,6 @@
 <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
 	<div class="mui-scroll">
 		<div class="mui-slider-group">
-			<div class="tabs clear">
-				<div class="tab active"><span>红色电影</span></div>
-				<div class="tab"><span>红色文学</span></div>
-				<div class="tab"><span>红色歌曲</span></div>
-			</div>
 			<div class="search">
 				<span class="fa fa-search"></span>
 				<input type="text" placeholder="输入电影名称">
@@ -80,7 +75,7 @@ $(function(){
 
 
 window.onload = function () {
-	if ($(".lists a").length < 9) {
+	if ($(".lists a").length < 7) {
 		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
 	} else {
 		mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -95,7 +90,6 @@ mui.init({
 	}
 });
 function loadScroll() {
-	console.log(123);
 	var len = $(".lists a").length;
 	$.ajax({
 		type: "post",
@@ -109,7 +103,7 @@ function loadScroll() {
 			addCourse(data);
 			if(data.code == 1){
 				var dataLen =data.data.length;
-				if(data.data.length == 9){
+				if(data.data.length == 7){
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
 				}else{
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
@@ -136,10 +130,10 @@ function addCourse(data) {
 				+list.path
 				+'" alt="红色电影" class="list-img">'
 				+'<div class="list-title limit">'
-				+list.title
+				+list.name
 				+'</div>'
 				+'<div class="list-summary limit">'
-				+list.publisher
+				+list.position
 				+'</div>'
 				+'</a>';
 	}
