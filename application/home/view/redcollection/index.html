@@ -17,6 +17,9 @@
 {block name="script"}
 <script src="/home/js/reset.js"></script>
 <script>
+    $(function () {
+        $("title").text("红色珍藏");
+    });
     var c =  parseInt(window.location.href.split("index/c/")[1]);
     $(function(){
         var WH = $(window).height();

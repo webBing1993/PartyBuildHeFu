@@ -31,6 +31,10 @@
 {block name="script"}
 <script>
 
+    $(function () {
+        $("title").text("志愿服务");
+    });
+
     window.onload = function () {
         if ($(".lists .list").length < 6) {
             mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
@@ -50,7 +54,7 @@
         var len = $(".lists .list").length;
         $.ajax({
             type: "post",
-            url: "{:Url('Style/more')}",
+            url: "{:Url('Volunteer/index')}",
             data: {
                 length: len
             },
@@ -84,13 +88,13 @@
                     +list.id
                     +'.html">'
                     +'<div class="img"><img src="'
-                    +list.src
+                    +list.path
                     +'" alt=""></div>'
                     +'<div class="name">'
                     +list.name
                     +'</div>'
                     +'<div class="notes">活动：<span>'
-                    +list.likes
+                    +list.times
                     +'</span>次</div>'
                     +'</a>'
                     +'</div>';
