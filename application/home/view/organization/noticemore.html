@@ -47,7 +47,7 @@
             <div class="list">
                 <ul>
                     {volist name="list" id="lo"}
-                    <a href="{:Url('Organization/noticedetail?id='.$lo['id'])}">
+                    <a href="{:Url('Organization/noticedetail?type='.$lo['type'].'&id='.$lo['id'])}">
                         <p style="font-size: 0.4rem;">{$lo.title}</p>
                         <p style="font-size: 0.36rem;">{$lo.description} </p>
                         <span>{$lo.create_time}</span>
@@ -124,7 +124,7 @@
         for(var i = 0; i< len;i++){
             var list = lists[i];
                 html +=
-                      '<a href="/home/Organization/noticedetail/id/'+list.id+'.html">'+
+                      '<a href="/home/Organization/noticedetail/type/'+list.type+'/id/'+list.id+'.html">'+
                       '<p>'+list.title+'</p>'+
                       '<p>'+list.description+'</p>'+
                       '<span>'+list.create_time+'</span>'+
