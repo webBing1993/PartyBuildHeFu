@@ -109,6 +109,9 @@
 .film .content * {
   max-width: 100%!important;
 }
+.film .content iframe {
+  width: 100%;
+}
 .film .content img {
   display: block;
   max-width: 100%!important;
@@ -149,13 +152,13 @@
   line-height:10vw;
 }
 .film .content .note .read {
-  background: url('/home/images/common/scan_.png') 0 12px no-repeat;
+  background: url('/home/images/common/scan_.png') 0 center no-repeat;
   background-size: 3.7vw 3.7vw;
   padding-left: .48rem;
 }
 .film .content .note .isgood {
   background-size: 3.7vw 3.7vw;
-  padding-left: .48rem;
+  padding-left: 4.8vw;
 }
 
 /*加载动画*/

@@ -146,12 +146,20 @@ body {
     }
 }
 /*tab*/
+.header {
+    width: 100vw;
+    height: 11vw;
+    padding: 2vw 0;
+}
 .tabs {
     width: 100vw;
     height: 11vw;
     padding: 2vw 0;
     background: #BF0301;
     margin-bottom: 1px;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 .tabs .tab {
     display: inline-block;

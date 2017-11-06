@@ -126,15 +126,20 @@ body {
   color: #333333;
 }
 .lists {
+  display: flex;
   width: 100vw;
-  padding: 0 0 0 5vw;
+  /*padding: 0 4vw;*/
   background: #ffffff;
+  justify-content: space-around;
 }
 .lists .list {
-  display: inline-block;
   width: 27vw;
-  margin-right: 3.5vw;
+  /*margin-right: 4.3vw;*/
   margin-bottom: 2.66vw;
+
+}
+.lists .list:nth-of-type(3n) {
+  margin-right: 0;
 }
 .lists .list .list-img {
   width: 100%;

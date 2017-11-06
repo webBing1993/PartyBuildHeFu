@@ -38,7 +38,7 @@
   width: 100%;
 }
 .lists .list .content .note .scan {
-  background: url('/home/images/common/scan_.png') 0 1px no-repeat;
+  background: url('/home/images/common/scan_.png') 0 center no-repeat;
   background-size:3.5vw 3.5vw;
   padding-left: 5vw;
 }
