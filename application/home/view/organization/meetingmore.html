@@ -19,7 +19,7 @@
         <div class="list">
             <ul>
                 {volist name="list" id="lo"}
-                <a href="{:Url('Organization/meetingdetail?id='.$lo['id'])}">
+                <a href="{:Url('Organization/meetingdetail?c='.$lo['type'].'&id='.$lo['id'])}">
                     <img src="{$lo.front_cover}">
                     <p>{$lo.title}</p>
                     <span>{$lo.publisher}</span>
@@ -98,7 +98,7 @@
         for(var i = 0; i< len;i++){
             var list = lists[i];
             html +=
-                    '<a href="/home/Lesson/meetingdetail/id/'+list.id+'.html">'+
+                    '<a href="/home/Organization/meetingdetail/c/'+list.type+'/id/'+list.id+'.html">'+
                     '<img src="'+list.front_cover+'">'+
                     '<p>'+list.title+'</p>'+
                     '<span>'+list.publisher+'</span>'+
@@ -109,7 +109,7 @@
     }
 
     mui('#refreshContainer').on('tap', 'a', function(e) {
-        var url = this.getAttribute("href")+"/type/"+c;
+        var url = this.getAttribute("href");
         window.location.href = url;
     })
 
