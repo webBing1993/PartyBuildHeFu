@@ -25,8 +25,10 @@
 
 {block name="body"}
 <div class="search">
-	<span class="fa fa-search"></span>
-	<input type="text" placeholder="输入电影名称">
+	<div>
+		<span class="fa fa-search"></span>
+		<input type="text" placeholder="输入电影名称">
+	</div>
 </div>
 <div class="results">
 </div>
@@ -76,7 +78,7 @@
 $('title').text('红色电影');
 $(function(){
 	//搜索
-	var search = $('.search>input');
+	var search = $('.search input');
 	var lock = false;
 	search.on('compositionstart',function(){
 		lock = true;

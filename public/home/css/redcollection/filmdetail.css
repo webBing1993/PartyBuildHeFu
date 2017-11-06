@@ -110,7 +110,9 @@
   max-width: 100%!important;
 }
 .film .content iframe {
-  width: 100%;
+  /*width: 100%;*/
+  margin: 0 auto;
+  display: block;
 }
 .film .content img {
   display: block;
