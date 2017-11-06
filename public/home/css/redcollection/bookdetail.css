@@ -225,9 +225,9 @@
   margin-right: 0 ;
 }
 .book .content .note .read {
-  background: url('/home/images/common/scan_.png') 0 3vw no-repeat;
-  background-size: 15px 15px;
-  padding-left: 4.5vw;
+  background: url('/home/images/common/scan_.png') 0 center no-repeat;
+  background-size: 4vw 4vw;
+  padding-left: 4.8vw;
 }
 .book .content .note .good {
   background: url('/home/images/activity/good.png') 0 3vw no-repeat;

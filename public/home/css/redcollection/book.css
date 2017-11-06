@@ -20,13 +20,18 @@ body {
   height: 7.5vw;
   text-align: center;
 }
+.banner .search>div {
+  /*position: relative;*/
+  width: 100%;
+  height: 100%;
+}
 .banner .search .fa {
   position: absolute;
-  top: 2.5vw;
+  top: 50%;
   left: 18vw;
   color: #9a9a9a;
+  margin-top: -1.6vw;
 }
-
 .banner .search input {
   width: 70vw;
   height: 100%;
@@ -38,7 +43,7 @@ body {
   display: inline-block;
   width: 70vw;
   height: 10vw;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   padding-left:3.6vw;
   background: rgba(255, 255, 255, 0.6);
   border-bottom: 1px solid #ffffff;

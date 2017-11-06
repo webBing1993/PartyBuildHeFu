@@ -8,6 +8,7 @@
 		top: 7.8vw;
 		left: 50%;
 		margin-left: -35vw;
+		text-align: left;
 	}
 </style>
 {/block}
@@ -19,8 +20,10 @@
 			<div class="banner">
 				<img src="/home/images/redcollection/bookbg.jpg" alt="红色书籍banner" class="banner-img">
 				<div class="search">
-					<span class="fa fa-search"></span>
-					<input type="text" placeholder="搜索书籍名字、作者名字">
+					<div>
+						<span class="fa fa-search"></span>
+						<input type="text" placeholder="搜索书籍名字、作者名字">
+					</div>
 					<div class="results"></div>
 				</div>
 			</div>
@@ -52,7 +55,7 @@
 $('title').text('红色文学');
 $(function(){
 	//搜索
-	var search = $('.search>input');
+	var search = $('.search input');
 	var lock = false;
 	search.on('compositionstart',function(){
 		lock = true;
