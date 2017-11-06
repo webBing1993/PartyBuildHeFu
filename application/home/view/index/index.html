@@ -161,9 +161,9 @@
     
     // 加载更多
     function loadScroll() {
-        var p1 = $('[data-type = learn]').attr("data-type");
-        var p2 = $('[data-type = notice]').attr("data-type");
-        var p3 = $('[data-type = new]').attr("data-type");
+        var p1 = $('[data-type = learn]').length;
+        var p2 = $('[data-type = notice]').length;
+        var p3 = $('[data-type = new]').length;
         var len = $(".newsLists a").length;
         $.ajax({
             type: "post",
