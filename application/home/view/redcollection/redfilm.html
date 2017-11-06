@@ -7,13 +7,28 @@
 	.results {
 		top: 9.7vw;
 	}
+	.lists {
+		display: flex;
+		width: 100vw;
+		/*padding: 0 4vw;*/
+		background: #ffffff;
+		justify-content: space-around;
+	}
+	.lists .list {
+		width: 27vw;
+		/*margin-right: 4.3vw;*/
+		margin-bottom: 2.66vw;
+
+	}
 </style>
 {/block}
 
 {block name="body"}
 <div class="search">
-	<span class="fa fa-search"></span>
-	<input type="text" placeholder="输入电影名称">
+	<div>
+		<span class="fa fa-search"></span>
+		<input type="text" placeholder="输入电影名称">
+	</div>
 </div>
 <div class="results">
 </div>
@@ -63,7 +78,7 @@
 $('title').text('红色电影');
 $(function(){
 	//搜索
-	var search = $('.search>input');
+	var search = $('.search input');
 	var lock = false;
 	search.on('compositionstart',function(){
 		lock = true;

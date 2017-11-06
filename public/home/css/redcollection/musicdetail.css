@@ -137,7 +137,7 @@
   margin-right: 0;
 }
 .music .content .note .read {
-  background: url('/home/images/common/scan_.png') 0 12px no-repeat;
+  background: url('/home/images/common/scan_.png') 0 center no-repeat;
   background-size: 3.6vw 3.6vw;
   padding-left: 4.5vw;
 }

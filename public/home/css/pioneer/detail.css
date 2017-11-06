@@ -59,8 +59,8 @@
 }
 .list .title p {
     display: inline-block;
-    border-bottom: 1px solid red;
-    color: red;
+    border-bottom: 1px solid #d43f3a;
+    color: #d43f3a;
     font-size: .42rem;
     width: 26vw;
     padding: 1.2vw 0 1.2vw 3vw;
@@ -79,6 +79,10 @@
     border-radius: 2.7vw;
     box-shadow: 0 0 0 orange;
     line-height: 6vw;
+}
+.list:first-of-type .cont {
+    box-shadow: 0 0 0 #d43f3a;
+    border: 1px solid #d43f3a;
 }
 .list .cont p {
     color: #666;

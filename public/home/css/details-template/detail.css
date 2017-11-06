@@ -95,7 +95,7 @@
 
 /*article content */
 .article-content p,.article-content p span,.article-content{
-    font-size: 0.44rem!important;
+    font-size: 0.4rem!important;
     color: #333;
 }
 .article .content * {
