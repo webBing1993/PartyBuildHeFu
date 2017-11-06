@@ -2,7 +2,7 @@
   display: inline-block;
   width: 100vw;
   height: 22vw;
-  padding: 0 4vw;
+  padding: 4vw;
   border-bottom: 1px solid #f1f1f1;
 }
 .lists .list .music-img {
@@ -10,14 +10,12 @@
   width: 14vw;
   height: 14vw;
   margin-right: 4vw;
-  margin-top: 4vw;
   border: 0;
   vertical-align: top;
 }
 .lists .list .content {
   display: inline-block;
   width: 72vw;
-  padding-top: 2vw;
   position: relative;
   height: 100%;
 }
@@ -26,13 +24,11 @@
   /*height: 12vw;*/
   color: #333333;
   font-size: .37rem;
-  line-height: 7.8vw;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
 }
 .lists .list .content .note {
-  margin-top: 1vw;
   color: #999999;
   font-size: .32rem;
   position: absolute;
