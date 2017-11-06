@@ -158,16 +158,21 @@
             }
         }
     });
+    
+    // 加载更多
     function loadScroll() {
-        var len=[];
-        len[0] = $('[data-type = learn]').length;
-        len[1] = $('[data-type = notice]').length;
-        len[2] = $('[data-type = news]').length;
+        var p1 = $('[data-type = learn]').attr("data-type");
+        var p2 = $('[data-type = notice]').attr("data-type");
+        var p3 = $('[data-type = new]').attr("data-type");
+        var len = $(".newsLists a").length;
         $.ajax({
             type: "post",
-//            url: ,
+            url: "{:Url('Index/more')}",
             data: {
-                length: JSON.stringify(len)
+                length: len,
+                p1: p1,
+                p2: p2,
+                p3: p3
             },
             beforeSend: function(XMLHttpRequest){
             },
@@ -175,7 +180,7 @@
                 addCourse(data);
                 if(data.code == 1){
                     var dataLen =data.data.length;
-                    if(data.data.length == 7){
+                    if(dataLen == 9){
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
                     }else{
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
@@ -187,29 +192,25 @@
         })
     }
     function addCourse(data) {
-        for(var key in data){
             var html = '';
-            var lists = data[key];
+            var lists = data.data;
             var len = lists.length;
             var href ='';  // 跳转链接
             var name = '';  // 对应的模块名称
             for(var i = 0; i< len;i++){
                 var list = lists[i];
-                if(list['genre'] == 'learn'){
-                    name = '两学一做';
-                    href = '/home/learn/video?id='+list['id'];
-                }else if(list['genre'] == 'notice'){
-                    name = '组织建设';
-                    href = '/home/organization/noticedetail?id='+list['id'];
+                if(list.class_name == '两学一做'){
+                    href = '/home/learn/video/id/'+list['id']+".html";
+                }else if(list.class_name == '组织建设'){
+                    href = '/home/organization/noticedetail/id/'+list['id']+".html";
                 }else{
-                    name = '小镇概况';
-                    href = '/home/profile/detail?id='+list['id'];
+                    href = '/home/profile/detail/id/'+list['id']+".html";
                 }
                 html +=
-                        '<a href="'+href+'" class="list clearfix" data-type ="'+list['genre']+'">'+
+                        '<a href="'+href+'" class="list clearfix" data-type ="'+list.class_name+'">'+
                         '<div class="fl">'+
-                        '<img src="'+list['front_cover']+'" alt="图片">'+
-                        '<span class="type">'+name+'</span>'+
+                        '<img src="'+list.path+'" alt="图片">'+
+                        '<span class="type">'+list.class_name+'</span>'+
                         '</div>'+
                         '<div class="fr right">'+
                         '<div class="title limit_">'+list.title+'</div>'+
@@ -218,10 +219,9 @@
                         '<span class="fl">'+list.publisher+'</span>'+
                         '</div>'+
                         '</div>'+
-                        '</a>'
+                        '</a>';
             }
             $(".newsLists" ).append(html);
-        }
     }
     mui("#refreshContainer").on("touchstart","a",function(){
         $(this).css("backgroundColor","rgba(0,0,0,.1)");
