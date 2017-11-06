@@ -119,6 +119,9 @@ body {
   color: #363f7b;
   font-size: .4rem;
   line-height: 10vw;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .listbox .books .list .fa {
   position: absolute;
