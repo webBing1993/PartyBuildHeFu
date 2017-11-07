@@ -75,7 +75,7 @@ $(function(){
 
 
 window.onload = function () {
-	if ($(".lists a").length < 6) {
+	if ($(".lists a").length < 9) {
 		mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
 	} else {
 		mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -103,14 +103,20 @@ function loadScroll() {
 			addCourse(data);
 			if(data.code == 1){
 				var dataLen =data.data.length;
-				if(data.data.length == 6){
+				console.log(dataLen);
+				if(dataLen == 9){
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
-				}else{
+				}else if (dataLen == 0) {
 					mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
+				}else{
+					mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
 				}
 			}else{
 				mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
 			}
+		},
+		error: function () {
+			mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
 		}
 	})
 }
@@ -119,7 +125,6 @@ function addCourse(data) {
 	var html = '';
 	var lists = data.data;
 	var len = lists.length;
-	console.log(len);
 	for(var i = 0; i< len;i++){
 		var list = lists[i];
 		html +=
