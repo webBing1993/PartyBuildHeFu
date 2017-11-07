@@ -200,9 +200,17 @@
             for(var i = 0; i< len;i++){
                 var list = lists[i];
                 if(list.class_name == '两学一做'){
-                    href = '/home/learn/video/id/'+list['id']+".html";
+                    if (list == 2) {
+                        href = '/home/learn/article/id/'+list['id']+".html";
+                    }else {
+                        href = '/home/learn/video/id/'+list['id']+".html";
+                    }
                 }else if(list.class_name == '组织建设'){
-                    href = '/home/organization/noticedetail/id/'+list['id']+".html";
+                    if (list.type == 2 || list.type == 3 || list.type == 5) {
+                        href = '/home/organization/noticedetail/id/'+list['id']+".html";
+                    }else {
+                        href = '/home/organization/meetingdetail/id/'+list['id']+".html";
+                    }
                 }else{
                     href = '/home/volunteer/detail/id/'+list['id']+".html";
                 }
