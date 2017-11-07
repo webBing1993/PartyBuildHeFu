@@ -40,13 +40,14 @@ body {
 }
 .search input {
   position: absolute;
-  top: 1.2vw;
+  top: 50%;
   left: 3vw;
   width: 94vw;
   height: 8vw;
-  padding-left: 7.9vw;
   -webkit-border-radius: 2vw;
   border-radius: 2vw;
+  padding: 0 4vw 0 8vw;
+  margin-top: -4vw;
 }
 .search .fa-search {
   z-index: 1;
@@ -55,6 +56,8 @@ body {
   left: 6vw;
   color: #aeaeae;
   margin-top: -1.6vw;
+  height: 3.2vw;
+  line-height: 3.2vw;
 }
 .results {
   position: absolute;
@@ -143,7 +146,7 @@ body {
 .lists .list {
   display: inline-block;
   width: 27vw;
-  margin-right: 4.3vw;
+  margin-right: 4.2vw;
   margin-bottom: 2.66vw;
 
 }
