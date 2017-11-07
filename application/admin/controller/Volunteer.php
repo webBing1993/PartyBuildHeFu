@@ -129,7 +129,7 @@ class Volunteer extends Admin {
             $info = $Model->validate('Volunteer.detail')->save($data);
             if($info) {
                 VolunteerModel::where('id',$data['pid'])->setInc('times');
-                return $this->success("新增成功",Url('Volunteer/index2'));
+                return $this->success("新增成功",Url('Volunteer/index2?id='.$data['pid']));
             }else{
                 return $this->get_update_error_msg($Model->getError());
             }
@@ -151,7 +151,7 @@ class Volunteer extends Admin {
             $Model = new VolunteerDetail();
             $info = $Model->validate('Volunteer.detail')->save($data,['id'=>input('id')]);
             if($info){
-                return $this->success("修改成功",Url("Volunteer/index2"));
+                return $this->success("修改成功",Url("Volunteer/index2?id=".$data['pid']));
             }else{
                 return $this->get_update_error_msg($Model->getError());
             }
@@ -160,8 +160,6 @@ class Volunteer extends Admin {
             $id = input('id');
             $msg = VolunteerDetail::get($id);
             $this->assign('msg',$msg);
-            $pid = input('pid');
-            $this->assign('pid',$pid);
             return $this->fetch();
         }
     }
