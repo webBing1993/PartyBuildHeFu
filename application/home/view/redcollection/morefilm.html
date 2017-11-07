@@ -93,7 +93,7 @@ function loadScroll() {
 	var len = $(".lists a").length;
 	$.ajax({
 		type: "post",
-		url: "{:Url('Style/more')}",
+		url: "{:Url('Redcollection/morefilm')}",
 		data: {
 			length: len
 		},
@@ -130,10 +130,10 @@ function addCourse(data) {
 				+list.path
 				+'" alt="红色电影" class="list-img">'
 				+'<div class="list-title limit">'
-				+list.name
+				+list.title
 				+'</div>'
 				+'<div class="list-summary limit">'
-				+list.position
+				+list.introduction
 				+'</div>'
 				+'</a>';
 	}
