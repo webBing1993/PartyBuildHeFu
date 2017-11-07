@@ -10,6 +10,7 @@ namespace app\home\controller;
 use app\home\model\Learn;
 use app\home\model\Notice;
 use app\home\model\Picture;
+use app\home\model\VolunteerDetail;
 use app\home\model\Work;
 use think\Controller;
 
@@ -34,12 +35,14 @@ class Index extends Controller {
             $value['class'] = 2;
             $value['class_name'] = "组织建设";
         }
-        $work = Work::where($map)->order($order)->field($field)->limit(3)->select();
-        foreach ($work as $value) {
+        $field2 = array("id,front_cover,title,publisher,create_time");
+        $volunteer = VolunteerDetail::where($map)->order($order)->field($field2)->limit(3)->select();
+        foreach ($volunteer as $value) {
+            $value['type'] = "";
             $value['class'] = 3;
-            $value['class_name'] = "小镇动态";
+            $value['class_name'] = "志愿服务";
         }
-        $total = array_merge((array)$learn,(array)$notice,(array)$work); //合并
+        $total = array_merge((array)$learn,(array)$notice,(array)$volunteer); //合并
         $list = object2array($total); //对象转数组
         $sort = array(  //按照时间戳倒序
             'direction' => 'SORT_DESC',
@@ -85,13 +88,15 @@ class Index extends Controller {
             $value['class'] = 2;
             $value['class_name'] = "组织建设";
         }
-        $work = Work::where($map)->order($order)->field($field)->limit($data['p3'],3)->select();
+        $field2 = array("id,front_cover,title,publisher,create_time");
+        $work = Work::where($map)->order($order)->field($field2)->limit($data['p3'],3)->select();
         foreach ($work as $value) {
+            $value['type'] = "";
             $path = Picture::get($value['front_cover']);
             $value['path'] = $path['path'];
             $value['time'] = date("Y-m-d",$value['create_time']);
             $value['class'] = 3;
-            $value['class_name'] = "小镇动态";
+            $value['class_name'] = "志愿服务";
         }
         $total = array_merge((array)$learn,(array)$notice,(array)$work); //合并
         $list = object2array($total); //对象转数组
