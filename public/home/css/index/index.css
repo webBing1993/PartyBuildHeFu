@@ -160,6 +160,13 @@
     bottom: 0;
     /*line-height: 1.2rem;*/
 }
+.newsLists .list .time .fl {
+    display: inline-block;
+    width: 40vw;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
 .newsLists .list .fl .type{
     position: absolute;
     bottom: 4vw;
