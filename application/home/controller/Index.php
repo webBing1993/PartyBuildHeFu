@@ -89,7 +89,7 @@ class Index extends Controller {
             $value['class_name'] = "组织建设";
         }
         $field2 = array("id,front_cover,title,publisher,create_time");
-        $work = Work::where($map)->order($order)->field($field2)->limit($data['p3'],3)->select();
+        $work = VolunteerDetail::where($map)->order($order)->field($field2)->limit($data['p3'],3)->select();
         foreach ($work as $value) {
             $value['type'] = "";
             $path = Picture::get($value['front_cover']);
