@@ -7,19 +7,6 @@
 	.results {
 		top: 9.7vw;
 	}
-	.lists {
-		display: flex;
-		width: 100vw;
-		/*padding: 0 4vw;*/
-		background: #ffffff;
-		justify-content: space-around;
-	}
-	.lists .list {
-		width: 27vw;
-		/*margin-right: 4.3vw;*/
-		margin-bottom: 2.66vw;
-
-	}
 </style>
 {/block}
 
@@ -47,9 +34,9 @@
 	<div class="swiper-pagination"></div>
 </div>
 <div class="lists-title">最新上映</div>
-<div class="lists">
+<div class="lists clear">
 	{volist name="list.new" id="new"}
-	<a href="{:Url('Redcollection/filmdetail?id='.$new['id'])}" class="list">
+	<a href="{:Url('Redcollection/filmdetail?id='.$new['id'])}" class="list fl clear">
 		<img src="{$new.front_cover|get_cover='path'}" alt="红色电影" class="list-img">
 		<div class="list-title limit">{$new.title}</div>
 		<div class="list-summary limit">{$new.introduction}</div>
@@ -60,9 +47,9 @@
 	经典热播
 	<a href="{:Url('Redcollection/morefilm')}" class="fr">更多>></a>
 </div>
-<div class="lists">
+<div class="lists clear">
 	{volist name="list.hot" id="hot"}
-	<a href="{:Url('Redcollection/filmdetail?id='.$hot['id'])}" class="list">
+	<a href="{:Url('Redcollection/filmdetail?id='.$hot['id'])}" class="list fl clear">
 		<img src="{$hot.front_cover|get_cover='path'}" alt="红色电影" class="list-img">
 		<div class="list-title limit">{$hot.title}</div>
 		<div class="list-summary limit">{$hot.introduction}</div>
