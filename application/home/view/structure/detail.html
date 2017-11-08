@@ -1,0 +1,1370 @@
+{extend name="public/common"}
+
+{block name="style"}
+<title>组织架构</title>
+<link rel="stylesheet" href="/home/css/structure/structure.css">
+<link rel="stylesheet" href="/home/css/common/rem.css">
+{/block}
+
+{block name="body"}
+<ul class="d_lists">
+
+</ul>
+{/block}
+
+{block name="script"}
+<script>
+$('title' ).text('组织架构');
+var party3 = '{$party}';
+console.log(party3);
+	var data2 =[
+	{
+		"party3":"和孚镇人民政府",
+		"detail3":[
+			{
+				"detail4":[
+					{
+						"position":"党委书记",
+						"name":"谢建伟",
+						"phone":"13505720172"
+					},
+					{
+						"position":"党委副书记",
+						"name":"胡建荣",
+						"phone":"13587285098"
+					},
+					{
+						"position":"党委副书记",
+						"name":"陈芳",
+						"phone":"13757089116"
+					},
+					{
+						"position":"党委委员、纪委书记",
+						"name":"吴民强",
+						"phone":"13567283567"
+					},
+					{
+						"position":"人大主席",
+						"name":"杨建中",
+						"phone":"13906726828"
+					},
+					{
+						"position":"人大副主席",
+						"name":"沈根如",
+						"phone":"13506722176"
+					},
+					{
+						"position":"党委副书记、镇长",
+						"name":"沈增赟",
+						"phone":"13615827789"
+					},
+					{
+						"position":"党委委员、副镇长",
+						"name":"陈小红",
+						"phone":"13957246368"
+					},
+					{
+						"position":"党委委员、派出所所长",
+						"name":"谢海峰",
+						"phone":"13868290883"
+					},
+					{
+						"position":"党委委员、人武部长",
+						"name":"袁小锋",
+						"phone":"18305090906"
+					},
+					{
+						"position":"党委委员、荻港村党委书记",
+						"name":"杨升辉",
+						"phone":"13705721989"
+					},
+					{
+						"position":"党委委员",
+						"name":"池静宜",
+						"phone":"15868882332"
+					},
+					{
+						"position":"党委委员",
+						"name":"褚利斌",
+						"phone":"13567283756"
+					},
+					{
+						"position":"党委委员",
+						"name":"褚良伟",
+						"phone":"13587297122"
+					},
+					{
+						"position":"党委委员",
+						"name":"朱丽华",
+						"phone":"13857290566"
+					},
+					{
+						"position":"副镇长",
+						"name":"邱建荣",
+						"phone":"13735198767"
+					},
+					{
+						"position":"副镇长",
+						"name":"於丽",
+						"phone":"15968226371"
+					},
+					{
+						"position":"副镇长",
+						"name":"薛方",
+						"phone":"13587297133"
+					},
+					{
+						"position":"副科级领导",
+						"name":"丁金奎",
+						"phone":"13706729253"
+					},
+					{
+						"position":"正科级组织员",
+						"name":"沈斌",
+						"phone":"13819281999"
+					},
+					{
+						"position":"副科级组织员",
+						"name":"徐欢",
+						"phone":"13587930032"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "党政办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "吴慧丽",
+						"phone": "13587232328"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "汤松音",
+						"phone": "18767251278"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "何  俊",
+						"phone": "13735179397"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "凌  晨",
+						"phone": "18305720525"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邢树芳",
+						"phone": "13567227921"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "钟芳芳",
+						"phone": "18767102483"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "杨建学",
+						"phone": "13587281899"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "钱静怡",
+						"phone": "13587226893"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "朱佳丽",
+						"phone": "15157216290"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "吴嘉斌",
+						"phone": "13758349487"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "纪检办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "胡成新",
+						"phone": "13587281869"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "费丹红",
+						"phone": "13511268522"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "吕四毛",
+						"phone": "13967280920"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "组织人事办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "徐  欢",
+						"phone": "13587930032"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "王允捷",
+						"phone": "18257222836"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "冯虹敏",
+						"phone": "13857299341"
+					}
+				]
+			}]
+	}
+	,
+	{
+		"party3": "宣教文卫办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "张建红",
+						"phone": "15067279356"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "陈月荣",
+						"phone": "13819241999"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "孙  英",
+						"phone": "13587269966"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "张  琦",
+						"phone": "13665752562"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "张徐锦",
+						"phone": "13511201204"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "人大办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "吕新英",
+						"phone": "13867277508"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "钱静怡",
+						"phone": "13587226893"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "工业招商办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "郑  斌",
+						"phone": "13567983355"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "嵇卫斌",
+						"phone": "15088369001"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "杨忠林",
+						"phone": "18967271997"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "王  芸",
+						"phone": "13819207260"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "朱镇国",
+						"phone": "13819201367"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "陈剑强",
+						"phone": "13505729315"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "王慧龙",
+						"phone": "13587900738"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邱淦生",
+						"phone": "13905728958"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "农业办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "熊柏民",
+						"phone": "13587208889"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "卫炳发",
+						"phone": "13868290915"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "蒲欣梅",
+						"phone": "13819284151"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "黄惠彬",
+						"phone": "18767207868"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "周水林",
+						"phone": "13857289395"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "黄惠彬",
+						"phone": "18767207868"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "村镇规划建设办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "张占豪",
+						"phone": "13706520675"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "汤锦土",
+						"phone": "15957282288"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "沈卫英",
+						"phone": "13587281861"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "马  珺",
+						"phone": "13757262099"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "王  康",
+						"phone": "15257202225"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "杨银培",
+						"phone": "13567289197"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "谈阿土",
+						"phone": "13967280666"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "郭尚万",
+						"phone": "13587938903"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "章柏勇",
+						"phone": "13857277708"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "李超雷",
+						"phone": "15088337920"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "工业功能区办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "严加佑",
+						"phone": "13735160555"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邢逸伟",
+						"phone": "13587225746"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "汤国强",
+						"phone": "13819243097"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "陈剑强",
+						"phone": "13505729315"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "农经（统计）办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "陆水荣",
+						"phone": "13587281617"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "费林妹",
+						"phone": "13819286363"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "金秋霞",
+						"phone": "13666530105"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "沈莉英",
+						"phone": "13567281648"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "陈利萍",
+						"phone": "15268742325"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "计生办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "顾红丽",
+						"phone": "13867275776"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邱明英",
+						"phone": "13587283013"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "何银凤",
+						"phone": "13587281886"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "惠耀莹",
+						"phone": "18457207000"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "民政办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "邢逸伟",
+						"phone": "13587225746"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "何金龙",
+						"phone": "13587281877"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "谢  翀",
+						"phone": "13819289753"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "沈杯彬",
+						"phone": "15067233021"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "综治办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "朱杭良",
+						"phone": "13905721259"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "王文林",
+						"phone": "13587281866"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "张红明",
+						"phone": "13857251245"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "袁永华",
+						"phone": "13819207638"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "顾学建",
+						"phone": "15968222030"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "杜伟杰",
+						"phone": "18857275648"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "车  明",
+						"phone": "13665732099"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邹国强",
+						"phone": "13511205931"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "招投标中心办公室",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "费荣方",
+						"phone": "13587281850"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "王慧娟",
+						"phone": "13567999473"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "财政所",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "史琴芳",
+						"phone": "13587933078"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "姚敏儿",
+						"phone": "13587290700"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "吴  琼",
+						"phone": "18268298700"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邱  懿",
+						"phone": "18857226192"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "沈志强",
+						"phone": "13819246012"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "公共财政服务中心",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "史琴芳",
+						"phone": "13587933078"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "蔡建方",
+						"phone": "13587283102"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "沈志强",
+						"phone": "13819246012"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "谢建利",
+						"phone": "13567280506"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "唐月华",
+						"phone": "13587283050"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "陈孔泉",
+						"phone": "13819219197"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "钟健康",
+						"phone": "13567988079"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "徐佳妍",
+						"phone": "18357877320"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "章  敏",
+						"phone": "15167254570"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "工会",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "徐  欢",
+						"phone": "13587930032"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "董明荣",
+						"phone": "13587281399"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "团委",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "汤松音",
+						"phone": "18767251278"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "妇联",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "吴慧丽",
+						"phone": "13587232328"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邱  懿",
+						"phone": "18857226192"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "旅游办",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "刘铭徐",
+						"phone": "15957282155"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "候闽军",
+						"phone": "13819288511"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邢逸铭",
+						"phone": "13905820657"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "姚 莎",
+						"phone": "15868817774"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "顾潮龙",
+						"phone": "18267210608"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "凤凰洲指挥部",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "褚良伟",
+						"phone": "13587297122"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邱建荣",
+						"phone": "13735198767"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "薛  方",
+						"phone": "13587297133"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "沈金品",
+						"phone": "13587281618"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "蒲欣梅",
+						"phone": "13819284151"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "朱建华",
+						"phone": "13515720968"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "潘根法",
+						"phone": "13587283077"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "刘铭徐",
+						"phone": "15957282155"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "何根法",
+						"phone": "13957287103"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "陆子林",
+						"phone": "13567983519"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "朱新凤",
+						"phone": "13666530919"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "徐建锋",
+						"phone": "13587225389"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "陈伟乾",
+						"phone": "13735199285"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "横港村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "张逸英",
+						"phone": "13735101855"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "计  华",
+						"phone": "13905723367"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "张村村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "沈根水",
+						"phone": "13957252308"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "张建明",
+						"phone": "13857279636"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "佛堂兜村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "孙建成",
+						"phone": "13905725783"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "冯佩锋",
+						"phone": "15968223757"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "吴兴塘村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "孙顺兴",
+						"phone": "13906728536"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "蔡建强",
+						"phone": "13967293606"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "重兆村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "沈建新",
+						"phone": "13587283026"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "张新华",
+						"phone": "13587283036"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "云北村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "陈德元",
+						"phone": "13757078833"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "赵永兴",
+						"phone": "13587266128"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "四联村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "黄惠彬",
+						"phone": "18767207868"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "杨怀武",
+						"phone": "18805721056"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "漾东村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "徐  伟",
+						"phone": "13757084567"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "杨胜辉",
+						"phone": "13735198825"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "民当村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "汤海明",
+						"phone": "13587283110"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "王荣良",
+						"phone": "13587283109"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "双福桥村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "褚前锋",
+						"phone": "13567222884"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "蔡云峰",
+						"phone": "13567297755"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "复乐村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "唐占强",
+						"phone": "13906723567"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "罗水方",
+						"phone": "13587283018"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "长超村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "曹建伟",
+						"phone": "13587222157"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "沈敏华",
+						"phone": "13587283060"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "河东村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "杨月方",
+						"phone": "13666507190"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "丁建华",
+						"phone": "13616728552"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "新荻村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "吴建龙",
+						"phone": "13867257288"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "张胜杰",
+						"phone": "13905729355"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "施伟英",
+						"phone": "13857261305"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "荻港村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "杨升辉",
+						"phone": "13705721989"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "杨  明",
+						"phone": "13655727677"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "李市村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "宋林美",
+						"phone": "13666502638"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "顾新江",
+						"phone": "18757249519"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "群益村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "李占如",
+						"phone": "13587281611"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "严平伟",
+						"phone": "13615725785"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "陈塔村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "王根明",
+						"phone": "13567294337"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "陈林华",
+						"phone": "13567999502"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "和孚村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "袁新强",
+						"phone": "13867273958"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "曹新强",
+						"phone": "13221216626"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "新胜村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "陈汉成",
+						"phone": "13757242786"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "汤云忠",
+						"phone": "13706727967"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "陶家墩村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "慎小琳",
+						"phone": "13567299258"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "邱树荣",
+						"phone": "13757266668"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "云东村",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "汤泉涌",
+						"phone": "13757275244"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "倪晋华",
+						"phone": "13587214016"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "和孚社区",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "刘文玉",
+						"phone": "13505725843"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "王红新",
+						"phone": "13626726007"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "长超社区",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "唐璟耀",
+						"phone": "13567983527"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "沈淦元",
+						"phone": "13757247125"
+					}
+				]
+			}]
+	},
+	{
+		"party3": "重兆社区",
+		"detail3": [
+			{
+				"detail4": [
+					{
+						"position": "&nbsp;",
+						"name": "沈火江",
+						"phone": "13587281857"
+					},
+					{
+						"position": "&nbsp;",
+						"name": "黄阿四",
+						"phone": "13819242669"
+					}
+				]
+			}]
+	}
+];
+var bg_color=["#b1e3fc", "#aeefef", "#ffa351", "#9393f5", "#cf88f7", "#65abfa", "#ebcffb", "#76f4f0", "#ffcf6e", "#ff8ff4"];
+var len = data2.length;
+console.log(data2);
+for(var i = 0 ; i < len ;i++){
+	var party = data2[i];
+	if( party.party3 == party3){
+		var detail3 = party.detail3;
+		var len3 = detail3.length;
+		var html = '';
+		for(var j = 0; j < len3 ; j++){
+			var party4 = detail3[j];
+			var detail4 = party4.detail4;
+			var len4 = detail4.length;
+			for(var m = 0 ;m < len4 ;m++){
+				html+='<li class="d_list">'+
+						'<div class="d_img_box">'+
+						'<div class="d_img" style="background-color:'+bg_color[Math.floor(Math.random()*10)]+'">'+
+						detail4[m].name[0]+'</div>'+
+						'</div>'+
+						'<div class="d_name">'+detail4[m].name +' '+detail4[m].position+'</div>'+
+						'<a class="d_tel" href="tel:'+detail4[m].phone+'" >'+
+							'<span class="d_tel_icon"></span>'+
+								detail4[m].phone+
+						'</a>'+
+						'</li>';
+			}
+		}
+		$('.d_lists' ).append(html);
+		break;
+	}else{
+		console.log('百分百名字错了'+ party3 + '后：'+ party.party3)
+	}
+}
+
+//$(function(){
+//	getHistory();
+//	var flag=false;
+//	setTimeout(function(){
+//		flag=true
+//	},1000);
+//	window.addEventListener('popstate',function(e){
+//		//监听到返回事件
+//		if(flag){
+//			window.location.href = "/home/structure/index.html";
+//		}
+//		getHistory();
+//	},false);
+//	function getHistory(){
+//		var state={
+//			title:'',
+//			url:window.location.href
+//		} ;
+//		window.history.pushState(state,'title',state.url);
+//	}
+//})
+</script>
+{/block}

@@ -16,4 +16,13 @@ class Structure extends Base{
     public function index(){
         return $this->fetch();
     }
+
+    /*
+     * 组织架构详情页主页
+     */
+    public function detail(){
+        $party = input('party');
+        $this->assign('party',$party);
+        return $this->fetch();
+    }
 }

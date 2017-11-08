@@ -234,6 +234,13 @@ body {
   font-size: .37rem;
   line-height: 12vw;
   border-bottom: 1px solid #f1f1f1;
+}
+.listbox .box .box_ .lists .name1 a {
+  font-size: .37rem;
+  width: 100%;
+  height: 100%;
+  color: #333333;
+  display: inline-block;
   padding-left: 4vw;
 }
 .listbox .box .box_ .lists .party1 {
