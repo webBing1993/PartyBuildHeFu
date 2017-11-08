@@ -101,18 +101,18 @@
                     {volist name="list" id="vo"}
                     {if condition="$vo.class eq 1"}
                         {eq name="$vo.type" value="2"}
-                        <a href="{:Url('Learn/article?id='.$vo['id'])}" class="list clearfix" data-type="learn">
+                        <a href="{:Url('Learn/article?id='.$vo['id'])}" class="list clearfix" data-type="两学一做">
                         {else/}
-                        <a href="{:Url('Learn/video?id='.$vo['id'])}" class="list clearfix" data-type="learn">
+                        <a href="{:Url('Learn/video?id='.$vo['id'])}" class="list clearfix" data-type="两学一做">
                         {/eq}
                     {elseif condition="$vo.class eq 2"}
                         {in name="$vo.type" value="2,3,5"}
-                        <a href="{:Url('Organization/meetingdetail?id='.$vo['id'])}" class="list clearfix" data-type="notice">
+                        <a href="{:Url('Organization/meetingdetail?id='.$vo['id'])}" class="list clearfix" data-type="组织建设">
                         {else/}
-                        <a href="{:Url('Organization/noticedetail?id='.$vo['id'])}" class="list clearfix" data-type="notice">
+                        <a href="{:Url('Organization/noticedetail?id='.$vo['id'])}" class="list clearfix" data-type="组织建设">
                         {/in}
                     {else/}
-                    <a href="{:Url('Volunteer/detail?id='.$vo['id'])}" class="list clearfix" data-type="new">
+                    <a href="{:Url('Volunteer/detail?id='.$vo['id'])}" class="list clearfix" data-type="志愿服务">
                     {/if}
                         <div class="fl">
                             <img src="{$vo.front_cover|get_cover='path'}" alt="图片">
@@ -146,7 +146,7 @@
 
 
     window.onload = function () {
-        if ($(".newsLists a").length < 7) {
+        if ($(".newsLists a").length < 9) {
             mui('#refreshContainer').pullRefresh().disablePullupToRefresh();
         } else {
             mui('#refreshContainer').pullRefresh().enablePullupToRefresh();
@@ -164,9 +164,9 @@
     
     // 加载更多
     function loadScroll() {
-        var p1 = $('[data-type = learn]').length;
-        var p2 = $('[data-type = notice]').length;
-        var p3 = $('[data-type = new]').length;
+        var p1 = $('[data-type = "两学一做"]').length;
+        var p2 = $('[data-type = "组织建设"]').length;
+        var p3 = $('[data-type = "志愿服务"]').length;
         var len = $(".newsLists a").length;
         $.ajax({
             type: "post",
@@ -183,7 +183,7 @@
                 addCourse(data);
                 if(data.code == 1){
                     var dataLen =data.data.length;
-                    if(dataLen == 7){
+                    if(dataLen == 9){
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
                     }else{
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
@@ -195,44 +195,44 @@
         })
     }
     function addCourse(data) {
-            var html = '';
-            var lists = data.data;
-            var len = lists.length;
-            var href ='';  // 跳转链接
-            var name = '';  // 对应的模块名称
-            for(var i = 0; i< len;i++){
-                var list = lists[i];
-                if(list.class_name == '两学一做'){
-                    if (list == 2) {
-                        href = '/home/learn/article/id/'+list['id']+".html";
-                    }else {
-                        href = '/home/learn/video/id/'+list['id']+".html";
-                    }
-                }else if(list.class_name == '组织建设'){
-                    if (list.type == 2 || list.type == 3 || list.type == 5) {
-                        href = '/home/organization/meetingdetail/id/'+list['id']+".html";
-                    }else {
-                        href = '/home/organization/noticedetail/id/'+list['id']+".html";
-                    }
-                }else{
-                    href = '/home/volunteer/detail/id/'+list['id']+".html";
+        var html = '';
+        var lists = data.data;
+        var len = lists.length;
+        var href ='';  // 跳转链接
+        var name = '';  // 对应的模块名称
+        for(var i = 0; i< len;i++){
+            var list = lists[i];
+            if(list.class_name == '两学一做'){
+                if (list == 2) {
+                    href = '/home/learn/article/id/'+list['id']+".html";
+                }else {
+                    href = '/home/learn/video/id/'+list['id']+".html";
                 }
-                html +=
-                        '<a href="'+href+'" class="list clearfix" data-type ="'+list.class_name+'">'+
-                        '<div class="fl">'+
-                        '<img src="'+list.path+'" alt="图片">'+
-                        '<span class="type">'+list.class_name+'</span>'+
-                        '</div>'+
-                        '<div class="fr right">'+
-                        '<div class="title limit_">'+list.title+'</div>'+
-                        '<div class="clearfix time">'+
-                        '<span class="fr">'+list.time+'</span>'+
-                        '<span class="fl">'+list.publisher+'</span>'+
-                        '</div>'+
-                        '</div>'+
-                        '</a>';
+            }else if(list.class_name == '组织建设'){
+                if (list.type == 2 || list.type == 3 || list.type == 5) {
+                    href = '/home/organization/meetingdetail/id/'+list['id']+".html";
+                }else {
+                    href = '/home/organization/noticedetail/id/'+list['id']+".html";
+                }
+            }else{
+                href = '/home/volunteer/detail/id/'+list['id']+".html";
             }
-            $(".newsLists" ).append(html);
+            html +=
+                    '<a href="'+href+'" class="list clearfix" data-type ="'+list.class_name+'">'+
+                    '<div class="fl">'+
+                    '<img src="'+list.path+'" alt="图片">'+
+                    '<span class="type">'+list.class_name+'</span>'+
+                    '</div>'+
+                    '<div class="fr right">'+
+                    '<div class="title limit_">'+list.title+'</div>'+
+                    '<div class="clearfix time">'+
+                    '<span class="fr">'+list.time+'</span>'+
+                    '<span class="fl">'+list.publisher+'</span>'+
+                    '</div>'+
+                    '</div>'+
+                    '</a>';
+        }
+        $(".newsLists" ).append(html);
     }
     mui("#refreshContainer").on("touchstart","a",function(){
         $(this).css("backgroundColor","rgba(0,0,0,.1)");
