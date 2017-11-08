@@ -183,7 +183,7 @@
                 addCourse(data);
                 if(data.code == 1){
                     var dataLen =data.data.length;
-                    if(dataLen == 9){
+                    if(dataLen == 7){
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(false);
                     }else{
                         mui('#refreshContainer').pullRefresh().endPullupToRefresh(true);
