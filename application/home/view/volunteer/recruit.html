@@ -54,6 +54,12 @@
 
     $(function () {
         $("title").text("志愿服务");
+        if ($(".mui-scroll").height() == 0) {
+            $("#refreshContainer").css({
+                 background: 'url("/home/images/activity/nomessage.png") center no-repeat',
+                 backgroundSize: "50vw",
+            });
+        }
     });
 
     var swiper = new Swiper('.swiper-container', {

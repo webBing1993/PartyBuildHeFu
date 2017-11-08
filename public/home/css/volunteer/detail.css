@@ -51,7 +51,8 @@
 .article .note {
     color: #999999;
     font-size: .36rem;
-    line-height: 8vw;
+    height: 1rem;
+    line-height: 1rem;
 }
 .article .note span {
     /*margin-right: 10px;*/
@@ -66,7 +67,9 @@
 }
 .article .content * {
     max-width: 100%!important;
-    font-size: .44rem;
+    font-size: .4rem;
+    color: #333;
+    text-indent: 2em;
 }
 .article .content img {
     display: block;
