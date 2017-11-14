@@ -413,11 +413,12 @@ body {
     font-size: .37rem;
     font-weight: bold;
     color: #333;
-    width:53.3vw;
+    width:74vw;
   }
   .d_list>.d_tel{
     color: #29adf0;
     font-size: .32rem;
+    display: none;
   }
   .d_list>.d_tel>.d_tel_icon{
     width:26.67vw;
