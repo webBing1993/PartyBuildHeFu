@@ -40,7 +40,7 @@ class Party extends Admin
             }else{
                 $id = ConstitutionModel::create($data);
                 if($id){
-                    return $this->success("新增成功",Url('Constitution/index'));
+                    return $this->success("新增成功",Url('Party/index'));
                 }else{
                     return $this->error("新增失败");
                 }
@@ -64,7 +64,7 @@ class Party extends Admin
             }else{
                 $info = ConstitutionModel::update($data);
                 if($info){
-                    return $this->success("修改成功",Url('Constitution/index'));
+                    return $this->success("修改成功",Url('Party/index'));
                 }else{
                     return $this->error("修改失败");
                 }
