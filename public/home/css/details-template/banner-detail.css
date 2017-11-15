@@ -125,6 +125,9 @@
     max-width: 100%!important;
     line-height: 0.7rem!important;
 }
+.article .content table{
+    width:100%!important;
+}
 .article .content {
     width: 100%;
     overflow: hidden;
