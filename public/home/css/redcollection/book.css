@@ -41,6 +41,7 @@ body {
   -webkit-border-radius: 6px;
   border-radius: 1.4vw;
   padding: 0 4vw 0 8vw;
+  font-size: .32rem;
 }
 .banner .search .results .result {
   display: inline-block;
@@ -117,6 +118,7 @@ body {
   width: 100%;
   color: #666666;
   line-height: 8vw;
+  font-size: .32rem;
 }
 .listbox .books .list .content .title {
   color: #363f7b;

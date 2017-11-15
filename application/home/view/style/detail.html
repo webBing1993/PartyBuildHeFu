@@ -33,6 +33,11 @@
 <script>
 	$(function () {
 		$("title").text("党员风采");
+		if ($(window).width() >= 768) {
+		    $(".banner .fr .content div").css("-webkit-line-clamp","5");
+		}else {
+			$(".banner .fr .content div").css("-webkit-line-clamp","3");
+		}
 	});
 </script>
 
