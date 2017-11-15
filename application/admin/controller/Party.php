@@ -33,6 +33,9 @@ class Party extends Admin
     public function add(){
         if(IS_POST){
             $data = input('post.');
+            if (empty($data['id'])){
+                unset($data['id']);
+            }
             if(empty($data['title'])){
                 return $this->error("请输入党章标题");
             }elseif (empty($data['content'])){
